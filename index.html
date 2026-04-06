@@ -36,7 +36,7 @@
         <span>Lara Sá Neves</span><sup>*,1</sup><span class="sep">&nbsp;&nbsp;</span>
         <span>Varad Pimpalkhute</span><sup>*,1,2</sup><span class="sep">&nbsp;&nbsp;</span>
         <span>Taylor W. Killian</span><sup>1,2</sup><span class="sep">&nbsp;&nbsp;</span>
-        <span>Zhengzhong Liu</span><sup>1</sup><span class="sep">&nbsp;&nbsp;</span>
+        <span>Zhengzhong Liu</span><sup>1,2</sup><span class="sep">&nbsp;&nbsp;</span>
         <span>Eric P. Xing</span><sup>1,2</sup>
       </div>
       <p class="equal-contrib"><sup>*</sup> Equal contribution &nbsp;&nbsp; <sup>1</sup> Carnegie Mellon University &nbsp;&nbsp; <sup>2</sup> Mohamed bin Zayed University of Artificial Intelligence</p>
@@ -125,6 +125,12 @@
         </div>
       </div>
 
+      <!-- Architecture figure -->
+      <div class="arch-figure">
+        <img src="figures/sram-arch.png" alt="SRAM decision-making process illustration" />
+        <p class="figure-caption"><strong>Figure 1.</strong> Illustration of the decision-making process of SRAM. The agentic LLM interacts with the universe over multiple time steps, receiving observations o<sub>t</sub> and executing actions a<sub>t</sub>. At each step, the configurator outputs a decision u<sub>t</sub> for whether to make a new plan, continue an existing plan, or skip planning entirely. When planning is invoked, the planner simulates proposed actions and predicted belief states, performing goal-directed planning with world-model simulation.</p>
+      </div>
+
       <div class="method-formula">
         <p class="formula-label">Agent action distribution:</p>
         <div class="formula">
@@ -209,6 +215,18 @@
           </div>
           <p class="model-note">Competitive with DeepSeek-V3.2 (685B) and Kimi-K2.5 (1T), using 51% fewer tokens than MiroThinker-v1.5.</p>
         </div>
+      </div>
+
+      <!-- Main results figure -->
+      <div class="result-figure">
+        <img src="figures/main-results-1.png" alt="Overall Pass Rate vs. Parameter Size" />
+        <p class="figure-caption"><strong>Figure 2.</strong> Overall Pass Rate vs. Parameter Size across all evaluated systems. Marker shape denotes system type; color encodes average reasoning token count per trajectory (greener = fewer, redder = more). Both SRAM models sit above the scaling trend, achieving accuracy competitive with substantially larger systems while using fewer reasoning tokens.</p>
+      </div>
+
+      <!-- Reasoning tokens figure -->
+      <div class="result-figure">
+        <img src="figures/reasoning_tokens_chart.png" alt="Reasoning token usage and Pass@1 by task category" />
+        <p class="figure-caption"><strong>Figure 3.</strong> Average reasoning token usage and Pass@1 scores across four 30/32B agentic LLMs, broken down by task category. Bars show average reasoning tokens per query (log scale); dots represent Pass@1. SRAM-30B achieves competitive scores while using significantly fewer tokens — notably 20× fewer than ASearcher-Web-QWQ-v2.</p>
       </div>
 
       <!-- Main results table -->
@@ -296,6 +314,18 @@
             </tr>
           </tbody>
         </table>
+      </div>
+
+      <!-- Planning analysis figure -->
+      <div class="result-figure" style="margin-top: 2rem;">
+        <img src="figures/ablation-planning_analysis_combined.png" alt="Plan depth analysis before and after RL" />
+        <p class="figure-caption"><strong>Figure 4.</strong> Plan depth analysis of SRAM-v1.0-30B before and after 200 RL steps. <em>Left:</em> RL shifts mass from 1-step plans toward 2- and 3+ step plans while the proportion of unplanned turns remains stable, indicating RL deepens planning without increasing frequency. <em>Right:</em> Average plan depth by task category — all categories show consistent increases, with the largest gain in science (32.7%).</p>
+      </div>
+
+      <!-- RL progress figure -->
+      <div class="result-figure">
+        <img src="figures/ablation-1-pass.png" alt="RL training progress: self-regulation vs black-box" />
+        <p class="figure-caption"><strong>Figure 5.</strong> RL training progress from supervised self-regulation (green) vs. base model with black-box reasoning (orange). Without self-regulation structure, RL increases token consumption with diminishing accuracy returns, while the self-regulated model achieves steadily improving accuracy with controlled token growth.</p>
       </div>
 
       <!-- Analysis highlights -->
