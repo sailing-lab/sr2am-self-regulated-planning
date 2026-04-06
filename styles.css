@@ -101,6 +101,7 @@ body {
   margin-bottom: 0.5rem; line-height: 2.1;
 }
 .authors span { font-weight: 600; color: var(--text); }
+.sep { color: var(--border); font-size: 0.75rem; }
 
 .affil-line {
   font-size: 0.82rem; color: var(--text-muted);
@@ -129,7 +130,7 @@ body {
   background: white; color: var(--text);
   border: 1px solid var(--border); box-shadow: var(--shadow);
 }
-.btn-secondary:hover { border-color: var(--blue-teal); color: var(--blue-deep); transform: translateY(-1px); }
+.btn-secondary:hover { border-color: var(--blue-teal); color: var(--blue-deep); transform: translateY(-1px); box-shadow: 0 4px 16px rgba(0,150,199,0.18); }
 
 /* Stats */
 .stats-row {
@@ -184,12 +185,13 @@ body {
 
 /* ---- METHOD ---- */
 .method-cards {
-  display: flex; align-items: stretch; gap: 0; margin-bottom: 2.5rem;
+  display: flex; align-items: stretch; gap: 1rem; margin-bottom: 2.5rem;
 }
 .method-card {
   flex: 1; background: white; border: 1px solid var(--border);
   border-radius: var(--radius); padding: 2rem 1.5rem;
   box-shadow: var(--shadow); text-align: center;
+  border-top: 3px solid var(--blue-teal);
 }
 .method-card h3 {
   font-family: var(--font-serif);
@@ -254,7 +256,7 @@ body {
   font-size: 1.15rem; font-weight: 700; color: var(--blue-deep);
   margin-bottom: 1.25rem;
 }
-.pipeline-steps { display: flex; align-items: stretch; gap: 0; }
+.pipeline-steps { display: flex; align-items: stretch; gap: 1rem; }
 .pipeline-step {
   flex: 1; background: white; border: 1px solid var(--border);
   border-radius: var(--radius); padding: 1.4rem;
@@ -322,6 +324,7 @@ body {
   box-shadow: var(--shadow); margin-bottom: 2rem;
 }
 .result-figure img { width: 100%; display: block; }
+.result-figure-after-table { margin-top: 2rem; }
 
 /* Table */
 .table-title {
@@ -339,7 +342,7 @@ body {
 }
 .results-table th,
 .results-table td {
-  padding: 0.52rem 0.7rem; text-align: center;
+  padding: 0.65rem 0.85rem; text-align: center;
   border-bottom: 1px solid var(--border); white-space: nowrap;
 }
 .results-table th {
@@ -357,6 +360,8 @@ body {
 }
 .sram-row td { background: #EBF8FF; }
 .sram-row:hover td { background: #D6F3FF !important; }
+
+.findings-title { margin-top: 3rem; }
 
 /* Findings */
 .findings-grid {
