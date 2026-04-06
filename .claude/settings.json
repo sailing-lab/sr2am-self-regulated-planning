@@ -9,7 +9,8 @@
       "Bash(ls /Users/llns2/Documents/GitHub/sram.github.io/SRAM_overleaf/figure/*.png)",
       "Bash(sips -s format png main-results-1.pdf --out main-results-1.png)",
       "Bash(sips -s format png reasoning_tokens_chart.pdf --out reasoning_tokens_chart.png)",
-      "Bash(sips -s format png 1.2-sram-arch.pdf --out sram-arch.png)"
+      "Bash(sips -s format png 1.2-sram-arch.pdf --out sram-arch.png)",
+      "Bash(sips -s format png SRAM_overleaf/figure/1.2-sram-arch.pdf --out figures/sram-arch-main.png)"
     ]
   }
 }
