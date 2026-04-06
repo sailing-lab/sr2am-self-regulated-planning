@@ -18,7 +18,8 @@
       "Bash(gs -dNOPAUSE -dBATCH -sDEVICE=png16m -r300 -dFirstPage=1 -dLastPage=1 -sOutputFile=/Users/llns2/Documents/GitHub/sram.github.io/figures/sram-arch-main.png /Users/llns2/Documents/GitHub/sram.github.io/SRAM_overleaf/figure/1.2-sram-arch.pdf)",
       "Bash(gs -dNOPAUSE -dBATCH -sDEVICE=png16m -r300 -dFirstPage=1 -dLastPage=1 -sOutputFile=/Users/llns2/Documents/GitHub/sram.github.io/figures/main-results-1.png /Users/llns2/Documents/GitHub/sram.github.io/SRAM_overleaf/figure/main-results-1.pdf)",
       "Bash(gs -dNOPAUSE -dBATCH -sDEVICE=png16m -r300 -dFirstPage=1 -dLastPage=1 -sOutputFile=/Users/llns2/Documents/GitHub/sram.github.io/figures/reasoning_tokens_chart.png /Users/llns2/Documents/GitHub/sram.github.io/SRAM_overleaf/figure/reasoning_tokens_chart.pdf)",
-      "Bash(gs -dNOPAUSE -dBATCH -sDEVICE=png16m -r300 -dFirstPage=1 -dLastPage=1 -sOutputFile=/Users/llns2/Documents/GitHub/sram.github.io/figures/ablation-planning_analysis_combined.png /Users/llns2/Documents/GitHub/sram.github.io/SRAM_overleaf/figure/planning_analysis_combined.pdf)"
+      "Bash(gs -dNOPAUSE -dBATCH -sDEVICE=png16m -r300 -dFirstPage=1 -dLastPage=1 -sOutputFile=/Users/llns2/Documents/GitHub/sram.github.io/figures/ablation-planning_analysis_combined.png /Users/llns2/Documents/GitHub/sram.github.io/SRAM_overleaf/figure/planning_analysis_combined.pdf)",
+      "Bash(gs -dNOPAUSE -dBATCH -sDEVICE=png16m -r300 -dFirstPage=1 -dLastPage=1 -sOutputFile=/Users/llns2/Documents/GitHub/sram.github.io/figures/sram-arch-main.png /Users/llns2/Documents/GitHub/sram.github.io/SRAM_overleaf/figure/1.3-sram-arch.pdf)"
     ]
   }
 }
