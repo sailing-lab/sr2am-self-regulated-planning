@@ -10,7 +10,15 @@
       "Bash(sips -s format png main-results-1.pdf --out main-results-1.png)",
       "Bash(sips -s format png reasoning_tokens_chart.pdf --out reasoning_tokens_chart.png)",
       "Bash(sips -s format png 1.2-sram-arch.pdf --out sram-arch.png)",
-      "Bash(sips -s format png SRAM_overleaf/figure/1.2-sram-arch.pdf --out figures/sram-arch-main.png)"
+      "Bash(sips -s format png SRAM_overleaf/figure/1.2-sram-arch.pdf --out figures/sram-arch-main.png)",
+      "Bash(sips -g pixelWidth -g pixelHeight /Users/llns2/Documents/GitHub/sram.github.io/figures/*.png)",
+      "Bash(gs --version)",
+      "Bash(pdftoppm --version)",
+      "Bash(gs -dNOPAUSE -dBATCH -sDEVICE=png16m -r300 -dFirstPage=1 -dLastPage=1 -sOutputFile=/Users/llns2/Documents/GitHub/sram.github.io/figures/sram-arch.png /Users/llns2/Documents/GitHub/sram.github.io/SRAM_overleaf/figure/1.2-sram-arch.pdf)",
+      "Bash(gs -dNOPAUSE -dBATCH -sDEVICE=png16m -r300 -dFirstPage=1 -dLastPage=1 -sOutputFile=/Users/llns2/Documents/GitHub/sram.github.io/figures/sram-arch-main.png /Users/llns2/Documents/GitHub/sram.github.io/SRAM_overleaf/figure/1.2-sram-arch.pdf)",
+      "Bash(gs -dNOPAUSE -dBATCH -sDEVICE=png16m -r300 -dFirstPage=1 -dLastPage=1 -sOutputFile=/Users/llns2/Documents/GitHub/sram.github.io/figures/main-results-1.png /Users/llns2/Documents/GitHub/sram.github.io/SRAM_overleaf/figure/main-results-1.pdf)",
+      "Bash(gs -dNOPAUSE -dBATCH -sDEVICE=png16m -r300 -dFirstPage=1 -dLastPage=1 -sOutputFile=/Users/llns2/Documents/GitHub/sram.github.io/figures/reasoning_tokens_chart.png /Users/llns2/Documents/GitHub/sram.github.io/SRAM_overleaf/figure/reasoning_tokens_chart.pdf)",
+      "Bash(gs -dNOPAUSE -dBATCH -sDEVICE=png16m -r300 -dFirstPage=1 -dLastPage=1 -sOutputFile=/Users/llns2/Documents/GitHub/sram.github.io/figures/ablation-planning_analysis_combined.png /Users/llns2/Documents/GitHub/sram.github.io/SRAM_overleaf/figure/planning_analysis_combined.pdf)"
     ]
   }
 }
