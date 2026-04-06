@@ -1,2 +1,2 @@
 # sram.github.io
-SRAM
+SRAM: A Self-Regulated Agentic LLM for Interactive Reasoning

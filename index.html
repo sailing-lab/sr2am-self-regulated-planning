@@ -1,21 +1,371 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Sram — Personal site</title>
-  <style>
-    body{font-family:system-ui,Segoe UI,Helvetica,Arial,sans-serif;max-width:60ch;margin:4rem auto;padding:0 1rem;color:#111}
-    header{display:flex;gap:1rem;align-items:center}
-    footer{margin-top:3rem;color:#666;font-size:0.9rem}
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SRAM: A Self-Regulated Agentic LLM for Interactive Reasoning</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 </head>
 <body>
-  <header>
-    <h1>Sram — Personal site</h1>
-  </header>
-  <p>Welcome — this is a simple GitHub Pages site published from the repository <code>larasneves/sram.github.io</code>.</p>
-  <p>Actions run inspected: <a href="https://github.com/larasneves/sram.github.io/actions/runs/24042773796">run 24042773796</a></p>
-  <footer>Published automatically. Last updated 2026-04-06.</footer>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <span class="nav-logo">SRAM</span>
+      <ul class="nav-links">
+        <li><a href="#abstract">Abstract</a></li>
+        <li><a href="#method">Method</a></li>
+        <li><a href="#results">Results</a></li>
+        <li><a href="#citation">Citation</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="venue-badge">COLM 2026 &mdash; Under Review</div>
+      <h1 class="paper-title">
+        SRAM: A Self-Regulated Agentic LLM<br />for Interactive Reasoning
+      </h1>
+      <div class="authors">
+        <span>Mingkai Deng</span><sup>*</sup><span class="sep">&nbsp;&nbsp;</span>
+        <span>Jinyu Hou</span><sup>*</sup><span class="sep">&nbsp;&nbsp;</span>
+        <span>Lara Sá Neves</span><sup>*</sup><span class="sep">&nbsp;&nbsp;</span>
+        <span>Varad Pimpalkhute</span><sup>*</sup><span class="sep">&nbsp;&nbsp;</span>
+        <span>Taylor W. Killian</span><span class="sep">&nbsp;&nbsp;</span>
+        <span>Zhengzhong Liu</span><span class="sep">&nbsp;&nbsp;</span>
+        <span>Eric P. Xing</span>
+      </div>
+      <p class="equal-contrib"><sup>*</sup> Equal contribution</p>
+      <div class="hero-links">
+        <a href="#" class="btn-link btn-primary">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+          GitHub
+        </a>
+        <a href="#" class="btn-link btn-secondary">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M4 0h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2zm0 1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H4z"/><path d="M4.5 12.5A.5.5 0 0 1 5 12h3a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm0-2A.5.5 0 0 1 5 10h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm0-2A.5.5 0 0 1 5 8h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm0-2A.5.5 0 0 1 5 6h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm0-2A.5.5 0 0 1 5 4h1a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5z"/></svg>
+          Paper
+        </a>
+        <a href="#" class="btn-link btn-secondary">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z"/></svg>
+          arXiv
+        </a>
+        <a href="#" class="btn-link btn-secondary">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h-2z"/></svg>
+          Models
+        </a>
+      </div>
+
+      <!-- KEY STATS -->
+      <div class="stats-row">
+        <div class="stat-card">
+          <span class="stat-num">71.3%</span>
+          <span class="stat-label">Overall Pass@1<br/><small>SRAM-v1.0-30B</small></span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-num">50%</span>
+          <span class="stat-label">Fewer Reasoning Tokens<br/><small>vs. comparable models</small></span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-num">685B–1T</span>
+          <span class="stat-label">Competitive parameter range<br/><small>at 30B parameters</small></span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-num">4</span>
+          <span class="stat-label">Task Domains<br/><small>Math · Science · Tabular · Web</small></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABSTRACT -->
+  <section class="section" id="abstract">
+    <div class="container">
+      <h2 class="section-title">Abstract</h2>
+      <div class="abstract-text">
+        <p>
+          Large language models (LLMs) are increasingly deployed as interactive agents that reason, use tools, and act over long horizons. However, current agentic LLMs typically rely on black-box chain-of-thought, where planning behavior is expected to emerge implicitly from end-to-end optimization. This often leads to inefficient reasoning, unstable long-horizon behavior, and unnecessary growth in reasoning length even when little or no planning is required.
+        </p>
+        <p>
+          We argue that effective agents should not only reason and act, but also <em>regulate when to deliberate, how much to plan, and what kind of plan to construct</em> based on task difficulty, uncertainty, and decision budget. We introduce <strong>SRAM</strong>, a self-regulated agentic LLM for interactive reasoning. SRAM augments conventional reasoning-and-acting agents with an explicit <em>configurator</em> that dynamically controls planning behavior — including whether to make a new plan, continue or revise an existing one, or react directly without planning.
+        </p>
+        <p>
+          This yields a flexible agent architecture that separates self-regulation, planning, and execution while preserving the benefits of end-to-end language-model learning. Across a diverse set of interactive reasoning tasks including mathematical reasoning, scientific problem solving, data analysis, and web browsing, SRAM achieves strong performance relative to substantially larger reasoning models and LLM+tool systems. SRAM-v0.1-8B and SRAM-v1.0-30B outperform or compete with systems in the <strong>120–355B and 685B–1T parameter ranges</strong>, respectively, while reducing reasoning tokens by up to <strong>50%</strong>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- METHOD -->
+  <section class="section section-gray" id="method">
+    <div class="container">
+      <h2 class="section-title">Method</h2>
+      <p class="section-subtitle">SRAM decomposes the agent's action distribution into three explicit, learnable components.</p>
+
+      <div class="method-cards">
+        <div class="method-card">
+          <div class="method-icon configurator-icon">κ</div>
+          <h3>Configurator</h3>
+          <p>Assesses the current belief state at every turn and decides whether to make a new plan, continue or revise an existing one, or act directly without planning. Enables per-turn self-regulation.</p>
+        </div>
+        <div class="method-arrow">→</div>
+        <div class="method-card">
+          <div class="method-icon planner-icon">π<sub>f</sub></div>
+          <h3>Planner</h3>
+          <p>When invoked, constructs explicit plans consisting of proposed actions and <em>predicted future states</em>, grounding subsequent execution in anticipated consequences rather than mere action directives.</p>
+        </div>
+        <div class="method-arrow">→</div>
+        <div class="method-card">
+          <div class="method-icon actor-icon">α</div>
+          <h3>Actor</h3>
+          <p>Selects and executes actions conditioned on the current belief state and plan. Interacts with tools: web search, web browser, and a Python code sandbox.</p>
+        </div>
+      </div>
+
+      <div class="method-formula">
+        <p class="formula-label">Agent action distribution:</p>
+        <div class="formula">
+          p<sub>π</sub>(a<sub>t</sub> | ŝ<sub>t</sub>) = &Sigma;<sub>u<sub>t</sub>,c<sub>t</sub></sub>
+          &nbsp;<span class="formula-term actor">p<sub>α</sub>(a<sub>t</sub> | ŝ<sub>t</sub>, c<sub>t</sub>)</span>
+          &nbsp;<span class="formula-term planner">p<sub>π<sub>f</sub></sub>(c<sub>t</sub> | ŝ<sub>t</sub>, u<sub>t</sub>)</span>
+          &nbsp;<span class="formula-term configurator">p<sub>κ</sub>(u<sub>t</sub> | ŝ<sub>t</sub>)</span>
+        </div>
+        <div class="formula-legend">
+          <span class="formula-term actor">Actor</span>
+          <span class="formula-term planner">Planner</span>
+          <span class="formula-term configurator">Configurator</span>
+        </div>
+      </div>
+
+      <div class="training-pipeline">
+        <h3>Training Pipeline</h3>
+        <div class="pipeline-steps">
+          <div class="pipeline-step">
+            <div class="step-num">1</div>
+            <div class="step-content">
+              <h4>Self-Regulation Data Construction</h4>
+              <p>Construct interleaved thinking–acting traces with self-regulated planning structure using two methods: Multi-Module Inference (v0.1) and Plan Reconstruction (v1.0).</p>
+            </div>
+          </div>
+          <div class="pipeline-arrow">→</div>
+          <div class="pipeline-step">
+            <div class="step-num">2</div>
+            <div class="step-content">
+              <h4>Supervised Fine-Tuning</h4>
+              <p>Fine-tune open-weight LLMs on the self-regulation data to provide initial configurator and planning capabilities.</p>
+            </div>
+          </div>
+          <div class="pipeline-arrow">→</div>
+          <div class="pipeline-step">
+            <div class="step-num">3</div>
+            <div class="step-content">
+              <h4>Reinforcement Learning</h4>
+              <p>Refine the model with GRPO-based RL for task success, coordinating self-regulation, planning, and execution.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section class="section" id="results">
+    <div class="container">
+      <h2 class="section-title">Results</h2>
+      <p class="section-subtitle">SRAM achieves strong performance relative to its parameter size, while using significantly fewer reasoning tokens than comparable models.</p>
+
+      <!-- Model comparison highlight -->
+      <div class="model-highlights">
+        <div class="model-card sram8b">
+          <div class="model-badge">8B Parameters</div>
+          <h3>SRAM-v0.1-8B</h3>
+          <div class="model-stats">
+            <div class="model-stat">
+              <span class="model-num">57.0%</span>
+              <span class="model-desc">Overall Pass@1</span>
+            </div>
+            <div class="model-stat">
+              <span class="model-num">3,698</span>
+              <span class="model-desc">Avg. Reasoning Tokens</span>
+            </div>
+          </div>
+          <p class="model-note">Competitive with 30–32B agentic LLMs and LLM+Tools systems at 120–355B parameters.</p>
+        </div>
+        <div class="model-card sram30b">
+          <div class="model-badge">30B Parameters</div>
+          <h3>SRAM-v1.0-30B</h3>
+          <div class="model-stats">
+            <div class="model-stat">
+              <span class="model-num">71.3%</span>
+              <span class="model-desc">Overall Pass@1</span>
+            </div>
+            <div class="model-stat">
+              <span class="model-num">5,518</span>
+              <span class="model-desc">Avg. Reasoning Tokens</span>
+            </div>
+          </div>
+          <p class="model-note">Competitive with DeepSeek-V3.2 (685B) and Kimi-K2.5 (1T), using 51% fewer tokens than MiroThinker-v1.5.</p>
+        </div>
+      </div>
+
+      <!-- Main results table -->
+      <h3 class="table-title">Per-Benchmark Results (Pass@1)</h3>
+      <div class="table-wrapper">
+        <table class="results-table">
+          <thead>
+            <tr>
+              <th rowspan="2">Model</th>
+              <th rowspan="2">Size</th>
+              <th rowspan="2"># Tokens</th>
+              <th rowspan="2">Overall</th>
+              <th colspan="3">Math</th>
+              <th colspan="3">Science</th>
+              <th colspan="2">Tabular</th>
+              <th colspan="3">Web</th>
+            </tr>
+            <tr>
+              <th>AIME 24</th><th>AIME 25</th><th>MATH 500</th>
+              <th>GPQA-D</th><th>SuperGPQA</th><th>HLE</th>
+              <th>FinQA</th><th>MultiHier</th>
+              <th>BrowseComp</th><th>GAIA</th><th>XBench</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="group-header"><td colspan="16">Reasoning LLMs</td></tr>
+            <tr>
+              <td>GPT-5.4-xhigh</td><td>—</td><td>8,810</td><td>68.4</td>
+              <td>96.4</td><td>99.4</td><td>99.8</td>
+              <td>92.2</td><td>73.5</td><td>40.8</td>
+              <td>76.5</td><td>69.0</td>
+              <td>14.8</td><td>42.0</td><td>48.2</td>
+            </tr>
+            <tr class="group-header"><td colspan="16">LLMs + Tools</td></tr>
+            <tr>
+              <td>DeepSeek-V3.2</td><td>685B</td><td>3,012</td><td>73.2</td>
+              <td>95.1</td><td>90.7</td><td>99.0</td>
+              <td>87.2</td><td>75.0</td><td>39.6</td>
+              <td>72.0</td><td>68.2</td>
+              <td>38.1</td><td>81.3</td><td>58.5</td>
+            </tr>
+            <tr>
+              <td>Kimi-K2.5</td><td>1024B</td><td>6,413</td><td>70.9</td>
+              <td>89.6</td><td>81.6</td><td>98.4</td>
+              <td>83.6</td><td>72.5</td><td>34.4</td>
+              <td>71.6</td><td>67.3</td>
+              <td>35.3</td><td>73.5</td><td>72.0</td>
+            </tr>
+            <tr>
+              <td>GPT-5.4-xhigh</td><td>—</td><td>4,822</td><td>78.3</td>
+              <td>95.2</td><td>94.7</td><td>99.2</td>
+              <td>92.3</td><td>77.7</td><td>49.0</td>
+              <td>76.9</td><td>70.2</td>
+              <td>48.7</td><td>83.5</td><td>80.8</td>
+            </tr>
+            <tr class="group-header"><td colspan="16">Black-Box Agentic LLMs</td></tr>
+            <tr>
+              <td>MiroThinker-v1.5</td><td>30B</td><td>11,295</td><td>74.2</td>
+              <td>98.9</td><td>97.2</td><td>98.2</td>
+              <td>81.2</td><td>73.7</td><td>30.0</td>
+              <td>72.7</td><td>64.9</td>
+              <td>38.6</td><td>84.5</td><td>76.5</td>
+            </tr>
+            <tr>
+              <td>Tongyi-DeepResearch</td><td>30B</td><td>7,432</td><td>60.6</td>
+              <td>89.2</td><td>92.0</td><td>74.6</td>
+              <td>60.6</td><td>54.9</td><td>31.6</td>
+              <td>45.8</td><td>37.8</td>
+              <td>36.9</td><td>67.7</td><td>76.0</td>
+            </tr>
+            <tr class="group-header"><td colspan="16">Self-Regulated Agentic LLMs (Ours)</td></tr>
+            <tr class="sram-row">
+              <td><strong>SRAM-v0.1-8B</strong></td><td>8B</td><td>3,698</td><td><strong>57.0</strong></td>
+              <td>83.8</td><td>74.2</td><td>96.2</td>
+              <td>60.9</td><td>58.0</td><td>14.2</td>
+              <td>73.6</td><td>64.6</td>
+              <td>4.8</td><td>46.1</td><td>50.5</td>
+            </tr>
+            <tr class="sram-row">
+              <td><strong>SRAM-v1.0-30B</strong></td><td>30B</td><td>5,518</td><td><strong>71.3</strong></td>
+              <td>96.2</td><td>91.1</td><td>99.2</td>
+              <td>77.3</td><td>73.0</td><td>30.4</td>
+              <td>73.4</td><td>65.5</td>
+              <td>22.5</td><td>76.0</td><td>80.0</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Analysis highlights -->
+      <h3 class="table-title" style="margin-top: 3rem;">Key Findings</h3>
+      <div class="findings-grid">
+        <div class="finding-card">
+          <div class="finding-icon">📉</div>
+          <h4>50% Token Reduction</h4>
+          <p>SRAM-v1.0-30B consumes 25.8–95.3% fewer reasoning tokens compared to 30–32B agentic LLMs achieving similar accuracy.</p>
+        </div>
+        <div class="finding-card">
+          <div class="finding-icon">📈</div>
+          <h4>Better RL Initialization</h4>
+          <p>Self-regulation SFT reduces RL token consumption by 41–55% while converging to a higher overall score than black-box training.</p>
+        </div>
+        <div class="finding-card">
+          <div class="finding-icon">🎯</div>
+          <h4>Deeper, Not More, Planning</h4>
+          <p>RL increases average plan length by 22.8% while raising planning frequency only 2.0% — the model learns to plan better, not more.</p>
+        </div>
+        <div class="finding-card">
+          <div class="finding-icon">⚡</div>
+          <h4>Scales Above the Trend</h4>
+          <p>Both SRAM models sit above the Overall Pass@1 vs. log(parameter size) trendline, outperforming their scale would predict.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CITATION -->
+  <section class="section section-gray" id="citation">
+    <div class="container">
+      <h2 class="section-title">Citation</h2>
+      <p class="section-subtitle">If you find this work useful, please cite:</p>
+      <div class="bibtex-block">
+        <div class="bibtex-header">
+          <span>BibTeX</span>
+          <button class="copy-btn" onclick="copyBibtex()">Copy</button>
+        </div>
+        <pre id="bibtex-text"><code>@article{deng2026sram,
+  title     = {SRAM: A Self-Regulated Agentic LLM for Interactive Reasoning},
+  author    = {Deng, Mingkai and Hou, Jinyu and {S\'a Neves}, Lara and
+               Pimpalkhute, Varad and Killian, Taylor W. and
+               Liu, Zhengzhong and Xing, Eric P.},
+  journal   = {arXiv preprint},
+  year      = {2026},
+  note      = {Under review at COLM 2026}
+}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <p><strong>SRAM</strong> &mdash; Self-Regulated Agentic LLM for Interactive Reasoning</p>
+      <p class="footer-sub">Under review at COLM 2026 &nbsp;·&nbsp; Anonymous submission</p>
+    </div>
+  </footer>
+
+  <script>
+    function copyBibtex() {
+      const text = document.getElementById('bibtex-text').innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        const btn = document.querySelector('.copy-btn');
+        btn.textContent = 'Copied!';
+        setTimeout(() => btn.textContent = 'Copy', 2000);
+      });
+    }
+  </script>
+
 </body>
 </html>
