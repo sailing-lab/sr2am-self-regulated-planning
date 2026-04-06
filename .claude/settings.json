@@ -1,7 +1,11 @@
 {
   "permissions": {
     "allow": [
-      "WebFetch(domain:ifm.ai)"
+      "WebFetch(domain:ifm.ai)",
+      "Bash(git add:*)",
+      "Bash(git -C /Users/llns2/Documents/GitHub/sram.github.io status)",
+      "Bash(git commit -m ':*)",
+      "Bash(git push:*)"
     ]
   }
 }
