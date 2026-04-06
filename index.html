@@ -6,7 +6,8 @@
   <title>SRAM: A Self-Regulated Agentic LLM for Interactive Reasoning</title>
   <link rel="stylesheet" href="styles.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 </head>
 <body>
 
@@ -39,7 +40,7 @@
         <span>Zhengzhong Liu</span><sup>1,2</sup><span class="sep">&nbsp;&nbsp;</span>
         <span>Eric P. Xing</span><sup>1,2</sup>
       </div>
-      <p class="equal-contrib"><sup>*</sup> Equal contribution &nbsp;&nbsp; <sup>1</sup> Carnegie Mellon University &nbsp;&nbsp; <sup>2</sup> Mohamed bin Zayed University of Artificial Intelligence</p>
+      <p class="affil-line"><sup>*</sup> Equal contribution &nbsp;&nbsp; <sup>1</sup> Carnegie Mellon University &nbsp;&nbsp; <sup>2</sup> Mohamed bin Zayed University of Artificial Intelligence</p>
       <div class="hero-links">
         <a href="#" class="btn-link btn-primary">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
@@ -95,6 +96,12 @@
         <p>
           This yields a flexible agent architecture that separates self-regulation, planning, and execution while preserving the benefits of end-to-end language-model learning. Across a diverse set of interactive reasoning tasks including mathematical reasoning, scientific problem solving, data analysis, and web browsing, SRAM achieves strong performance relative to substantially larger reasoning models and LLM+tool systems. SRAM-v0.1-8B and SRAM-v1.0-30B outperform or compete with systems in the <strong>120–355B and 685B–1T parameter ranges</strong>, respectively, while reducing reasoning tokens by up to <strong>50%</strong>.
         </p>
+      </div>
+
+      <!-- Architecture overview figure -->
+      <div class="arch-figure" style="margin-top: 2.5rem;">
+        <img src="figures/sram-arch-main.png" alt="SRAM architecture overview" />
+        <p class="figure-caption"><strong>Figure 1.</strong> Overview of the SRAM architecture. The self-regulated agent augments conventional reasoning-and-acting with an explicit configurator (κ) that dynamically controls planning behavior — deciding whether to make a new plan, continue an existing one, or act directly — at each turn.</p>
       </div>
     </div>
   </section>
@@ -317,7 +324,7 @@
       </div>
 
       <!-- Planning analysis figure -->
-      <div class="result-figure" style="margin-top: 2rem;">
+      <div class="result-figure result-figure-after-table">
         <img src="figures/ablation-planning_analysis_combined.png" alt="Plan depth analysis before and after RL" />
         <p class="figure-caption"><strong>Figure 4.</strong> Plan depth analysis of SRAM-v1.0-30B before and after 200 RL steps. <em>Left:</em> RL shifts mass from 1-step plans toward 2- and 3+ step plans while the proportion of unplanned turns remains stable, indicating RL deepens planning without increasing frequency. <em>Right:</em> Average plan depth by task category — all categories show consistent increases, with the largest gain in science (32.7%).</p>
       </div>
@@ -329,7 +336,7 @@
       </div>
 
       <!-- Analysis highlights -->
-      <h3 class="table-title" style="margin-top: 3rem;">Key Findings</h3>
+      <h3 class="table-title findings-title">Key Findings</h3>
       <div class="findings-grid">
         <div class="finding-card">
           <h4>50% Token Reduction</h4>
