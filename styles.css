@@ -388,6 +388,9 @@ body {
   border-radius: var(--radius); padding: 1.4rem; box-shadow: var(--shadow);
   border-top: 3px solid var(--blue-teal);
 }
+.finding-icon {
+  color: var(--blue-teal); margin-bottom: 0.6rem;
+}
 .finding-card h4 {
   font-family: var(--font-serif);
   font-size: 0.93rem; font-weight: 700; color: var(--blue-deep); margin-bottom: 0.45rem;
