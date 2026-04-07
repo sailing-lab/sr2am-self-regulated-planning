@@ -93,7 +93,7 @@ body {
 .hero-inner {
   max-width: 900px; width: 100%; margin: 0 auto;
   position: relative; z-index: 1;
-  padding: 5rem 0 4rem;
+  padding: 5rem 2rem 5rem;
 }
 
 .venue-badge {
@@ -137,7 +137,7 @@ body {
 /* Hero links */
 .hero-links {
   display: flex; gap: 0.7rem; justify-content: center;
-  flex-wrap: wrap; margin-bottom: 3rem;
+  flex-wrap: wrap; margin-bottom: 0;
 }
 .btn-link {
   display: inline-flex; align-items: center; gap: 0.4rem;
@@ -156,6 +156,13 @@ body {
   border: 1px solid var(--border); box-shadow: var(--shadow);
 }
 .btn-secondary:hover { border-color: var(--blue-teal); color: var(--blue-deep); transform: translateY(-1px); box-shadow: 0 4px 16px rgba(0,150,199,0.18); }
+
+/* Stats section */
+.stats-section {
+  background: linear-gradient(160deg, #edf8f6 0%, #f4fbfa 45%, #eaf4ff 100%);
+  border-bottom: 1px solid var(--border);
+  padding: 3rem 2rem;
+}
 
 /* Stats */
 .stats-row {
