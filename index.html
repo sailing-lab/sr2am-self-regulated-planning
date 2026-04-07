@@ -19,6 +19,7 @@
         <li><a href="#abstract">Abstract</a></li>
         <li><a href="#method">Method</a></li>
         <li><a href="#results">Results</a></li>
+        <li><a href="#training">Training Dynamics</a></li>
         <li><a href="#case-studies">Case Studies</a></li>
         <li><a href="#citation">Citation</a></li>
       </ul>
@@ -606,6 +607,75 @@
         <div class="finding-card">
           <h4><span class="finding-sym">&#8599;</span> Scales Above the Trend</h4>
           <p>Both SRAM models sit above the Overall Pass@1 vs. log(parameter size) trendline, outperforming their scale would predict.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRAINING DYNAMICS -->
+  <section class="section section-gray" id="training">
+    <div class="container">
+      <h2 class="section-title">Training Dynamics</h2>
+      <p class="section-subtitle">Self-regulation initialization enables more efficient RL training — higher accuracy with fewer tokens.</p>
+
+      <!-- Chart -->
+      <div class="result-figure result-figure-after-table">
+        <div class="training-chart-legend">
+          <span class="legend-item"><span class="legend-dot legend-sram"></span><strong>SRAM (self-regulated)</strong></span>
+          <span class="legend-item legend-dim"><span class="legend-dot legend-bb"></span>Black-box baseline</span>
+          <span class="legend-meta">&#9135; Tokens (↓ better) &nbsp;&nbsp; &#8229; Pass@1 (↑ better)</span>
+        </div>
+        <div class="training-chart-wrap">
+          <svg viewBox="0 0 500 200" class="training-chart-svg" preserveAspectRatio="none">
+            <!-- Grid lines -->
+            <line x1="0" y1="0"   x2="500" y2="0"   stroke="var(--border-color, #e5e7eb)" stroke-width="0.5"/>
+            <line x1="0" y1="50"  x2="500" y2="50"  stroke="var(--border-color, #e5e7eb)" stroke-width="0.5"/>
+            <line x1="0" y1="100" x2="500" y2="100" stroke="var(--border-color, #e5e7eb)" stroke-width="0.5"/>
+            <line x1="0" y1="150" x2="500" y2="150" stroke="var(--border-color, #e5e7eb)" stroke-width="0.5"/>
+            <!-- SRAM tokens (solid) -->
+            <polyline fill="none" stroke="#45C9B6" stroke-width="2.5"
+              points="10,130 130,120 250,106.7 370,93.3 490,80"/>
+            <!-- Black-box tokens (solid, muted) -->
+            <polyline fill="none" stroke="#f59e42" stroke-width="2.5" stroke-opacity="0.55"
+              points="10,63.3 130,50 250,33.3 370,23.3 490,16.7"/>
+            <!-- SRAM accuracy (dashed) -->
+            <polyline fill="none" stroke="#45C9B6" stroke-width="2" stroke-dasharray="6,4"
+              points="10,148.6 130,136 250,122.9 370,112.9 490,114.3"/>
+            <!-- Black-box accuracy (dashed, muted) -->
+            <polyline fill="none" stroke="#f59e42" stroke-width="2" stroke-dasharray="6,4" stroke-opacity="0.55"
+              points="10,162.9 130,148.6 250,142.9 370,148.6 490,154.3"/>
+            <!-- SRAM token dots -->
+            <circle cx="10"  cy="130"  r="3" fill="#45C9B6"/>
+            <circle cx="130" cy="120"  r="3" fill="#45C9B6"/>
+            <circle cx="250" cy="106.7" r="3" fill="#45C9B6"/>
+            <circle cx="370" cy="93.3"  r="3" fill="#45C9B6"/>
+            <circle cx="490" cy="80"   r="3" fill="#45C9B6"/>
+          </svg>
+          <div class="training-chart-xaxis">
+            <span>Step 0</span><span>Step 100</span><span>Step 200</span><span>Step 300</span><span>Step 400</span>
+          </div>
+        </div>
+        <p class="figure-caption"><strong>Figure 5.</strong> RL training progress over 400 steps. Without self-regulation structure, RL increases token consumption with diminishing accuracy returns, while the self-regulated model achieves steadily improving accuracy with controlled token growth.</p>
+      </div>
+
+      <!-- Insight cards -->
+      <h3 class="table-title findings-title">Key Training Insights</h3>
+      <div class="findings-grid">
+        <div class="finding-card">
+          <h4><span class="finding-sym">&#8595;</span> 41–55% Fewer Reasoning Tokens</h4>
+          <p>Self-regulation SFT reduces token consumption during RL training compared to black-box reasoning.</p>
+        </div>
+        <div class="finding-card">
+          <h4><span class="finding-sym">&#8599;</span> Higher Converged Score</h4>
+          <p>Self-regulated initialization converges to a higher overall score than training from the base model.</p>
+        </div>
+        <div class="finding-card">
+          <h4><span class="finding-sym">&#126;</span> ~2,100 → 3,600 Controlled Token Growth</h4>
+          <p>SRAM tokens grow modestly vs. black-box's ~4,100 → 5,500, with steadily improving accuracy.</p>
+        </div>
+        <div class="finding-card">
+          <h4><span class="finding-sym">&#33;</span> 22.4% Black-Box Overflow Rate</h4>
+          <p>Without self-regulation, RL causes rising context overflow; SRAM avoids this entirely.</p>
         </div>
       </div>
     </div>
