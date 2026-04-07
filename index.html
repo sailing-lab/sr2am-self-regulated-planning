@@ -52,11 +52,13 @@
           Paper
         </a>
         <a href="#" class="btn-link btn-secondary">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M2 6a6 6 0 1 1 10.174 4.31c-.203.196-.359.4-.453.619l-.762 1.769A.5.5 0 0 1 10.5 13a.5.5 0 0 1 0 1 .5.5 0 0 1 0 1l-.224.447a1 1 0 0 1-.894.553H6.618a1 1 0 0 1-.894-.553L5.5 15a.5.5 0 0 1 0-1 .5.5 0 0 1 0-1 .5.5 0 0 1-.46-.302l-.761-1.77a1.964 1.964 0 0 0-.453-.618A5.984 5.984 0 0 1 2 6zm6-5a5 5 0 0 0-3.479 8.592c.263.254.514.564.676.941L5.83 12h4.342l.632-1.467c.162-.377.413-.687.676-.941A5 5 0 0 0 8 1z"/></svg>
+          <!-- stacked layers / model weights icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M8.235 1.559a.5.5 0 0 0-.47 0l-7.5 4a.5.5 0 0 0 0 .882L3.188 8 .264 9.559a.5.5 0 0 0 0 .882l7.5 4a.5.5 0 0 0 .47 0l7.5-4a.5.5 0 0 0 0-.882L12.813 8l2.922-1.559a.5.5 0 0 0 0-.882l-7.5-4zm3.515 7.008L14.438 10 8 13.433 1.562 10 4.25 8.567l3.515 1.874a.5.5 0 0 0 .47 0l3.515-1.874zM8 9.433 1.562 6 8 2.567 14.438 6 8 9.433z"/></svg>
           Models
         </a>
         <a href="#" class="btn-link btn-secondary">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M2 1a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H2zm0-1h12a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2z"/><path d="M5 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 5 4zm4 0a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 9 4zm2 0a.5.5 0 0 1 .5.5V8a.5.5 0 0 1-1 0V4.5A.5.5 0 0 1 11 4zM7 6.5a.5.5 0 0 0-1 0V8a.5.5 0 0 0 1 0V6.5z"/></svg>
+          <!-- dataset / stacked-archive icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M8 1c-1.573 0-3.022.289-4.096.777C2.875 2.245 2 2.993 2 4s.875 1.755 1.904 2.223C4.978 6.711 6.427 7 8 7s3.022-.289 4.096-.777C13.125 5.755 14 5.007 14 4s-.875-1.755-1.904-2.223C11.022 1.289 9.573 1 8 1z"/><path d="M2 7v-.839c.457.432 1.004.751 1.49.972C4.722 7.693 6.318 8 8 8s3.278-.307 4.51-.867c.486-.22 1.033-.54 1.49-.972V7c0 .424-.155.802-.411 1.133a4.51 4.51 0 0 0-.189-.131c-1.232-.56-2.828-.867-4.4-.867s-3.168.307-4.4.867a4.51 4.51 0 0 0-.189.131C2.155 7.802 2 7.424 2 7z"/><path d="M2 10v-.839c.457.432 1.004.751 1.49.972C4.722 10.693 6.318 11 8 11s3.278-.307 4.51-.867c.486-.22 1.033-.54 1.49-.972V10c0 1.007-.875 1.755-1.904 2.223C11.022 12.711 9.573 13 8 13s-3.022-.289-4.096-.777C2.875 11.755 2 11.007 2 10z"/><path d="M2 13v-.839c.457.432 1.004.751 1.49.972C4.722 13.693 6.318 14 8 14s3.278-.307 4.51-.867c.486-.22 1.033-.54 1.49-.972V13c0 1.007-.875 1.755-1.904 2.223C11.022 14.711 9.573 15 8 15s-3.022-.289-4.096-.777C2.875 14.755 2 14.007 2 13z"/></svg>
           Data
         </a>
       </div>
@@ -92,10 +94,13 @@
           Large language models (LLMs) are increasingly deployed as interactive agents that reason, use tools, and act over long horizons. However, current agentic LLMs typically rely on black-box chain-of-thought, where planning behavior is expected to emerge implicitly from end-to-end optimization. This often leads to inefficient reasoning, unstable long-horizon behavior, and unnecessary growth in reasoning length even when little or no planning is required.
         </p>
         <p>
-          We argue that effective agents should not only reason and act, but also <em>regulate when to deliberate, how much to plan, and what kind of plan to construct</em> based on task difficulty, uncertainty, and decision budget. We introduce <strong>SRAM</strong>, a self-regulated agentic LLM for interactive reasoning. SRAM augments conventional reasoning-and-acting agents with an explicit <em>configurator</em> that dynamically controls planning behavior — including whether to make a new plan, continue or revise an existing one, or react directly without planning.
+          We argue that effective agents should not only reason and act, but also <em><strong>regulate when to deliberate, how much to plan, and what kind of plan to construct</strong></em> based on task difficulty, uncertainty, and decision budget. We introduce <strong>SRAM</strong>, a self-regulated agentic LLM for interactive reasoning.
         </p>
         <p>
-          This yields a flexible agent architecture that separates self-regulation, planning, and execution while preserving the benefits of end-to-end language-model learning. Across a diverse set of interactive reasoning tasks including mathematical reasoning, scientific problem solving, data analysis, and web browsing, SRAM achieves strong performance relative to substantially larger reasoning models and LLM+tool systems. SRAM v0.1 8B and SRAM v1.0 30B outperform or compete with systems in the <strong>120–355B and 685B–1T parameter ranges</strong>, respectively, while reducing reasoning tokens by up to <strong>50%</strong>. Further analysis shows that self-regulation improves training efficiency and encourages longer-horizon planning without overplanning. These results suggest that explicit self-regulation is a promising ingredient for building more efficient and capable long-horizon agentic models.
+          SRAM augments conventional reasoning-and-acting agents with an explicit <em><strong>configurator</strong></em> that dynamically controls planning behavior — including whether to make a new plan, continue or revise an existing one, or react directly without planning.
+        </p>
+        <p>
+          Across a diverse set of interactive reasoning tasks including mathematical reasoning, scientific problem solving, data analysis, and web browsing, SRAM achieves strong performance relative to substantially larger reasoning models and LLM+tool systems. SRAM v0.1 8B and SRAM v1.0 30B outperform or compete with systems in the <strong>120–355B and 685B–1T parameter ranges</strong>, respectively, while reducing reasoning tokens by up to <strong style="color: var(--accent);">50%</strong>.
         </p>
       </div>
 
