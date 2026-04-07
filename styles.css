@@ -190,7 +190,6 @@ body {
 /* Stats section */
 .stats-section {
   background: var(--bg-white);
-  border-bottom: 1px solid var(--border);
   padding: 5rem 2rem 3rem;
 }
 
