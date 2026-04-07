@@ -153,17 +153,18 @@
             <thead>
               <tr>
                 <th class="paradigm-th-left">System Type</th>
-                <th class="paradigm-th">Env. Interaction</th>
-                <th class="paradigm-th">Agentic Training</th>
-                <th class="paradigm-th">Free-Form Reasoning</th>
-                <th class="paradigm-th">Per-Turn Regulation</th>
-                <th class="paradigm-th">Explicit Planning</th>
-                <th class="paradigm-th">Simulative Planning</th>
-                <th class="paradigm-th">Ctrl. Plan Depth</th>
+                <th class="paradigm-th">Environment<br/>Interaction</th>
+                <th class="paradigm-th">Agentic<br/>Training</th>
+                <th class="paradigm-th">Free-Form<br/>Reasoning</th>
+                <th class="paradigm-th">Per-Turn<br/>Regulation</th>
+                <th class="paradigm-th">Explicit<br/>Planning</th>
+                <th class="paradigm-th">Next-State<br/>Simulative<br/>Planning</th>
+                <th class="paradigm-th">Controllable<br/>Planning<br/>Depth</th>
               </tr>
             </thead>
             <tbody>
-              <tr class="paradigm-row-even">
+              <!-- Base systems -->
+              <tr>
                 <td class="paradigm-td-name">Reasoning LLM</td>
                 <td class="paradigm-td"><span class="cap-no">✗</span></td>
                 <td class="paradigm-td"><span class="cap-no">✗</span></td>
@@ -183,38 +184,43 @@
                 <td class="paradigm-td"><span class="cap-no">✗</span></td>
                 <td class="paradigm-td"><span class="cap-no">✗</span></td>
               </tr>
-              <tr class="paradigm-row-even">
-                <td class="paradigm-td-name">Black-Box Agentic</td>
+              <tr class="paradigm-row-sep-after">
+                <td class="paradigm-td-name">Black-Box Agentic LLM</td>
                 <td class="paradigm-td"><span class="cap-yes">✓</span></td>
                 <td class="paradigm-td"><span class="cap-yes">✓</span></td>
                 <td class="paradigm-td"><span class="cap-yes">✓</span></td>
                 <td class="paradigm-td"><span class="cap-no">✗</span></td>
+                <td class="paradigm-td"><span class="cap-no">✗</span></td>
+                <td class="paradigm-td"><span class="cap-no">✗</span></td>
+                <td class="paradigm-td"><span class="cap-no">✗</span></td>
+              </tr>
+              <!-- Group header -->
+              <tr class="paradigm-group-header">
+                <td colspan="8" class="paradigm-group-label"><em>Adaptive Agentic LLM</em></td>
+              </tr>
+              <!-- Adaptive subtypes -->
+              <tr>
+                <td class="paradigm-td-name paradigm-subtype">— Adaptive Effort</td>
+                <td class="paradigm-td"><span class="cap-yes">✓</span></td>
+                <td class="paradigm-td"><span class="cap-yes">✓</span></td>
+                <td class="paradigm-td"><span class="cap-yes">✓</span></td>
+                <td class="paradigm-td"><span class="cap-yes">✓</span></td>
                 <td class="paradigm-td"><span class="cap-no">✗</span></td>
                 <td class="paradigm-td"><span class="cap-no">✗</span></td>
                 <td class="paradigm-td"><span class="cap-no">✗</span></td>
               </tr>
               <tr>
-                <td class="paradigm-td-name">Adaptive Effort</td>
+                <td class="paradigm-td-name paradigm-subtype">— Coarse Mode-Routing</td>
                 <td class="paradigm-td"><span class="cap-yes">✓</span></td>
                 <td class="paradigm-td"><span class="cap-yes">✓</span></td>
-                <td class="paradigm-td"><span class="cap-yes">✓</span></td>
-                <td class="paradigm-td"><span class="cap-yes">✓</span></td>
+                <td class="paradigm-td"><span class="cap-partial">~</span></td>
                 <td class="paradigm-td"><span class="cap-no">✗</span></td>
+                <td class="paradigm-td"><span class="cap-partial">~</span></td>
                 <td class="paradigm-td"><span class="cap-no">✗</span></td>
                 <td class="paradigm-td"><span class="cap-no">✗</span></td>
               </tr>
-              <tr class="paradigm-row-even">
-                <td class="paradigm-td-name">Coarse Routing</td>
-                <td class="paradigm-td"><span class="cap-yes">✓</span></td>
-                <td class="paradigm-td"><span class="cap-yes">✓</span></td>
-                <td class="paradigm-td"><span class="cap-partial">—</span></td>
-                <td class="paradigm-td"><span class="cap-no">✗</span></td>
-                <td class="paradigm-td"><span class="cap-no">✗</span></td>
-                <td class="paradigm-td"><span class="cap-no">✗</span></td>
-                <td class="paradigm-td"><span class="cap-no">✗</span></td>
-              </tr>
-              <tr>
-                <td class="paradigm-td-name">Multi-Agent Distill.</td>
+              <tr class="paradigm-row-sep-after">
+                <td class="paradigm-td-name paradigm-subtype">— Multi-Agent Distillation</td>
                 <td class="paradigm-td"><span class="cap-yes">✓</span></td>
                 <td class="paradigm-td"><span class="cap-yes">✓</span></td>
                 <td class="paradigm-td"><span class="cap-no">✗</span></td>
@@ -223,6 +229,7 @@
                 <td class="paradigm-td"><span class="cap-no">✗</span></td>
                 <td class="paradigm-td"><span class="cap-no">✗</span></td>
               </tr>
+              <!-- SRAM -->
               <tr class="paradigm-row-highlight">
                 <td class="paradigm-td-name paradigm-name-highlight">SRAM (Ours)</td>
                 <td class="paradigm-td"><span class="cap-yes">✓</span></td>
