@@ -26,7 +26,8 @@
       "Bash(python3 -c \"from pdf2image import convert_from_path; print\\('pdf2image ok'\\)\")",
       "Bash(pip3 install:*)",
       "Bash(python3 -c \"import fitz; print\\('ok'\\)\")",
-      "Bash(python3 -c ':*)"
+      "Bash(python3 -c ':*)",
+      "Bash(gh run:*)"
     ]
   }
 }
