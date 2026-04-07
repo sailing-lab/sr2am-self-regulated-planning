@@ -620,42 +620,20 @@
 
       <!-- Chart -->
       <div class="result-figure result-figure-after-table">
-        <div class="training-chart-legend">
-          <span class="legend-item"><span class="legend-dot legend-sram"></span><strong>SRAM (self-regulated)</strong></span>
-          <span class="legend-item legend-dim"><span class="legend-dot legend-bb"></span>Black-box baseline</span>
-          <span class="legend-meta">&#9135; Tokens (↓ better) &nbsp;&nbsp; &#8229; Pass@1 (↑ better)</span>
-        </div>
-        <div class="training-chart-wrap">
-          <svg viewBox="0 0 500 200" class="training-chart-svg" preserveAspectRatio="none">
-            <!-- Grid lines -->
-            <line x1="0" y1="0"   x2="500" y2="0"   stroke="var(--border-color, #e5e7eb)" stroke-width="0.5"/>
-            <line x1="0" y1="50"  x2="500" y2="50"  stroke="var(--border-color, #e5e7eb)" stroke-width="0.5"/>
-            <line x1="0" y1="100" x2="500" y2="100" stroke="var(--border-color, #e5e7eb)" stroke-width="0.5"/>
-            <line x1="0" y1="150" x2="500" y2="150" stroke="var(--border-color, #e5e7eb)" stroke-width="0.5"/>
-            <!-- SRAM tokens (solid) -->
-            <polyline fill="none" stroke="#45C9B6" stroke-width="2.5"
-              points="10,130 130,120 250,106.7 370,93.3 490,80"/>
-            <!-- Black-box tokens (solid, muted) -->
-            <polyline fill="none" stroke="#f59e42" stroke-width="2.5" stroke-opacity="0.55"
-              points="10,63.3 130,50 250,33.3 370,23.3 490,16.7"/>
-            <!-- SRAM accuracy (dashed) -->
-            <polyline fill="none" stroke="#45C9B6" stroke-width="2" stroke-dasharray="6,4"
-              points="10,148.6 130,136 250,122.9 370,112.9 490,114.3"/>
-            <!-- Black-box accuracy (dashed, muted) -->
-            <polyline fill="none" stroke="#f59e42" stroke-width="2" stroke-dasharray="6,4" stroke-opacity="0.55"
-              points="10,162.9 130,148.6 250,142.9 370,148.6 490,154.3"/>
-            <!-- SRAM token dots -->
-            <circle cx="10"  cy="130"  r="3" fill="#45C9B6"/>
-            <circle cx="130" cy="120"  r="3" fill="#45C9B6"/>
-            <circle cx="250" cy="106.7" r="3" fill="#45C9B6"/>
-            <circle cx="370" cy="93.3"  r="3" fill="#45C9B6"/>
-            <circle cx="490" cy="80"   r="3" fill="#45C9B6"/>
-          </svg>
-          <div class="training-chart-xaxis">
-            <span>Step 0</span><span>Step 100</span><span>Step 200</span><span>Step 300</span><span>Step 400</span>
-          </div>
-        </div>
-        <p class="figure-caption"><strong>Figure 5.</strong> RL training progress over 400 steps. Without self-regulation structure, RL increases token consumption with diminishing accuracy returns, while the self-regulated model achieves steadily improving accuracy with controlled token growth.</p>
+        <iframe id="fig5-iframe" data-src="animation/ablation_sft_coldstart_combined_axes-5.html" style="width:100%;height:560px;border:none;display:block;" scrolling="no"></iframe>
+        <script>
+          (function() {
+            var iframe = document.getElementById('fig5-iframe');
+            var observer = new IntersectionObserver(function(entries) {
+              if (entries[0].isIntersecting && !iframe.src) {
+                iframe.src = iframe.dataset.src;
+                observer.disconnect();
+              }
+            }, { rootMargin: '100px' });
+            observer.observe(iframe);
+          })();
+        </script>
+        <p class="figure-caption"><strong>Figure 5.</strong> RL training progress over 400 steps. Without self-regulation structure, RL increases token consumption with diminishing accuracy returns, while the self-regulated model achieves steadily improving accuracy with controlled token growth. OoC % labels show out-of-context rates per checkpoint.</p>
       </div>
 
       <!-- Insight cards -->
