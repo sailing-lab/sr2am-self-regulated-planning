@@ -330,7 +330,19 @@
       <!-- Planning analysis figure -->
       <div class="result-figure result-figure-after-table">
         <!-- <img src="figures/ablation-planning_analysis_combined.png" alt="Plan depth analysis before and after RL" /> -->
-        <iframe src="animation/planning_analysis_combined-4.html" style="width:100%;border:none;display:block;" scrolling="no" onload="this.style.height=(this.contentDocument.body.scrollHeight+20)+'px'"></iframe>
+        <iframe id="fig4-iframe" data-src="animation/planning_analysis_combined-4.html" style="width:100%;border:none;display:block;" scrolling="no" onload="if(this.src)this.style.height=(this.contentDocument.body.scrollHeight+20)+'px'"></iframe>
+        <script>
+          (function() {
+            var iframe = document.getElementById('fig4-iframe');
+            var observer = new IntersectionObserver(function(entries) {
+              if (entries[0].isIntersecting && !iframe.src) {
+                iframe.src = iframe.dataset.src;
+                observer.disconnect();
+              }
+            }, { rootMargin: '100px' });
+            observer.observe(iframe);
+          })();
+        </script>
         <p class="figure-caption"><strong>Figure 4.</strong> Plan depth analysis of SRAM v1.0 30B before and after 200 RL steps. <em>Left:</em> RL shifts mass from 1-step plans toward 2- and 3+ step plans while the proportion of unplanned turns remains stable, indicating RL deepens planning without increasing frequency. <em>Right:</em> Average plan depth by task category — all categories show consistent increases, with the largest gain in science (32.7%).</p>
       </div>
 
