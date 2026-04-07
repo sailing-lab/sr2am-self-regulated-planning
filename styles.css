@@ -1,19 +1,22 @@
 /* ===========================
    SRAM Research Page Styles
-   Blues from Abu Dhabi aerial
+   IFM brand palette
    Serif typestyle (template)
    =========================== */
 
 :root {
-  /* Blues extracted from aerial image */
-  --blue-deep:   #0077B6;
-  --blue-mid:    #0096C7;
-  --blue-teal:   #00B4D8;
-  --blue-light:  #48CAE4;
-  --blue-pale:   #ADE8F4;
-  --grad:        linear-gradient(135deg, #0077B6 0%, #00B4D8 100%);
-  --grad-soft:   linear-gradient(135deg, #E0F4FD 0%, #CAF0F8 100%);
-  --grad-hero:   linear-gradient(160deg, #EBF7FD 0%, #D4F1F9 60%, #C8EDF7 100%);
+  /* IFM brand palette (Abu Dhabi aerial originals commented below) */
+  --blue-deep:   #284269;  /* IFMDarkBlue       | was: #0077B6 */
+  --blue-mid:    #52699F;  /* IFMBlue           | was: #0096C7 */
+  --blue-teal:   #45C9B6;  /* IFMTealBlue       | was: #00B4D8 */
+  --blue-light:  #7ad8ca;  /* teal mid-tone     | was: #48CAE4 */
+  --blue-pale:   #ecfaf8;  /* IFMLightTealBlue  | was: #ADE8F4 */
+  --grad:        linear-gradient(135deg, #284269 0%, #45C9B6 100%);
+  /* --grad:     linear-gradient(135deg, #0077B6 0%, #00B4D8 100%); */
+  --grad-soft:   linear-gradient(135deg, #ecfaf8 0%, #d9f5f1 100%);
+  /* --grad-soft: linear-gradient(135deg, #E0F4FD 0%, #CAF0F8 100%); */
+  --grad-hero:   linear-gradient(160deg, #f4fbfa 0%, #e6f7f4 60%, #ddf3ef 100%);
+  /* --grad-hero: linear-gradient(160deg, #EBF7FD 0%, #D4F1F9 60%, #C8EDF7 100%); */
 
   /* Typography */
   --font-serif:  'Lora', Georgia, 'Times New Roman', serif;
@@ -23,12 +26,12 @@
   /* Neutrals */
   --text:        #1a1a2e;
   --text-muted:  #5a6a7a;
-  --border:      #D0E8F2;
-  --bg-gray:     #F4FAFD;
+  --border:      #c8e8e3;  /* was: #D0E8F2 */
+  --bg-gray:     #f0faf8;  /* was: #F4FAFD */
   --bg-white:    #FFFFFF;
   --radius:      10px;
-  --shadow:      0 1px 3px rgba(0,119,182,0.08), 0 4px 16px rgba(0,119,182,0.06);
-  --shadow-lg:   0 4px 6px rgba(0,0,0,0.04), 0 10px 40px rgba(0,119,182,0.12);
+  --shadow:      0 1px 3px rgba(40,66,105,0.08), 0 4px 16px rgba(69,201,182,0.07);
+  --shadow-lg:   0 4px 6px rgba(0,0,0,0.04), 0 10px 40px rgba(40,66,105,0.12);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -205,8 +208,8 @@ body {
   font-size: 1.3rem; font-weight: 700; margin-bottom: 1rem;
   font-family: var(--font-mono);
 }
-.configurator-icon { background: #DBEAFE; color: var(--blue-deep); }
-.planner-icon      { background: #CFFAFE; color: var(--blue-mid); }
+.configurator-icon { background: #d9e0ed; color: var(--blue-deep); } /* was: #DBEAFE */
+.planner-icon      { background: #d4f3ef; color: #2a8f80; }         /* was: #CFFAFE / var(--blue-mid) */
 .actor-icon        { background: #D1FAE5; color: #047857; }
 
 .method-arrow {
@@ -239,15 +242,15 @@ body {
 }
 .formula-term { font-weight: 600; padding: 0.15rem 0.5rem; border-radius: 4px; font-family: var(--font-mono); font-size: 1.02rem; }
 .formula-term.actor       { background: #D1FAE5; color: #047857; }
-.formula-term.planner     { background: #CFFAFE; color: var(--blue-mid); }
-.formula-term.configurator{ background: #DBEAFE; color: var(--blue-deep); }
+.formula-term.planner     { background: #d4f3ef; color: #2a8f80; }           /* was: #CFFAFE / var(--blue-mid) */
+.formula-term.configurator{ background: #d9e0ed; color: var(--blue-deep); }  /* was: #DBEAFE */
 .formula-term-label {
   font-size: 0.72rem; font-weight: 600; padding: 0.12rem 0.45rem;
   border-radius: 4px; font-family: var(--font-sans);
 }
 .formula-term-label.actor       { background: #D1FAE5; color: #047857; }
-.formula-term-label.planner     { background: #CFFAFE; color: var(--blue-mid); }
-.formula-term-label.configurator{ background: #DBEAFE; color: var(--blue-deep); }
+.formula-term-label.planner     { background: #d4f3ef; color: #2a8f80; }           /* was: #CFFAFE / var(--blue-mid) */
+.formula-term-label.configurator{ background: #d9e0ed; color: var(--blue-deep); }  /* was: #DBEAFE */
 
 /* Architecture figure */
 .arch-figure {
@@ -316,10 +319,10 @@ body {
   padding: 0.22rem 0.7rem; border-radius: 999px; margin-bottom: 0.7rem;
 }
 .sram8b  { border-top: 3px solid var(--blue-teal); }
-.sram8b  .model-badge { background: #CFFAFE; color: var(--blue-mid); }
-.sram8b  .model-num   { color: var(--blue-mid); }
+.sram8b  .model-badge { background: #d4f3ef; color: #2a8f80; }           /* was: #CFFAFE / var(--blue-mid) */
+.sram8b  .model-num   { color: var(--blue-teal); }                        /* was: var(--blue-mid) */
 .sram30b { border-top: 3px solid var(--blue-deep); }
-.sram30b .model-badge { background: #DBEAFE; color: var(--blue-deep); }
+.sram30b .model-badge { background: #d9e0ed; color: var(--blue-deep); }  /* was: #DBEAFE */
 .sram30b .model-num   { color: var(--blue-deep); }
 
 .model-stats { display: flex; gap: 2rem; margin-bottom: 1rem; }
@@ -360,20 +363,20 @@ body {
   border-bottom: 1px solid var(--border); white-space: nowrap;
 }
 .results-table th {
-  background: #EBF8FF; font-weight: 600; font-size: 0.75rem;
+  background: #ecfaf8; /* was: #EBF8FF */ font-weight: 600; font-size: 0.75rem;
   color: var(--text-muted); position: sticky; top: 0;
 }
 .results-table td:first-child { text-align: left; font-weight: 500; }
 .results-table tr:last-child td { border-bottom: none; }
-.results-table tr:hover td { background: #F0FBFF; }
+.results-table tr:hover td { background: #ecfaf8; } /* was: #F0FBFF */
 .group-header td {
   background: var(--grad-soft); font-weight: 700;
   font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.07em;
   color: var(--blue-deep); text-align: left;
   padding-left: 0.75rem; border-top: 1px solid var(--border);
 }
-.sram-row td { background: #EBF8FF; }
-.sram-row:hover td { background: #D6F3FF !important; }
+.sram-row td { background: #d4f3ef; }               /* was: #EBF8FF */
+.sram-row:hover td { background: #bfede7 !important; } /* was: #D6F3FF */
 
 .findings-title { margin-top: 3rem; }
 
@@ -399,14 +402,14 @@ body {
 
 /* ---- CITATION ---- */
 .bibtex-block {
-  background: #0D1B2A; border-radius: var(--radius);
+  background: #131e30; /* was: #0D1B2A */ border-radius: var(--radius);
   overflow: hidden; box-shadow: var(--shadow-lg);
   max-width: 780px; margin: 0 auto;
 }
 .bibtex-header {
   display: flex; justify-content: space-between; align-items: center;
-  padding: 0.7rem 1.25rem; background: #162032;
-  font-size: 0.78rem; font-weight: 600; color: #7ABFDB;
+  padding: 0.7rem 1.25rem; background: #1c2d45; /* was: #162032 */
+  font-size: 0.78rem; font-weight: 600; color: #45C9B6; /* was: #7ABFDB */
 }
 .copy-btn {
   background: var(--grad); color: white; border: none;
@@ -417,13 +420,13 @@ body {
 .bibtex-block pre { padding: 1.5rem; overflow-x: auto; margin: 0; }
 .bibtex-block code {
   font-family: var(--font-mono);
-  font-size: 0.82rem; color: #ADE8F4; line-height: 1.75;
+  font-size: 0.82rem; color: #7dd8ca; /* was: #ADE8F4 */ line-height: 1.75;
 }
 
 /* ---- FOOTER ---- */
 .footer {
-  background: #0A1628; color: #7ABFDB;
+  background: #111e30; /* was: #0A1628 */ color: #45C9B6; /* was: #7ABFDB */
   text-align: center; padding: 2.5rem 2rem; font-size: 0.86rem;
 }
-.footer strong { color: #ADE8F4; font-family: var(--font-serif); }
-.footer-sub { margin-top: 0.35rem; font-size: 0.78rem; color: #4A7A94; }
+.footer strong { color: #7dd8ca; /* was: #ADE8F4 */ font-family: var(--font-serif); }
+.footer-sub { margin-top: 0.35rem; font-size: 0.78rem; color: #52699F; /* was: #4A7A94 */ }
