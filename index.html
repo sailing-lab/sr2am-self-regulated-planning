@@ -664,6 +664,14 @@
       <h2 class="section-title">Case Studies</h2>
       <p class="section-subtitle">Two step-by-step examples that map model outputs to the formal components of SRAM's self-regulated agent equation.</p>
 
+      <!-- Legend (always visible, before examples) -->
+      <div class="traj-legend">
+        <span class="traj-legend-item"><span class="traj-tag traj-tag-config">&lt;configurator&gt; / &lt;redacted_thinking&gt;</span> Configurator</span>
+        <span class="traj-legend-item"><span class="traj-tag traj-tag-plan">&lt;planning&gt; / &lt;Plan&gt;</span> Plan</span>
+        <span class="traj-legend-item"><span class="traj-tag traj-tag-reflect">&lt;reflection&gt;</span> Reflection</span>
+        <span class="traj-legend-item"><span class="traj-tag traj-tag-tool">&lt;tool_call&gt;</span> Action</span>
+      </div>
+
       <!-- Example pickers -->
       <div class="traj-tabs">
         <button type="button" class="traj-tab" onclick="switchTraj('browsecomp', this)">
@@ -677,14 +685,6 @@
       </div>
 
       <div id="traj-detail" class="traj-detail" hidden>
-      <!-- Legend -->
-      <div class="traj-legend">
-        <span class="traj-legend-item"><span class="traj-tag traj-tag-config">&lt;configurator&gt; / &lt;think&gt;</span> Configurator</span>
-        <span class="traj-legend-item"><span class="traj-tag traj-tag-plan">&lt;planning&gt; / &lt;Plan&gt;</span> Plan</span>
-        <span class="traj-legend-item"><span class="traj-tag traj-tag-reflect">&lt;reflection&gt;</span> Reflection</span>
-        <span class="traj-legend-item"><span class="traj-tag traj-tag-tool">&lt;tool_call&gt;</span> Action</span>
-      </div>
-
       <!-- Panel: BrowseComp -->
       <div class="traj-panel" id="traj-browsecomp">
         <div class="traj-question">
