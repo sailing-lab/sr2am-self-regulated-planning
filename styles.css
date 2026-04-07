@@ -462,7 +462,7 @@ body {
 /* ---- CITATION ---- */
 .bibtex-block {
   background: #f4f6f8; border-radius: var(--radius);
-  overflow: hidden; box-shadow: var(--shadow-lg);
+  overflow: hidden;
   max-width: 780px; margin: 0 auto;
   border: 1px solid #dde2e8;
 }
