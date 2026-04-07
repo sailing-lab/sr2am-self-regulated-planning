@@ -6,7 +6,7 @@
 
       <!-- Example pickers -->
       <div class="traj-tabs">
-        <button type="button" class="traj-tab" onclick="switchTraj('browsecomp', this)">
+        <button type="button" class="traj-tab active" onclick="switchTraj('browsecomp', this)">
           <span class="traj-tab-line"><strong>EXAMPLE 1</strong></span>
           <span class="traj-tab-line">SRAM-v0.1-8B · BrowseComp</span>
         </button>
@@ -16,7 +16,7 @@
         </button>
       </div>
 
-      <div id="traj-detail" class="traj-detail" hidden>
+      <div id="traj-detail" class="traj-detail">
       <!-- Legend -->
       <div class="traj-legend">
         <span class="traj-legend-item"><span class="traj-tag traj-tag-config">&lt;configurator&gt; / &lt;think&gt;</span> Configurator</span>
@@ -173,7 +173,7 @@
       </div><!-- end traj-browsecomp -->
 
       <!-- Panel: GPQA -->
-      <div class="traj-panel" id="traj-gpqa">
+      <div class="traj-panel" id="traj-gpqa" style="display:none">
         <div class="traj-question">
           <span class="case-source-badge">GPQA Diamond</span>
           <p>If uncertainty in space of electron's location, which is travelling with speed \(v = 2 \times 10^{8}\,\mathrm{m/s}\) along x-direction is \(\Delta x = 0.1\,\mathrm{nm}\). Based on the information estimate the minimum uncertainty in the energy \(\Delta E\) of electron.<br>
@@ -300,8 +300,7 @@ delta x delta p minimum uncertainty energy electron speed 2e8 m/s delta x 0.1 nm
 
   <script>
     function switchTraj(id, btn) {
-      var detail = document.getElementById('traj-detail');
-      detail.removeAttribute('hidden');
+      if (btn.classList.contains('active')) return;
       document.querySelectorAll('.traj-panel').forEach(function (p) {
         p.style.display = 'none';
       });

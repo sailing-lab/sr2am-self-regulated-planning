@@ -641,26 +641,27 @@ body {
 
 /* ---- ANNOTATED TRAJECTORIES ---- */
 .traj-legend {
-  display: flex; flex-wrap: wrap; gap: 0.5rem 1.4rem;
+  display: flex; flex-wrap: nowrap; gap: 0.65rem 1.25rem;
   justify-content: center;
-  max-width: 56rem;
+  max-width: 100%;
   margin-left: auto; margin-right: auto;
   margin-bottom: 1.5rem; padding: 0.85rem 1.2rem;
   background: white; border: 1px solid var(--border);
   border-radius: var(--radius); box-shadow: var(--shadow);
   align-items: center;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
 }
 .traj-legend-item {
   display: flex; align-items: center; gap: 0.45rem;
+  flex-shrink: 0;
+  white-space: nowrap;
   font-size: 0.81rem; color: var(--text-muted);
 }
 .traj-tag {
   font-family: var(--font-mono); font-size: 0.71rem;
   padding: 0.12rem 0.45rem; border-radius: 3px; white-space: nowrap;
-}
-.traj-legend .traj-tag {
-  white-space: normal;
-  word-break: break-word;
 }
 .traj-tag-config  { background: #e8f0fb; color: #1a5ca8; }
 .traj-tag-plan    { background: #e6f5ec; color: #1a6b3c; }
