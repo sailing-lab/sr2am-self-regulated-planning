@@ -446,14 +446,15 @@ body {
 
 /* ---- CITATION ---- */
 .bibtex-block {
-  background: #131e30; /* was: #0D1B2A */ border-radius: var(--radius);
+  background: #f4f6f8; border-radius: var(--radius);
   overflow: hidden; box-shadow: var(--shadow-lg);
   max-width: 780px; margin: 0 auto;
+  border: 1px solid #dde2e8;
 }
 .bibtex-header {
   display: flex; justify-content: space-between; align-items: center;
-  padding: 0.7rem 1.25rem; background: #1c2d45; /* was: #162032 */
-  font-size: 0.78rem; font-weight: 600; color: #45C9B6; /* was: #7ABFDB */
+  padding: 0.7rem 1.25rem; background: #e8ecf0;
+  font-size: 0.78rem; font-weight: 600; color: #3a6ea8;
 }
 .copy-btn {
   background: var(--blue-deep); color: white; border: none;
@@ -464,7 +465,7 @@ body {
 .bibtex-block pre { padding: 1.5rem; overflow-x: auto; margin: 0; }
 .bibtex-block code {
   font-family: var(--font-mono);
-  font-size: 0.82rem; color: #7dd8ca; /* was: #ADE8F4 */ line-height: 1.75;
+  font-size: 0.82rem; color: #2d5a8a; line-height: 1.75;
 }
 
 /* ---- FOOTER ---- */
