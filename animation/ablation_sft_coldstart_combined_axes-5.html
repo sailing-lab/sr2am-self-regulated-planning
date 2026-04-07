@@ -1,0 +1,118 @@
+<meta charset="UTF-8">
+<div style="position: relative; width: 100%; height: 460px;">
+  <canvas id="comboChart"></canvas>
+</div>
+<div style="display: flex; flex-direction: column; align-items: center; gap: 4px; margin-top: 8px; font-size: 15px; color: var(--color-text-secondary);">
+  <div style="display: flex; gap: 24px;">
+    <span style="display: flex; align-items: center; gap: 7px;"><span style="width: 22px; height: 3.5px; border-radius: 1px; background: #4A9E5C;"></span>SRAM-v0.1-8B</span>
+    <span style="display: flex; align-items: center; gap: 7px;"><span style="width: 22px; height: 3.5px; border-radius: 1px; background: #E8913A;"></span>Black-box Reas.</span>
+  </div>
+  <div style="display: flex; gap: 24px;">
+    <span style="display: flex; align-items: center; gap: 7px;"><span style="width: 16px; height: 3.5px; border-radius: 1px; background: #888;"></span># Reas. Tok.</span>
+    <span style="display: flex; align-items: center; gap: 7px;"><span style="width: 16px; height: 0; border-top: 2.5px dashed #888;"></span>Pass@1</span>
+    <span style="display: flex; align-items: center; gap: 7px;"><span style="font-size: 12px; color: #888; font-weight: 500;">5.3%</span>OoC %</span>
+  </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.2.0/chartjs-plugin-datalabels.min.js"></script>
+<script>
+Chart.register(ChartDataLabels);
+const isDark = matchMedia('(prefers-color-scheme: dark)').matches;
+const gc = isDark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.06)';
+const tc = isDark ? '#ccc' : '#555';
+const steps = [0, 100, 200, 300, 400];
+const sftTok = [2092.6, 2373.8, 3055.7, 3479.3, 3634.3];
+const baseTok = [4079.9, 5272.6, 5282.6, 5225.0, 5517.4];
+const sftPass = [0.3808, 0.4212, 0.4929, 0.5424, 0.5616];
+const basePass = [0.4576, 0.498, 0.503, 0.4727, 0.4758];
+const sftOOC = [5.25, 7.78, 9.39, 6.46, 7.47];
+const baseOOC = [3.03, 3.33, 8.79, 22.42, 17.58];
+
+const green = '#4A9E5C';
+const orange = '#E8913A';
+
+new Chart(document.getElementById('comboChart'), {
+  type: 'line',
+  data: {
+    labels: steps,
+    datasets: [
+      {
+        label: 'SRAM-v0.1-8B: # Reas. Tok.',
+        data: sftTok, borderColor: green, backgroundColor: green,
+        pointRadius: 6, borderWidth: 3.5, tension: 0.15, yAxisID: 'yTok', borderDash: [],
+        datalabels: { display: false }
+      },
+      {
+        label: 'Black-box Reas.: # Reas. Tok.',
+        data: baseTok, borderColor: orange, backgroundColor: orange,
+        pointRadius: 6, borderWidth: 3.5, tension: 0.15, yAxisID: 'yTok', borderDash: [],
+        datalabels: { display: false }
+      },
+      {
+        label: 'SRAM-v0.1-8B: Pass@1',
+        data: sftPass, borderColor: green, backgroundColor: green,
+        pointRadius: 5, borderWidth: 2.5, tension: 0.15, yAxisID: 'yPass', borderDash: [10, 5],
+        datalabels: {
+          display: true, anchor: 'start', align: 'bottom', offset: 8,
+          color: green, font: { size: 13, weight: '600' },
+          formatter: (v, ctx) => sftOOC[ctx.dataIndex].toFixed(1) + '%'
+        }
+      },
+      {
+        label: 'Black-box Reas.: Pass@1',
+        data: basePass, borderColor: orange, backgroundColor: orange,
+        pointRadius: 5, borderWidth: 2.5, tension: 0.15, yAxisID: 'yPass', borderDash: [10, 5],
+        datalabels: {
+          display: true, anchor: 'start', align: 'bottom', offset: 8,
+          color: orange, font: { size: 13, weight: '600' },
+          formatter: (v, ctx) => baseOOC[ctx.dataIndex].toFixed(1) + '%'
+        }
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    interaction: { mode: 'index', intersect: false },
+    layout: { padding: { top: 16, bottom: 4 } },
+    plugins: {
+      legend: { display: false },
+      title: { display: true, text: 'RL for SRAM-v0.1-8B vs. Black-box Reas.', color: tc, font: { size: 22, weight: '500' }, padding: { bottom: 16 } },
+      tooltip: {
+        titleFont: { size: 15 },
+        bodyFont: { size: 14 },
+        callbacks: {
+          label: function(ctx) {
+            const i = ctx.datasetIndex;
+            if (i < 2) return ctx.dataset.label + ': ' + Math.round(ctx.parsed.y).toLocaleString() + ' tokens';
+            return ctx.dataset.label + ': ' + ctx.parsed.y.toFixed(4) + ' (OoC: ' + (i===2 ? sftOOC : baseOOC)[ctx.dataIndex].toFixed(1) + '%)';
+          }
+        }
+      }
+    },
+    scales: {
+      x: {
+        title: { display: true, text: '# RL Steps', color: tc, font: { size: 18 } },
+        grid: { color: gc },
+        ticks: { color: tc, font: { size: 16 } }
+      },
+      yTok: {
+        type: 'linear',
+        position: 'left',
+        title: { display: true, text: 'Avg. # Reas. Tokens (solid, \u2193 better)', color: tc, font: { size: 15 } },
+        grid: { color: gc },
+        ticks: { color: tc, font: { size: 14 }, callback: v => v.toLocaleString() },
+        min: 1500, max: 6000
+      },
+      yPass: {
+        type: 'linear',
+        position: 'right',
+        title: { display: true, text: 'Pass@1 (dashed, \u2191 better)', color: tc, font: { size: 15 } },
+        grid: { drawOnChartArea: false },
+        ticks: { color: tc, font: { size: 14 }, callback: v => v.toFixed(2) },
+        min: 0.30, max: 0.60
+      }
+    }
+  }
+});
+</script>
