@@ -744,7 +744,8 @@
           </div>
           <div class="traj-block traj-block-tool">
             <div class="traj-block-label">&lt;tool_call&gt;</div>
-            <code>web_search("companies founded 2016 USA co-founder CIA CEO", "2016 founded tech company CIA co-founder")</code>
+            <pre>web_search("companies founded 2016 USA co-founder CIA CEO",
+          "2016 founded tech company CIA co-founder")</pre>
           </div>
 
           <!-- Step 2 -->
@@ -755,7 +756,9 @@
           </div>
           <div class="traj-block traj-block-tool">
             <div class="traj-block-label">&lt;tool_call&gt;</div>
-            <code>web_search("Ring-Road vulnerability discoverer CTO", "Ring-Road vulnerability CTO", "Ring-Road exploit discoverer")</code>
+            <pre>web_search("Ring-Road vulnerability discoverer CTO",
+          "Ring-Road vulnerability CTO",
+          "Ring-Road exploit discoverer")</pre>
           </div>
 
           <!-- Step 3 -->
@@ -766,7 +769,8 @@
           </div>
           <div class="traj-block traj-block-tool">
             <div class="traj-block-label">&lt;tool_call&gt;</div>
-            <code>visit_tool(url="https://www.purdue.edu/newsroom/...startup-discovers-email-vulnerability...",<br>goal="Find details about the startup, co-founders, their roles (CEO, CTO), and any CIA connections")</code>
+            <pre>visit_page(url="https://purdue.edu/newsroom/.../startup-discovers-email-vulnerability...",
+          goal="Find startup details, co-founder names, roles (CEO/CTO), CIA connections")</pre>
           </div>
 
           <!-- Step 4 -->
@@ -777,7 +781,8 @@
           </div>
           <div class="traj-block traj-block-tool">
             <div class="traj-block-label">&lt;tool_call&gt;</div>
-            <code>web_search("Spotlight Cybersecurity founded year", "Spotlight Cybersecurity LLC founded")</code>
+            <pre>web_search("Spotlight Cybersecurity founded year",
+          "Spotlight Cybersecurity LLC founded")</pre>
           </div>
 
           <!-- Steps 5–8 condensed -->
@@ -788,7 +793,7 @@
           </div>
           <div class="traj-block traj-block-tool">
             <div class="traj-block-label">&lt;tool_call&gt; (Step 5)</div>
-            <code>web_search("Jacob W. Crisp CIA", "Jacob Crisp worked for CIA")</code>
+            <pre>web_search("Jacob W. Crisp CIA", "Jacob Crisp worked for CIA")</pre>
           </div>
           <div class="traj-block traj-block-config">
             <div class="traj-block-label">&lt;configurator&gt; (Step 6)</div>
@@ -796,7 +801,8 @@
           </div>
           <div class="traj-block traj-block-tool">
             <div class="traj-block-label">&lt;tool_call&gt; (Step 6)</div>
-            <code>visit_tool(url="https://insights.boldbusiness.com/communications/cybersecurity-leaders-bold-business-lists-top-25/",<br>goal="Verify if Jacob Crisp worked for the CIA")</code>
+            <pre>visit_page(url="https://insights.boldbusiness.com/.../cybersecurity-leaders-top-25/",
+          goal="Verify if Jacob Crisp worked for the CIA")</pre>
           </div>
           <div class="traj-block traj-block-config">
             <div class="traj-block-label">&lt;configurator&gt; (Step 7)</div>
@@ -804,7 +810,8 @@
           </div>
           <div class="traj-block traj-block-tool">
             <div class="traj-block-label">&lt;tool_call&gt; (Step 7)</div>
-            <code>web_search("Robert Morton Spotlight Cybersecurity CTO", "Robert Morton Spotlight CTO")</code>
+            <pre>web_search("Robert Morton Spotlight Cybersecurity CTO",
+          "Robert Morton Spotlight CTO")</pre>
           </div>
           <div class="traj-block traj-block-config">
             <div class="traj-block-label">&lt;configurator&gt; (Step 8) <span class="traj-annotation">Provide answer</span></div>
@@ -848,7 +855,12 @@
           </div>
           <div class="traj-block traj-block-tool">
             <div class="traj-block-label">&lt;tool_call&gt;</div>
-            <code>code_execution("""<br>import numpy as np<br>psi = np.array([1/np.sqrt(3), np.sqrt(2)/np.sqrt(3)])<br>print("Norm:", np.dot(psi, psi))<br>print("P(|1>):", psi[1]**2)<br>""")</code>
+            <pre>code_execution("""
+import numpy as np
+psi = np.array([1/np.sqrt(3), np.sqrt(2)/np.sqrt(3)])
+print("Norm:", np.dot(psi, psi))
+print("P(|1>):", psi[1]**2)
+""")</pre>
           </div>
 
           <!-- Step 2 -->
@@ -859,7 +871,11 @@
           </div>
           <div class="traj-block traj-block-tool">
             <div class="traj-block-label">&lt;tool_call&gt;</div>
-            <code>code_execution("import numpy as np; psi = [1/np.sqrt(3), np.sqrt(2)/np.sqrt(3)]; print(sum(x**2 for x in psi), psi[1]**2)")</code>
+            <pre>code_execution("""
+import numpy as np
+psi = [1/np.sqrt(3), np.sqrt(2)/np.sqrt(3)]
+print(sum(x**2 for x in psi), psi[1]**2)
+""")</pre>
           </div>
 
           <!-- Step 3 -->

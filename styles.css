@@ -641,32 +641,32 @@ body {
 
 /* ---- ANNOTATED TRAJECTORIES ---- */
 .traj-legend {
-  display: flex; flex-wrap: wrap; gap: 0.6rem 1.2rem;
-  margin-bottom: 1.5rem; padding: 0.9rem 1.2rem;
+  display: flex; flex-wrap: wrap; gap: 0.5rem 1.4rem;
+  margin-bottom: 1.75rem; padding: 0.85rem 1.2rem;
   background: white; border: 1px solid var(--border);
   border-radius: var(--radius); box-shadow: var(--shadow);
   align-items: center;
 }
 .traj-legend-item {
   display: flex; align-items: center; gap: 0.45rem;
-  font-size: 0.82rem; color: var(--text);
+  font-size: 0.81rem; color: var(--text-muted);
 }
 .traj-tag {
-  font-family: var(--font-mono); font-size: 0.72rem;
-  padding: 0.12rem 0.45rem; border-radius: 3px;
+  font-family: var(--font-mono); font-size: 0.71rem;
+  padding: 0.12rem 0.45rem; border-radius: 3px; white-space: nowrap;
 }
-.traj-tag-config { background: #e8f0fb; color: #1a5ca8; }
-.traj-tag-plan   { background: #e6f5ec; color: #1a6b3c; }
-.traj-tag-reflect{ background: #fdf3e7; color: #8a4f00; }
-.traj-tag-tool   { background: #f0f0f0; color: #333; }
+.traj-tag-config  { background: #e8f0fb; color: #1a5ca8; }
+.traj-tag-plan    { background: #e6f5ec; color: #1a6b3c; }
+.traj-tag-reflect { background: #fdf3e7; color: #8a4f00; }
+.traj-tag-tool    { background: #f0f0f0; color: #444; }
 
 .traj-tabs {
   display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.5rem;
 }
 .traj-tab {
-  padding: 0.55rem 1.2rem; border-radius: 8px; border: 1px solid var(--border);
+  padding: 0.55rem 1.25rem; border-radius: 8px; border: 1px solid var(--border);
   background: white; font-size: 0.84rem; font-weight: 400; color: var(--text);
-  cursor: pointer; transition: all 0.18s;
+  cursor: pointer; transition: all 0.18s; line-height: 1.4;
 }
 .traj-tab:hover { border-color: var(--blue-teal); color: var(--blue-deep); }
 .traj-tab.active {
@@ -676,93 +676,105 @@ body {
 
 .traj-question {
   background: white; border: 1px solid var(--border);
-  border-radius: var(--radius); padding: 1.25rem 1.4rem; margin-bottom: 1rem;
+  border-radius: var(--radius); padding: 1.1rem 1.3rem; margin-bottom: 1rem;
   box-shadow: var(--shadow);
 }
-.traj-question p { font-size: 0.9rem; line-height: 1.6; color: var(--text); }
+.traj-question p {
+  font-size: 0.9rem; line-height: 1.65; color: var(--text); margin: 0;
+}
+.traj-question code {
+  font-family: var(--font-mono); font-size: 0.82rem;
+  background: #f0f0f0; padding: 0.1rem 0.35rem; border-radius: 3px;
+}
 
 .traj-intro {
   background: #f8f9fb; border-left: 3px solid var(--blue-teal);
   border-radius: 0 var(--radius) var(--radius) 0;
-  padding: 0.85rem 1.1rem; margin-bottom: 1.25rem; font-size: 0.85rem;
-  color: var(--text-muted); line-height: 1.6;
+  padding: 0.8rem 1.1rem; margin-bottom: 1.2rem;
+  font-size: 0.84rem; color: var(--text-muted); line-height: 1.65;
 }
 .traj-intro p { margin: 0; }
 
 .traj-scroll {
-  max-height: 520px; overflow-y: auto;
+  max-height: 530px; overflow-y: auto;
   border: 1px solid var(--border); border-radius: var(--radius);
-  padding: 1rem 1.1rem; background: #fafbfc;
+  padding: 1rem 1.1rem 1.25rem; background: #f9fafb;
   scroll-behavior: smooth;
 }
-.traj-scroll::-webkit-scrollbar { width: 6px; }
-.traj-scroll::-webkit-scrollbar-track { background: #f0f0f0; border-radius: 3px; }
-.traj-scroll::-webkit-scrollbar-thumb { background: #c0c8d4; border-radius: 3px; }
+.traj-scroll::-webkit-scrollbar { width: 5px; }
+.traj-scroll::-webkit-scrollbar-track { background: transparent; }
+.traj-scroll::-webkit-scrollbar-thumb { background: #c8d0da; border-radius: 3px; }
 
 .traj-step-banner {
-  background: #3c3c3c; color: white;
-  font-size: 0.78rem; font-weight: 700; letter-spacing: 0.04em;
-  padding: 0.3rem 0.75rem; border-radius: 4px;
-  display: inline-block; margin: 0.9rem 0 0.6rem;
+  background: #3a3a3a; color: white;
+  font-size: 0.73rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase;
+  padding: 0.28rem 0.7rem; border-radius: 4px;
+  display: inline-block; margin: 1rem 0 0.55rem;
 }
-.traj-step-banner:first-child { margin-top: 0; }
+.traj-scroll > .traj-step-banner:first-child { margin-top: 0; }
 
 .traj-block {
-  border-radius: 6px; padding: 0.75rem 1rem;
-  margin-bottom: 0.55rem; font-size: 0.83rem; line-height: 1.65;
+  border-radius: 6px; padding: 0.7rem 0.95rem;
+  margin-bottom: 0.5rem; font-size: 0.83rem; line-height: 1.65;
+  color: var(--text);
 }
 .traj-block-label {
-  font-family: var(--font-mono); font-size: 0.72rem; font-weight: 600;
-  margin-bottom: 0.4rem; display: flex; align-items: center; gap: 0.5rem;
-  flex-wrap: wrap;
+  font-family: var(--font-mono); font-size: 0.71rem; font-weight: 600;
+  margin-bottom: 0.35rem;
 }
 .traj-annotation {
-  font-family: var(--font-sans); font-size: 0.72rem; font-weight: 500;
-  font-style: italic; opacity: 0.75;
+  font-family: var(--font-sans); font-size: 0.71rem; font-weight: 400;
+  font-style: italic; color: #888; margin-left: 0.35rem;
 }
-.traj-block ol, .traj-block ul { margin: 0.4rem 0 0 1.2rem; padding: 0; }
-.traj-block li { margin-bottom: 0.25rem; }
-.traj-block p { margin: 0; }
+.traj-block p  { margin: 0; }
+.traj-block ol,
+.traj-block ul { padding-left: 1.3rem; margin: 0.35rem 0 0; }
+.traj-block li { margin-bottom: 0.2rem; }
+/* inline code inside text blocks */
 .traj-block code {
-  font-family: var(--font-mono); font-size: 0.8rem;
-  background: rgba(0,0,0,0.06); padding: 0.1rem 0.3rem; border-radius: 3px;
+  font-family: var(--font-mono); font-size: 0.79rem;
+  background: rgba(0,0,0,0.07); padding: 0.08rem 0.3rem; border-radius: 3px;
 }
 
-.traj-block-config {
-  background: #eef3fb; border-left: 3px solid #1a5ca8;
-}
+/* Configurator — blue */
+.traj-block-config { background: #eef3fb; border-left: 3px solid #1a5ca8; }
 .traj-block-config .traj-block-label { color: #1a5ca8; }
 
-.traj-block-plan {
-  background: #eaf5ee; border-left: 3px solid #1a6b3c; color: #1a4a2a;
-}
+/* Planning — green */
+.traj-block-plan { background: #eaf5ee; border-left: 3px solid #1a6b3c; }
 .traj-block-plan .traj-block-label { color: #1a6b3c; }
 
-.traj-block-reflect {
-  background: #fdf5e8; border-left: 3px solid #c47a00;
-}
+/* Reflection — amber */
+.traj-block-reflect { background: #fdf5e8; border-left: 3px solid #c47a00; }
 .traj-block-reflect .traj-block-label { color: #8a4f00; }
 
+/* Tool call — monospaced pre block */
 .traj-block-tool {
-  background: #f3f3f3; border-left: 3px solid #666;
-  font-family: var(--font-mono); font-size: 0.8rem; color: #333;
+  background: #f2f3f5; border-left: 3px solid #888;
+  padding: 0.7rem 0.95rem;
 }
-.traj-block-tool .traj-block-label { color: #555; }
-.traj-block-tool code {
-  background: none; padding: 0; font-size: 0.8rem; display: block;
+.traj-block-tool .traj-block-label { color: #555; font-family: var(--font-mono); }
+.traj-block-tool pre {
+  font-family: var(--font-mono); font-size: 0.78rem; color: #2a2a2a;
+  white-space: pre-wrap; word-break: break-all;
+  margin: 0; padding: 0; background: none; line-height: 1.6;
 }
 
 .traj-answer {
-  display: flex; align-items: center; gap: 0.7rem;
-  margin-top: 1rem; padding: 0.85rem 1.1rem;
+  display: flex; align-items: center; gap: 0.75rem;
+  margin-top: 1rem; padding: 0.8rem 1rem;
   background: #e6f5ec; border: 1.5px solid #2a9d5c;
-  border-radius: 6px; font-family: var(--font-mono); font-size: 0.88rem;
+  border-radius: 6px;
 }
 .traj-answer-label {
-  font-weight: 700; color: #1a6b3c; font-family: var(--font-sans);
-  font-size: 0.82rem; flex-shrink: 0;
+  font-size: 0.78rem; font-weight: 700; color: #1a6b3c;
+  font-family: var(--font-sans); flex-shrink: 0; text-transform: uppercase;
+  letter-spacing: 0.04em;
 }
-.traj-answer code { background: none; font-size: 0.88rem; }
+.traj-answer code {
+  font-family: var(--font-mono); font-size: 0.84rem;
+  color: #1a3a24; background: none; padding: 0;
+}
 
 /* ---- CITATION ---- */
 .bibtex-block {
