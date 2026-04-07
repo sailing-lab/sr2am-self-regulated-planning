@@ -16,7 +16,7 @@
         </button>
       </div>
 
-      <div id="traj-detail" class="traj-detail" hidden>
+      <div id="traj-detail" class="traj-detail" style="display:none">
       <!-- Legend -->
       <div class="traj-legend">
         <span class="traj-legend-item"><span class="traj-tag traj-tag-config">&lt;configurator&gt; / &lt;think&gt;</span> Configurator</span>
@@ -303,10 +303,10 @@ delta x delta p minimum uncertainty energy electron speed 2e8 m/s delta x 0.1 nm
       var detail = document.getElementById('traj-detail');
       if (btn.classList.contains('active')) {
         btn.classList.remove('active');
-        detail.setAttribute('hidden', '');
+        detail.style.display = 'none';
         return;
       }
-      detail.removeAttribute('hidden');
+      detail.style.display = 'block';
       document.querySelectorAll('.traj-panel').forEach(function (p) {
         p.style.display = 'none';
       });
