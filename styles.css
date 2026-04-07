@@ -642,7 +642,10 @@ body {
 /* ---- ANNOTATED TRAJECTORIES ---- */
 .traj-legend {
   display: flex; flex-wrap: wrap; gap: 0.5rem 1.4rem;
-  margin-bottom: 1.75rem; padding: 0.85rem 1.2rem;
+  justify-content: center;
+  max-width: 56rem;
+  margin-left: auto; margin-right: auto;
+  margin-bottom: 1.5rem; padding: 0.85rem 1.2rem;
   background: white; border: 1px solid var(--border);
   border-radius: var(--radius); box-shadow: var(--shadow);
   align-items: center;
@@ -655,13 +658,20 @@ body {
   font-family: var(--font-mono); font-size: 0.71rem;
   padding: 0.12rem 0.45rem; border-radius: 3px; white-space: nowrap;
 }
+.traj-legend .traj-tag {
+  white-space: normal;
+  word-break: break-word;
+}
 .traj-tag-config  { background: #e8f0fb; color: #1a5ca8; }
 .traj-tag-plan    { background: #e6f5ec; color: #1a6b3c; }
 .traj-tag-reflect { background: #fdf3e7; color: #8a4f00; }
 .traj-tag-tool    { background: #f0f0f0; color: #444; }
 
 .traj-tabs {
-  display: flex; justify-content: center; gap: 0.65rem; flex-wrap: wrap;
+  display: flex; justify-content: center; align-items: stretch;
+  gap: 0.65rem; flex-wrap: wrap;
+  max-width: 56rem;
+  margin-left: auto; margin-right: auto;
   margin-bottom: 0;
 }
 .traj-tab {
