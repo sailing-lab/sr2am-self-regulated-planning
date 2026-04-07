@@ -13,7 +13,7 @@
   --blue-pale:   #ecfaf8;  /* IFMLightTealBlue  | was: #ADE8F4 */
 
   /* Typography */
-  --font-serif:  'Lora', Georgia, 'Times New Roman', serif;
+  --font-serif:  'Inter', system-ui, sans-serif;
   --font-sans:   'Inter', system-ui, sans-serif;
   --font-mono:   'JetBrains Mono', monospace;
 
