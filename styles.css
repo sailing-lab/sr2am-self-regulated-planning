@@ -92,15 +92,18 @@ body {
 }
 .hero-inner {
   --hero-title-size: clamp(2.4rem, 5.5vw, 3.8rem);
+  /* Square cap; wide PNGs must not stretch horizontally with width:auto */
+  --hero-robot-size: calc(var(--hero-title-size) * 0.8);
   max-width: 900px; width: 100%; margin: 0 auto;
   position: relative; z-index: 1;
   padding: 5rem 2rem 5rem;
 }
 
 .hero-inner img.hero-robot {
-  height: var(--hero-title-size);
-  width: auto;
-  max-width: 100%;
+  width: var(--hero-robot-size);
+  height: var(--hero-robot-size);
+  max-width: min(100%, var(--hero-robot-size));
+  max-height: var(--hero-robot-size);
   object-fit: contain;
   margin-bottom: 0.85rem;
   display: block;
