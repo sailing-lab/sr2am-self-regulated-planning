@@ -388,7 +388,28 @@ body {
   border-left: 1px solid #f0f2f5;
   white-space: nowrap; font-size: 0.83rem;
 }
-.paradigm-row-even { background: #fafbfc; }
+/* Section separators (midrule equivalent) */
+.paradigm-row-sep-after td {
+  border-bottom: 2px solid var(--border) !important;
+}
+/* Group header row */
+.paradigm-group-header td {
+  padding: 0.45rem 1.1rem 0.2rem;
+  border-bottom: none;
+  border-left: none;
+}
+.paradigm-group-label {
+  font-size: 0.78rem; font-weight: 600;
+  color: var(--text-muted); font-style: italic;
+  letter-spacing: 0.01em;
+}
+/* Subtype rows */
+.paradigm-subtype {
+  padding-left: 1.6rem !important;
+  color: var(--text-muted) !important;
+  font-weight: 400 !important;
+}
+/* SRAM highlight row — unchanged */
 .paradigm-row-highlight {
   background: linear-gradient(90deg, rgba(69,201,182,0.06) 0%, rgba(69,201,182,0.02) 100%);
 }
@@ -405,24 +426,15 @@ body {
 .paradigm-name-highlight {
   color: var(--blue-teal); font-weight: 700; font-size: 0.88rem;
 }
-/* Icon pills */
+/* Icons — no filled circle */
 .cap-yes {
-  display: inline-flex; align-items: center; justify-content: center;
-  width: 22px; height: 22px; border-radius: 50%;
-  background: rgba(69,201,182,0.12);
-  color: var(--blue-teal); font-size: 0.72rem; font-weight: 800; line-height: 1;
+  color: var(--blue-teal); font-size: 1rem; font-weight: 700;
 }
 .cap-no {
-  display: inline-flex; align-items: center; justify-content: center;
-  width: 22px; height: 22px; border-radius: 50%;
-  background: transparent;
-  color: #d1d5db; font-size: 0.72rem; font-weight: 700; line-height: 1;
+  color: #ccc; font-size: 1rem; font-weight: 400;
 }
 .cap-partial {
-  display: inline-flex; align-items: center; justify-content: center;
-  width: 22px; height: 22px; border-radius: 50%;
-  background: rgba(245,158,11,0.1);
-  color: #f59e0b; font-size: 0.85rem; font-weight: 700; line-height: 1;
+  color: #b0b8c6; font-size: 1rem; font-weight: 500;
 }
 
 /* Pipeline */
