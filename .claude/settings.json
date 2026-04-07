@@ -27,7 +27,8 @@
       "Bash(pip3 install:*)",
       "Bash(python3 -c \"import fitz; print\\('ok'\\)\")",
       "Bash(python3 -c ':*)",
-      "Bash(gh run:*)"
+      "Bash(gh run:*)",
+      "Bash(git commit:*)"
     ]
   }
 }
