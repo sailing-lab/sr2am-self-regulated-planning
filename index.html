@@ -135,6 +135,39 @@
           <p class="model-note">Competitive with DeepSeek-V3.2 (685B) and Kimi-K2.5 (1T), using 51.2% fewer tokens than MiroThinker-v1.5.</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ABSTRACT -->
+  <section class="section" id="abstract">
+    <div class="container">
+      <h2 class="section-title">Abstract</h2>
+      <div class="abstract-text">
+        <p>
+          Large language models (LLMs) are increasingly deployed as interactive agents that reason, use tools, and act over long horizons. However, current agentic LLMs typically rely on black-box chain-of-thought, where planning behavior is expected to emerge implicitly from unconstrained optimization with reinforcement learning (RL). Without control over planning presence, depth, or structure, these systems often rely on scaling reasoning length as the primary mechanism for improvement during training, leading to inefficient token consumption that does not reliably translate to accuracy gains. Prior approaches seek to contain reasoning growth by building capabilities such as effort adaptation, coarse mode-routing, and multi-agent distillation, which fall short of either explicit planning, per-turn regulation, or combination with free-formed reasoning.
+        </p>
+        <p>
+          We introduce <strong style="color: #45C9B6;">SRAM</strong>, an agentic LLM that combines the strengths of existing approaches while enabling more advanced planning features. Specifically, SRAM augments conventional thinking-acting LLMs with an explicit <em><strong>configurator</strong></em> and structured <em><strong>planner</strong></em> as part of its reasoning process. At each turn, the configurator decides whether to plan, continue an existing plan, or act directly; when invoked, the planner constructs explicit plans grounded in <em>predicted future states</em> and controlled planning depth.
+        </p>
+        <p>
+          These components operate alongside free-form reasoning, separating self-regulation, planning, and execution while preserving end-to-end expressiveness. We realize this framework through supervised data encoding self-regulated planning structure followed by RL for task success, yielding SRAM-v0.1-8B and SRAM-v1.0-30B.
+        </p>
+        <p>
+          Across mathematical reasoning, scientific problem-solving, tabular data analysis, and web information seeking, SRAM-v0.1-8B and SRAM-v1.0-30B achieve overall Pass@1 competitive with systems at <strong>120–355B and 685B–1T parameters</strong>, respectively, while consuming up to <strong style="color: #45C9B6;">25–95% fewer reasoning tokens</strong> than comparably sized agentic LLMs. Analysis shows that RL increases average plan depth by 22.8% while planning frequency grows only 2.0%, suggesting the model learns to plan at longer horizons without overly frequent planning.
+        </p>
+      </div>
+
+      <!-- Architecture overview figure -->
+      <div class="arch-figure" style="margin-top: 2.5rem;">
+        <img src="figures/sram-arch-1.2-p3.png" alt="SRAM architecture overview" />
+        <p class="figure-caption"><strong>Figure 1.</strong> Overview of the SRAM architecture. The self-regulated agent augments conventional reasoning-and-acting with an explicit configurator (κ) that dynamically controls planning behavior — deciding whether to make a new plan, continue an existing one, or act directly — at each turn.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTS (continued) -->
+  <section class="section" id="results-detail">
+    <div class="container">
 
       <!-- Main results figure -->
       <div class="result-figure">
@@ -273,33 +306,6 @@
           <h4><span class="finding-sym">&#8599;</span> Scales Above the Trend</h4>
           <p>Both SRAM models sit above the Overall Pass@1 vs. log(parameter size) trendline, outperforming their scale would predict.</p>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ABSTRACT -->
-  <section class="section" id="abstract">
-    <div class="container">
-      <h2 class="section-title">Abstract</h2>
-      <div class="abstract-text">
-        <p>
-          Large language models (LLMs) are increasingly deployed as interactive agents that reason, use tools, and act over long horizons. However, current agentic LLMs typically rely on black-box chain-of-thought, where planning behavior is expected to emerge implicitly from unconstrained optimization with reinforcement learning (RL). Without control over planning presence, depth, or structure, these systems often rely on scaling reasoning length as the primary mechanism for improvement during training, leading to inefficient token consumption that does not reliably translate to accuracy gains. Prior approaches seek to contain reasoning growth by building capabilities such as effort adaptation, coarse mode-routing, and multi-agent distillation, which fall short of either explicit planning, per-turn regulation, or combination with free-formed reasoning.
-        </p>
-        <p>
-          We introduce <strong style="color: #45C9B6;">SRAM</strong>, an agentic LLM that combines the strengths of existing approaches while enabling more advanced planning features. Specifically, SRAM augments conventional thinking-acting LLMs with an explicit <em><strong>configurator</strong></em> and structured <em><strong>planner</strong></em> as part of its reasoning process. At each turn, the configurator decides whether to plan, continue an existing plan, or act directly; when invoked, the planner constructs explicit plans grounded in <em>predicted future states</em> and controlled planning depth.
-        </p>
-        <p>
-          These components operate alongside free-form reasoning, separating self-regulation, planning, and execution while preserving end-to-end expressiveness. We realize this framework through supervised data encoding self-regulated planning structure followed by RL for task success, yielding SRAM-v0.1-8B and SRAM-v1.0-30B.
-        </p>
-        <p>
-          Across mathematical reasoning, scientific problem-solving, tabular data analysis, and web information seeking, SRAM-v0.1-8B and SRAM-v1.0-30B achieve overall Pass@1 competitive with systems at <strong>120–355B and 685B–1T parameters</strong>, respectively, while consuming up to <strong style="color: #45C9B6;">25–95% fewer reasoning tokens</strong> than comparably sized agentic LLMs. Analysis shows that RL increases average plan depth by 22.8% while planning frequency grows only 2.0%, suggesting the model learns to plan at longer horizons without overly frequent planning.
-        </p>
-      </div>
-
-      <!-- Architecture overview figure -->
-      <div class="arch-figure" style="margin-top: 2.5rem;">
-        <img src="figures/sram-arch-1.2-p3.png" alt="SRAM architecture overview" />
-        <p class="figure-caption"><strong>Figure 1.</strong> Overview of the SRAM architecture. The self-regulated agent augments conventional reasoning-and-acting with an explicit configurator (κ) that dynamically controls planning behavior — deciding whether to make a new plan, continue an existing one, or act directly — at each turn.</p>
       </div>
     </div>
   </section>
