@@ -94,13 +94,13 @@
           Large language models (LLMs) are increasingly deployed as interactive agents that reason, use tools, and act over long horizons. However, current agentic LLMs typically rely on black-box chain-of-thought, where planning behavior is expected to emerge implicitly from end-to-end optimization. This often leads to inefficient reasoning, unstable long-horizon behavior, and unnecessary growth in reasoning length even when little or no planning is required.
         </p>
         <p>
-          We argue that effective agents should not only reason and act, but also <em><strong>regulate when to deliberate, how much to plan, and what kind of plan to construct</strong></em> based on task difficulty, uncertainty, and decision budget. We introduce <strong>SRAM</strong>, a self-regulated agentic LLM for interactive reasoning.
+          We argue that effective agents should not only reason and act, but also <em><strong>regulate when to deliberate, how much to plan, and what kind of plan to construct</strong></em> based on task difficulty, uncertainty, and decision budget. We introduce <strong style="color: var(--accent);">SRAM</strong>, a self-regulated agentic LLM for interactive reasoning.
         </p>
         <p>
           SRAM augments conventional reasoning-and-acting agents with an explicit <em><strong>configurator</strong></em> that dynamically controls planning behavior — including whether to make a new plan, continue or revise an existing one, or react directly without planning.
         </p>
         <p>
-          Across a diverse set of interactive reasoning tasks including mathematical reasoning, scientific problem solving, data analysis, and web browsing, SRAM achieves strong performance relative to substantially larger reasoning models and LLM+tool systems. SRAM v0.1 8B and SRAM v1.0 30B outperform or compete with systems in the <strong>120–355B and 685B–1T parameter ranges</strong>, respectively, while reducing reasoning tokens by up to <strong style="color: var(--accent);">50%</strong>.
+          Across a diverse set of interactive reasoning tasks including mathematical reasoning, scientific problem solving, data analysis, and web browsing, SRAM achieves strong performance relative to substantially larger reasoning models and LLM+tool systems. SRAM v0.1 8B and SRAM v1.0 30B outperform or compete with systems in the <strong>120–355B and 685B–1T parameter ranges</strong>, respectively, while reducing reasoning tokens by up to <strong style="color: var(--accent);">50%</strong>. Further analysis shows that self-regulation improves training efficiency and encourages longer-horizon planning without overplanning. These results suggest that explicit self-regulation is a promising ingredient for building more efficient and capable long-horizon agentic models.
         </p>
       </div>
 
