@@ -42,12 +42,12 @@
         <span>Jinyu Hou</span><sup class="author-sup">*,1,2</sup><span class="sep">&nbsp;&nbsp;</span>
         <span>Lara Sá Neves</span><sup class="author-sup">*,1,2</sup>
         <br />
-        <span>Varad Pimpalkhute</span><sup class="author-sup">1,3</sup><span class="sep">&nbsp;&nbsp;</span>
-        <span>Taylor W. Killian</span><sup class="author-sup">1,2,3</sup><span class="sep">&nbsp;&nbsp;</span>
-        <span>Zhengzhong Liu</span><sup class="author-sup">1,2,3</sup><span class="sep">&nbsp;&nbsp;</span>
-        <span>Eric P. Xing</span><sup class="author-sup">1,2,3</sup>
+        <span>Varad Pimpalkhute</span><sup class="author-sup">1</sup><span class="sep">&nbsp;&nbsp;</span>
+        <span>Taylor W. Killian</span><sup class="author-sup">1</sup><span class="sep">&nbsp;&nbsp;</span>
+        <span>Zhengzhong Liu</span><sup class="author-sup">1</sup><span class="sep">&nbsp;&nbsp;</span>
+        <span>Eric P. Xing</span><sup class="author-sup">1,2</sup>
       </div>
-      <p class="affil-line"><sup>*</sup> Equal contribution<br><sup>1</sup> Institute of Foundation Models &nbsp;&nbsp; <sup>2</sup> Carnegie Mellon University &nbsp;&nbsp; <sup>3</sup> Mohamed bin Zayed University of Artificial Intelligence</p>
+      <p class="affil-line"><sup>*</sup> Equal contribution<br><sup>1</sup> Institute of Foundation Models &nbsp;&nbsp; <sup>2</sup> Carnegie Mellon University</p>
       <div class="hero-links">
         <a href="#" class="btn-link btn-primary">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
@@ -81,8 +81,8 @@
           <span class="stat-label">Overall Pass@1<br/><small>SRAM v1.0 30B</small></span>
         </div>
         <div class="stat-card">
-          <span class="stat-num">50%</span>
-          <span class="stat-label">Fewer Reasoning Tokens<br/><small>vs. comparable models</small></span>
+          <span class="stat-num">up to 95%</span>
+          <span class="stat-label">Fewer Reasoning Tokens<br/><small>25–95% vs. comparable agentic LLMs</small></span>
         </div>
         <div class="stat-card">
           <span class="stat-num">685B–1T</span>
@@ -102,16 +102,16 @@
       <h2 class="section-title">Abstract</h2>
       <div class="abstract-text">
         <p>
-          Large language models (LLMs) are increasingly deployed as interactive agents that reason, use tools, and act over long horizons. However, current agentic LLMs typically rely on black-box chain-of-thought, where planning behavior is expected to emerge implicitly from end-to-end optimization. This often leads to inefficient reasoning, unstable long-horizon behavior, and unnecessary growth in reasoning length even when little or no planning is required.
+          Large language models (LLMs) are increasingly deployed as interactive agents that reason, use tools, and act over long horizons. However, current agentic LLMs typically rely on black-box chain-of-thought, where planning behavior is expected to emerge implicitly from unconstrained optimization with reinforcement learning (RL). Without control over planning presence, depth, or structure, these systems often rely on scaling reasoning length as the primary mechanism for improvement during training, leading to inefficient token consumption that does not reliably translate to accuracy gains. Prior approaches seek to contain reasoning growth by building capabilities such as effort adaptation, coarse mode-routing, and multi-agent distillation, which fall short of either explicit planning, per-turn regulation, or combination with free-formed reasoning.
         </p>
         <p>
-          We argue that effective agents should not only reason and act, but also <em><strong>regulate when to deliberate, how much to plan, and what kind of plan to construct</strong></em> based on task difficulty, uncertainty, and decision budget. We introduce <strong style="color: #45C9B6;">SRAM</strong>, a self-regulated agentic LLM for interactive reasoning.
+          We introduce <strong style="color: #45C9B6;">SRAM</strong>, an agentic LLM that combines the strengths of existing approaches while enabling more advanced planning features. Specifically, SRAM augments conventional thinking-acting LLMs with an explicit <em><strong>configurator</strong></em> and structured <em><strong>planner</strong></em> as part of its reasoning process. At each turn, the configurator decides whether to plan, continue an existing plan, or act directly; when invoked, the planner constructs explicit plans grounded in <em>predicted future states</em> and controlled planning depth.
         </p>
         <p>
-          SRAM augments conventional reasoning-and-acting agents with an explicit <em><strong>configurator</strong></em> that dynamically controls planning behavior — including whether to make a new plan, continue or revise an existing one, or react directly without planning.
+          These components operate alongside free-form reasoning, separating self-regulation, planning, and execution while preserving end-to-end expressiveness. We realize this framework through supervised data encoding self-regulated planning structure followed by RL for task success, yielding SRAM-v0.1-8B and SRAM-v1.0-30B.
         </p>
         <p>
-          Across a diverse set of interactive reasoning tasks including mathematical reasoning, scientific problem solving, data analysis, and web browsing, SRAM achieves strong performance relative to substantially larger reasoning models and LLM+tool systems. SRAM v0.1 8B and SRAM v1.0 30B outperform or compete with systems in the <strong>120–355B and 685B–1T parameter ranges</strong>, respectively, while reducing reasoning tokens by up to <strong style="color: #45C9B6;">50%</strong>. Further analysis shows that self-regulation improves training efficiency and encourages longer-horizon planning without overplanning. These results suggest that explicit self-regulation is a promising ingredient for building more efficient and capable long-horizon agentic models.
+          Across mathematical reasoning, scientific problem-solving, tabular data analysis, and web information seeking, SRAM-v0.1-8B and SRAM-v1.0-30B achieve overall Pass@1 competitive with systems at <strong>120–355B and 685B–1T parameters</strong>, respectively, while consuming up to <strong style="color: #45C9B6;">25–95% fewer reasoning tokens</strong> than comparably sized agentic LLMs. Analysis shows that RL increases average plan depth by 22.8% while planning frequency grows only 2.0%, suggesting the model learns to plan at longer horizons without overly frequent planning.
         </p>
       </div>
 
@@ -133,7 +133,7 @@
         <div class="method-card">
           <div class="method-icon configurator-icon">κ</div>
           <h3>Configurator</h3>
-          <p>Assesses the current belief state at every turn and decides whether to make a new plan, continue or revise an existing one, or act directly without planning. Enables per-turn self-regulation.</p>
+          <p>Assesses the current belief state at every turn and decides whether to plan, continue an existing plan, or act directly. Enables per-turn self-regulation of planning presence and depth.</p>
         </div>
         <div class="method-arrow">→</div>
         <div class="method-card">
