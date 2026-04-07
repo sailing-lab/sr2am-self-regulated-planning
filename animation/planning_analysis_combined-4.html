@@ -1,11 +1,11 @@
 
 <meta charset="UTF-8">
-<div style="max-width: 1100px; margin: 0 auto;">
+<div style="max-width: 1400px; margin: 0 auto;">
 <div style="display: flex; gap: 24px; width: 100%;">
-  <div style="position: relative; flex: 1; height: 340px;">
+  <div style="position: relative; flex: 1; height: 420px;">
     <canvas id="chartDist"></canvas>
   </div>
-  <div style="position: relative; flex: 1; height: 340px;">
+  <div style="position: relative; flex: 1; height: 420px;">
     <canvas id="chartLen"></canvas>
   </div>
 </div>
@@ -18,11 +18,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.2.0/chartjs-plugin-datalabels.min.js"></script>
 <script>
 Chart.register(ChartDataLabels);
-const isDark = (window.parent !== window)
-  ? window.parent.matchMedia('(prefers-color-scheme: dark)').matches
-  : matchMedia('(prefers-color-scheme: dark)').matches;
-const gridColor = isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.08)';
-const textColor = isDark ? '#ccc' : '#444';
+const gridColor = 'rgba(0,0,0,0.08)';
+const textColor = '#222';
 const preRL = '#9DD4A5';
 const postRL = '#4A9E5C';
 
