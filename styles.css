@@ -417,7 +417,7 @@ body {
 }
 .results-table th,
 .results-table td {
-  padding: 0.65rem 0.85rem; text-align: center;
+  padding: 0.35rem 0.85rem; text-align: center;
   border-bottom: 1px solid var(--border); white-space: nowrap;
 }
 .results-table th {
