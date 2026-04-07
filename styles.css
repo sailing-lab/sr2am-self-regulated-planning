@@ -661,12 +661,28 @@ body {
 .traj-tag-tool    { background: #f0f0f0; color: #444; }
 
 .traj-tabs {
-  display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.5rem;
+  display: flex; justify-content: center; gap: 0.65rem; flex-wrap: wrap;
+  margin-bottom: 0;
 }
 .traj-tab {
-  padding: 0.55rem 1.25rem; border-radius: 8px; border: 1px solid var(--border);
-  background: white; font-size: 0.84rem; font-weight: 400; color: var(--text);
-  cursor: pointer; transition: all 0.18s; line-height: 1.4;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 0.2rem; text-align: center; line-height: 1.35;
+  min-width: min(100%, 17rem);
+  padding: 0.65rem 1.35rem; border-radius: 8px; border: 1px solid var(--border);
+  background: white; font-size: 0.82rem; font-weight: 400; color: var(--text);
+  cursor: pointer; transition: all 0.18s;
+}
+.traj-tab-line { display: block; }
+.traj-tab-line strong { font-size: 0.78rem; letter-spacing: 0.04em; }
+
+.traj-detail {
+  margin-top: 1.75rem;
+}
+.traj-detail[hidden] {
+  display: none !important;
+}
+.traj-panel {
+  display: none;
 }
 .traj-tab:hover { border-color: var(--blue-teal); color: var(--blue-deep); }
 .traj-tab.active {
@@ -697,6 +713,7 @@ body {
 
 .traj-scroll {
   max-height: 530px; overflow-y: auto;
+  overscroll-behavior: contain;
   border: 1px solid var(--border); border-radius: var(--radius);
   padding: 1rem 1.1rem 1.25rem; background: #f9fafb;
   scroll-behavior: smooth;
