@@ -664,22 +664,25 @@
       <h2 class="section-title">Case Studies</h2>
       <p class="section-subtitle">Two step-by-step examples that map model outputs to the formal components of SRAM's self-regulated agent equation.</p>
 
+      <!-- Example pickers -->
+      <div class="traj-tabs">
+        <button type="button" class="traj-tab" onclick="switchTraj('browsecomp', this)">
+          <span class="traj-tab-line"><strong>EXAMPLE 1</strong></span>
+          <span class="traj-tab-line">SRAM-v0.1-8B · BrowseComp</span>
+        </button>
+        <button type="button" class="traj-tab" onclick="switchTraj('gpqa', this)">
+          <span class="traj-tab-line"><strong>EXAMPLE 2</strong></span>
+          <span class="traj-tab-line">SRAM-v1.0-30B · GPQA Diamond</span>
+        </button>
+      </div>
+
+      <div id="traj-detail" class="traj-detail" hidden>
       <!-- Legend -->
       <div class="traj-legend">
         <span class="traj-legend-item"><span class="traj-tag traj-tag-config">&lt;configurator&gt; / &lt;think&gt;</span> Configurator</span>
         <span class="traj-legend-item"><span class="traj-tag traj-tag-plan">&lt;planning&gt; / &lt;Plan&gt;</span> Plan</span>
         <span class="traj-legend-item"><span class="traj-tag traj-tag-reflect">&lt;reflection&gt;</span> Reflection</span>
         <span class="traj-legend-item"><span class="traj-tag traj-tag-tool">&lt;tool_call&gt;</span> Action</span>
-      </div>
-
-      <!-- Tabs -->
-      <div class="traj-tabs">
-        <button class="traj-tab active" onclick="switchTraj('browsecomp', this)">
-          <strong>SRAM-v0.1-8B</strong>&nbsp;&nbsp;BrowseComp
-        </button>
-        <button class="traj-tab" onclick="switchTraj('gpqa', this)">
-          <strong>SRAM-v1.0-30B</strong>&nbsp;&nbsp;GPQA Diamond
-        </button>
       </div>
 
       <!-- Panel: BrowseComp -->
@@ -830,7 +833,7 @@
       </div><!-- end traj-browsecomp -->
 
       <!-- Panel: GPQA -->
-      <div class="traj-panel" id="traj-gpqa" style="display:none">
+      <div class="traj-panel" id="traj-gpqa">
         <div class="traj-question">
           <span class="case-source-badge">GPQA Diamond</span>
           <p>If uncertainty in space of electron's location, which is travelling with speed \(v = 2 \times 10^{8}\,\mathrm{m/s}\) along x-direction is \(\Delta x = 0.1\,\mathrm{nm}\). Based on the information estimate the minimum uncertainty in the energy \(\Delta E\) of electron.<br>
@@ -950,15 +953,26 @@ delta x delta p minimum uncertainty energy electron speed 2e8 m/s delta x 0.1 nm
         </div><!-- end traj-scroll -->
       </div><!-- end traj-gpqa -->
 
+      </div><!-- end traj-detail -->
+
     </div>
   </section>
 
   <script>
     function switchTraj(id, btn) {
-      document.querySelectorAll('.traj-panel').forEach(p => p.style.display = 'none');
-      document.querySelectorAll('.traj-tab').forEach(t => t.classList.remove('active'));
-      document.getElementById('traj-' + id).style.display = 'block';
+      var detail = document.getElementById('traj-detail');
+      detail.removeAttribute('hidden');
+      document.querySelectorAll('.traj-panel').forEach(function (p) {
+        p.style.display = 'none';
+      });
+      document.querySelectorAll('.traj-tab').forEach(function (t) {
+        t.classList.remove('active');
+      });
+      var panel = document.getElementById('traj-' + id);
+      panel.style.display = 'block';
       btn.classList.add('active');
+      var scroll = panel.querySelector('.traj-scroll');
+      if (scroll) scroll.scrollTop = 0;
     }
   </script>
 
