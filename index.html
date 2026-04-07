@@ -143,10 +143,100 @@
         </div>
       </div>
 
-      <!-- Architecture figure -->
-      <div class="arch-figure">
-        <img src="figures/sram-arch.png" alt="SRAM decision-making process illustration" />
-        <p class="figure-caption"><strong>Figure 1.</strong> Illustration of the decision-making process of SRAM. The agentic LLM interacts with the universe over multiple time steps, receiving observations o<sub>t</sub> and executing actions a<sub>t</sub>. At each step, the configurator outputs a decision u<sub>t</sub> for whether to make a new plan, continue an existing plan, or skip planning entirely. When planning is invoked, the planner simulates proposed actions and predicted belief states, performing goal-directed planning with world-model simulation.</p>
+      <!-- System Comparison Table -->
+      <div class="comparison-table-section" style="margin-top: 3rem;">
+        <h3 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 0.5rem;">System Comparison</h3>
+        <p style="color: var(--text-secondary); margin-bottom: 1.5rem; max-width: 42rem;">
+          SRAM is the first system to combine all seven capabilities for agentic reasoning.
+        </p>
+        <div style="overflow-x: auto;">
+          <table class="paradigm-table">
+            <thead>
+              <tr>
+                <th class="paradigm-th-left">System Type</th>
+                <th class="paradigm-th">Env. Interaction</th>
+                <th class="paradigm-th">Agentic Training</th>
+                <th class="paradigm-th">Free-Form Reasoning</th>
+                <th class="paradigm-th">Per-Turn Regulation</th>
+                <th class="paradigm-th">Explicit Planning</th>
+                <th class="paradigm-th">Simulative Planning</th>
+                <th class="paradigm-th">Ctrl. Plan Depth</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="paradigm-row-even">
+                <td class="paradigm-td-name">Reasoning LLM</td>
+                <td class="paradigm-td"><span class="cap-no">✗</span></td>
+                <td class="paradigm-td"><span class="cap-no">✗</span></td>
+                <td class="paradigm-td"><span class="cap-yes">✓</span></td>
+                <td class="paradigm-td"><span class="cap-no">✗</span></td>
+                <td class="paradigm-td"><span class="cap-no">✗</span></td>
+                <td class="paradigm-td"><span class="cap-no">✗</span></td>
+                <td class="paradigm-td"><span class="cap-no">✗</span></td>
+              </tr>
+              <tr>
+                <td class="paradigm-td-name">LLM + Tools</td>
+                <td class="paradigm-td"><span class="cap-yes">✓</span></td>
+                <td class="paradigm-td"><span class="cap-no">✗</span></td>
+                <td class="paradigm-td"><span class="cap-yes">✓</span></td>
+                <td class="paradigm-td"><span class="cap-no">✗</span></td>
+                <td class="paradigm-td"><span class="cap-no">✗</span></td>
+                <td class="paradigm-td"><span class="cap-no">✗</span></td>
+                <td class="paradigm-td"><span class="cap-no">✗</span></td>
+              </tr>
+              <tr class="paradigm-row-even">
+                <td class="paradigm-td-name">Black-Box Agentic</td>
+                <td class="paradigm-td"><span class="cap-yes">✓</span></td>
+                <td class="paradigm-td"><span class="cap-yes">✓</span></td>
+                <td class="paradigm-td"><span class="cap-yes">✓</span></td>
+                <td class="paradigm-td"><span class="cap-no">✗</span></td>
+                <td class="paradigm-td"><span class="cap-no">✗</span></td>
+                <td class="paradigm-td"><span class="cap-no">✗</span></td>
+                <td class="paradigm-td"><span class="cap-no">✗</span></td>
+              </tr>
+              <tr>
+                <td class="paradigm-td-name">Adaptive Effort</td>
+                <td class="paradigm-td"><span class="cap-yes">✓</span></td>
+                <td class="paradigm-td"><span class="cap-yes">✓</span></td>
+                <td class="paradigm-td"><span class="cap-yes">✓</span></td>
+                <td class="paradigm-td"><span class="cap-yes">✓</span></td>
+                <td class="paradigm-td"><span class="cap-no">✗</span></td>
+                <td class="paradigm-td"><span class="cap-no">✗</span></td>
+                <td class="paradigm-td"><span class="cap-no">✗</span></td>
+              </tr>
+              <tr class="paradigm-row-even">
+                <td class="paradigm-td-name">Coarse Routing</td>
+                <td class="paradigm-td"><span class="cap-yes">✓</span></td>
+                <td class="paradigm-td"><span class="cap-yes">✓</span></td>
+                <td class="paradigm-td"><span class="cap-partial">—</span></td>
+                <td class="paradigm-td"><span class="cap-no">✗</span></td>
+                <td class="paradigm-td"><span class="cap-no">✗</span></td>
+                <td class="paradigm-td"><span class="cap-no">✗</span></td>
+                <td class="paradigm-td"><span class="cap-no">✗</span></td>
+              </tr>
+              <tr>
+                <td class="paradigm-td-name">Multi-Agent Distill.</td>
+                <td class="paradigm-td"><span class="cap-yes">✓</span></td>
+                <td class="paradigm-td"><span class="cap-yes">✓</span></td>
+                <td class="paradigm-td"><span class="cap-no">✗</span></td>
+                <td class="paradigm-td"><span class="cap-yes">✓</span></td>
+                <td class="paradigm-td"><span class="cap-yes">✓</span></td>
+                <td class="paradigm-td"><span class="cap-no">✗</span></td>
+                <td class="paradigm-td"><span class="cap-no">✗</span></td>
+              </tr>
+              <tr class="paradigm-row-highlight">
+                <td class="paradigm-td-name paradigm-name-highlight">SRAM (Ours)</td>
+                <td class="paradigm-td"><span class="cap-yes">✓</span></td>
+                <td class="paradigm-td"><span class="cap-yes">✓</span></td>
+                <td class="paradigm-td"><span class="cap-yes">✓</span></td>
+                <td class="paradigm-td"><span class="cap-yes">✓</span></td>
+                <td class="paradigm-td"><span class="cap-yes">✓</span></td>
+                <td class="paradigm-td"><span class="cap-yes">✓</span></td>
+                <td class="paradigm-td"><span class="cap-yes">✓</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
 
       <div class="method-formula">
