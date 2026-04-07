@@ -1,0 +1,47 @@
+  <!-- TRAINING DYNAMICS -->
+  <section class="section section-gray" id="training">
+    <div class="container">
+      <h2 class="section-title">Training Dynamics</h2>
+      <p class="section-subtitle">Self-regulation initialization enables more efficient RL training — higher accuracy with fewer tokens.</p>
+
+      <!-- Chart -->
+      <div class="result-figure result-figure-after-table">
+        <iframe id="fig5-iframe" data-src="animation/ablation_sft_coldstart_combined_axes-5.html" style="width:100%;height:560px;border:none;display:block;" scrolling="no"></iframe>
+        <script>
+          (function() {
+            var iframe = document.getElementById('fig5-iframe');
+            var observer = new IntersectionObserver(function(entries) {
+              if (entries[0].isIntersecting && !iframe.src) {
+                iframe.src = iframe.dataset.src;
+                observer.disconnect();
+              }
+            }, { rootMargin: '100px' });
+            observer.observe(iframe);
+          })();
+        </script>
+        <p class="figure-caption"><strong>Figure 5.</strong> RL training progress over 400 steps. Without self-regulation structure, RL increases token consumption with diminishing accuracy returns, while the self-regulated model achieves steadily improving accuracy with controlled token growth. OoC % labels show out-of-context rates per checkpoint.</p>
+      </div>
+
+      <!-- Insight cards -->
+      <h3 class="table-title findings-title">Key Training Insights</h3>
+      <div class="findings-grid">
+        <div class="finding-card">
+          <h4><span class="finding-sym">&#8595;</span> 41–55% Fewer Reasoning Tokens</h4>
+          <p>Self-regulation SFT reduces token consumption during RL training compared to black-box reasoning.</p>
+        </div>
+        <div class="finding-card">
+          <h4><span class="finding-sym">&#8599;</span> Higher Converged Score</h4>
+          <p>Self-regulated initialization converges to a higher overall score than training from the base model.</p>
+        </div>
+        <div class="finding-card">
+          <h4><span class="finding-sym">&#126;</span> ~2,100 → 3,600 Controlled Token Growth</h4>
+          <p>SRAM tokens grow modestly vs. black-box's ~4,100 → 5,500, with steadily improving accuracy.</p>
+        </div>
+        <div class="finding-card">
+          <h4><span class="finding-sym">&#33;</span> 22.4% Black-Box Overflow Rate</h4>
+          <p>Without self-regulation, RL causes rising context overflow; SRAM avoids this entirely.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
