@@ -639,6 +639,131 @@ body {
   padding: 0.45rem 0.75rem; margin-top: auto;
 }
 
+/* ---- ANNOTATED TRAJECTORIES ---- */
+.traj-legend {
+  display: flex; flex-wrap: wrap; gap: 0.6rem 1.2rem;
+  margin-bottom: 1.5rem; padding: 0.9rem 1.2rem;
+  background: white; border: 1px solid var(--border);
+  border-radius: var(--radius); box-shadow: var(--shadow);
+  align-items: center;
+}
+.traj-legend-item {
+  display: flex; align-items: center; gap: 0.45rem;
+  font-size: 0.82rem; color: var(--text);
+}
+.traj-tag {
+  font-family: var(--font-mono); font-size: 0.72rem;
+  padding: 0.12rem 0.45rem; border-radius: 3px;
+}
+.traj-tag-config { background: #e8f0fb; color: #1a5ca8; }
+.traj-tag-plan   { background: #e6f5ec; color: #1a6b3c; }
+.traj-tag-reflect{ background: #fdf3e7; color: #8a4f00; }
+.traj-tag-tool   { background: #f0f0f0; color: #333; }
+
+.traj-tabs {
+  display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.5rem;
+}
+.traj-tab {
+  padding: 0.55rem 1.2rem; border-radius: 8px; border: 1px solid var(--border);
+  background: white; font-size: 0.84rem; font-weight: 400; color: var(--text);
+  cursor: pointer; transition: all 0.18s;
+}
+.traj-tab:hover { border-color: var(--blue-teal); color: var(--blue-deep); }
+.traj-tab.active {
+  background: var(--blue-deep); color: white; border-color: var(--blue-deep);
+  box-shadow: 0 2px 8px rgba(40,66,105,0.18);
+}
+
+.traj-question {
+  background: white; border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 1.25rem 1.4rem; margin-bottom: 1rem;
+  box-shadow: var(--shadow);
+}
+.traj-question p { font-size: 0.9rem; line-height: 1.6; color: var(--text); }
+
+.traj-intro {
+  background: #f8f9fb; border-left: 3px solid var(--blue-teal);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 0.85rem 1.1rem; margin-bottom: 1.25rem; font-size: 0.85rem;
+  color: var(--text-muted); line-height: 1.6;
+}
+.traj-intro p { margin: 0; }
+
+.traj-scroll {
+  max-height: 520px; overflow-y: auto;
+  border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 1rem 1.1rem; background: #fafbfc;
+  scroll-behavior: smooth;
+}
+.traj-scroll::-webkit-scrollbar { width: 6px; }
+.traj-scroll::-webkit-scrollbar-track { background: #f0f0f0; border-radius: 3px; }
+.traj-scroll::-webkit-scrollbar-thumb { background: #c0c8d4; border-radius: 3px; }
+
+.traj-step-banner {
+  background: #3c3c3c; color: white;
+  font-size: 0.78rem; font-weight: 700; letter-spacing: 0.04em;
+  padding: 0.3rem 0.75rem; border-radius: 4px;
+  display: inline-block; margin: 0.9rem 0 0.6rem;
+}
+.traj-step-banner:first-child { margin-top: 0; }
+
+.traj-block {
+  border-radius: 6px; padding: 0.75rem 1rem;
+  margin-bottom: 0.55rem; font-size: 0.83rem; line-height: 1.65;
+}
+.traj-block-label {
+  font-family: var(--font-mono); font-size: 0.72rem; font-weight: 600;
+  margin-bottom: 0.4rem; display: flex; align-items: center; gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.traj-annotation {
+  font-family: var(--font-sans); font-size: 0.72rem; font-weight: 500;
+  font-style: italic; opacity: 0.75;
+}
+.traj-block ol, .traj-block ul { margin: 0.4rem 0 0 1.2rem; padding: 0; }
+.traj-block li { margin-bottom: 0.25rem; }
+.traj-block p { margin: 0; }
+.traj-block code {
+  font-family: var(--font-mono); font-size: 0.8rem;
+  background: rgba(0,0,0,0.06); padding: 0.1rem 0.3rem; border-radius: 3px;
+}
+
+.traj-block-config {
+  background: #eef3fb; border-left: 3px solid #1a5ca8;
+}
+.traj-block-config .traj-block-label { color: #1a5ca8; }
+
+.traj-block-plan {
+  background: #eaf5ee; border-left: 3px solid #1a6b3c; color: #1a4a2a;
+}
+.traj-block-plan .traj-block-label { color: #1a6b3c; }
+
+.traj-block-reflect {
+  background: #fdf5e8; border-left: 3px solid #c47a00;
+}
+.traj-block-reflect .traj-block-label { color: #8a4f00; }
+
+.traj-block-tool {
+  background: #f3f3f3; border-left: 3px solid #666;
+  font-family: var(--font-mono); font-size: 0.8rem; color: #333;
+}
+.traj-block-tool .traj-block-label { color: #555; }
+.traj-block-tool code {
+  background: none; padding: 0; font-size: 0.8rem; display: block;
+}
+
+.traj-answer {
+  display: flex; align-items: center; gap: 0.7rem;
+  margin-top: 1rem; padding: 0.85rem 1.1rem;
+  background: #e6f5ec; border: 1.5px solid #2a9d5c;
+  border-radius: 6px; font-family: var(--font-mono); font-size: 0.88rem;
+}
+.traj-answer-label {
+  font-weight: 700; color: #1a6b3c; font-family: var(--font-sans);
+  font-size: 0.82rem; flex-shrink: 0;
+}
+.traj-answer code { background: none; font-size: 0.88rem; }
+
 /* ---- CITATION ---- */
 .bibtex-block {
   background: #f4f6f8; border-radius: var(--radius);
