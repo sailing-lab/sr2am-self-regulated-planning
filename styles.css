@@ -125,7 +125,7 @@ body {
 
 .paper-title {
   font-family: var(--font-serif);
-  font-size: clamp(1.85rem, 4.2vw, 3rem);
+  font-size: clamp(2.4rem, 5.5vw, 3.8rem);
   font-weight: 700; line-height: 1.2;
   letter-spacing: -0.02em; color: var(--text);
   margin-bottom: 1.6rem;
@@ -134,6 +134,20 @@ body {
 .title-accent {
   color: var(--blue-teal);
   position: relative;
+}
+
+.title-accent-gradient {
+  background: linear-gradient(135deg, var(--blue-teal) 0%, var(--blue-mid) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+}
+
+.author-sup {
+  color: var(--blue-teal);
+  font-weight: 700;
+  font-size: 0.72rem;
 }
 
 .authors {
@@ -175,7 +189,7 @@ body {
 
 /* Stats section */
 .stats-section {
-  background: linear-gradient(160deg, #edf8f6 0%, #f4fbfa 45%, #eaf4ff 100%);
+  background: var(--bg-white);
   border-bottom: 1px solid var(--border);
   padding: 5rem 2rem 3rem;
 }
@@ -421,6 +435,7 @@ body {
 }
 .sram-row td { background: #d4f3ef; }               /* was: #EBF8FF */
 .sram-row:hover td { background: #bfede7 !important; } /* was: #D6F3FF */
+.sram-row td:first-child strong { color: #45C9B6; }
 
 .findings-title { margin-top: 3rem; }
 
