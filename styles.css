@@ -91,22 +91,22 @@ body {
   pointer-events: none;
 }
 .hero-inner {
+  --hero-title-size: clamp(2.4rem, 5.5vw, 3.8rem);
   max-width: 900px; width: 100%; margin: 0 auto;
   position: relative; z-index: 1;
   padding: 5rem 2rem 5rem;
 }
 
 .hero-inner img.hero-robot {
-  width: 1px;
-  height: 1px;
-  max-width: 1px;
-  max-height: 1px;
+  height: var(--hero-title-size);
+  width: auto;
+  max-width: 100%;
   object-fit: contain;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.85rem;
   display: block;
   margin-left: auto;
   margin-right: auto;
-  filter: drop-shadow(0 1px 4px rgba(69, 201, 182, 0.35));
+  filter: drop-shadow(0 2px 10px rgba(69, 201, 182, 0.35));
 }
 
 .hero-title-glow {
@@ -138,7 +138,7 @@ body {
 
 .paper-title {
   font-family: var(--font-serif);
-  font-size: clamp(2.4rem, 5.5vw, 3.8rem);
+  font-size: var(--hero-title-size);
   font-weight: 700; line-height: 1.2;
   letter-spacing: -0.02em; color: var(--text);
   margin-bottom: 1.6rem;
