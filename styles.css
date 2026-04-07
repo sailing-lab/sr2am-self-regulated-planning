@@ -161,7 +161,7 @@ body {
 .stats-section {
   background: linear-gradient(160deg, #edf8f6 0%, #f4fbfa 45%, #eaf4ff 100%);
   border-bottom: 1px solid var(--border);
-  padding: 3rem 2rem;
+  padding: 5rem 2rem 3rem;
 }
 
 /* Stats */
