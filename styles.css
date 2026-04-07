@@ -96,10 +96,13 @@ body {
   padding: 5rem 2rem 5rem;
 }
 
-.hero-robot {
-  width: 24px;
-  height: 24px;
-  margin-bottom: 0.75rem;
+.hero-inner img.hero-robot {
+  width: 1px;
+  height: 1px;
+  max-width: 1px;
+  max-height: 1px;
+  object-fit: contain;
+  margin-bottom: 0.25rem;
   display: block;
   margin-left: auto;
   margin-right: auto;
