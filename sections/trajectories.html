@@ -6,7 +6,7 @@
 
       <!-- Example pickers -->
       <div class="traj-tabs">
-        <button type="button" class="traj-tab active" onclick="switchTraj('browsecomp', this)">
+        <button type="button" class="traj-tab" onclick="switchTraj('browsecomp', this)">
           <span class="traj-tab-line"><strong>EXAMPLE 1</strong></span>
           <span class="traj-tab-line">SRAM-v0.1-8B · BrowseComp</span>
         </button>
@@ -16,7 +16,7 @@
         </button>
       </div>
 
-      <div id="traj-detail" class="traj-detail">
+      <div id="traj-detail" class="traj-detail" hidden>
       <!-- Legend -->
       <div class="traj-legend">
         <span class="traj-legend-item"><span class="traj-tag traj-tag-config">&lt;configurator&gt; / &lt;think&gt;</span> Configurator</span>
@@ -300,7 +300,13 @@ delta x delta p minimum uncertainty energy electron speed 2e8 m/s delta x 0.1 nm
 
   <script>
     function switchTraj(id, btn) {
-      if (btn.classList.contains('active')) return;
+      var detail = document.getElementById('traj-detail');
+      if (btn.classList.contains('active')) {
+        btn.classList.remove('active');
+        detail.setAttribute('hidden', '');
+        return;
+      }
+      detail.removeAttribute('hidden');
       document.querySelectorAll('.traj-panel').forEach(function (p) {
         p.style.display = 'none';
       });
