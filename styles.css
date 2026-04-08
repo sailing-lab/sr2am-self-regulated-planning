@@ -903,7 +903,7 @@ body {
   padding: 1.5rem;
   overflow-x: auto;
   margin: 0;
-  background: var(--blue-pale);
+  background: #ffffff;
   border-top: 1px solid var(--border);
 }
 .bibtex-block code {
