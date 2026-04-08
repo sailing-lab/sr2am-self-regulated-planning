@@ -237,16 +237,18 @@ const zoomData = data.filter(d => d.logp>=1.38 && d.logp<=1.58 && d.overall>=50 
 zoomData.forEach(d => {
   const cx=mapIX(d.logp), cy=mapIY(d.overall);
   const s=6.5;
+  const idx = data.indexOf(d);
+  const dataAttr = `data-idx="${idx}" style="cursor:pointer;"`;
   if (d.category === "textonly") {
-    svg += `<circle cx="${cx}" cy="${cy}" r="${s}" fill="${d.color}" stroke="rgba(0,0,0,0.2)" stroke-width="1" opacity="0.8"/>`;
+    svg += `<circle ${dataAttr} cx="${cx}" cy="${cy}" r="${s}" fill="${d.color}" stroke="rgba(0,0,0,0.2)" stroke-width="1" opacity="0.8"/>`;
   } else if (d.category === "blackbox") {
-    svg += `<path d="${trianglePath(cx,cy,s)}" fill="${d.color}" stroke="rgba(0,0,0,0.15)" stroke-width="1" stroke-linejoin="round" opacity="0.92"/>`;
+    svg += `<path ${dataAttr} d="${trianglePath(cx,cy,s)}" fill="${d.color}" stroke="rgba(0,0,0,0.15)" stroke-width="1" stroke-linejoin="round" opacity="0.92"/>`;
   } else if (d.category === "adaptive") {
-    svg += `<path d="${diamondPath(cx,cy,s)}" fill="${d.color}" stroke="rgba(0,0,0,0.15)" stroke-width="1" stroke-linejoin="round" opacity="0.92"/>`;
+    svg += `<path ${dataAttr} d="${diamondPath(cx,cy,s)}" fill="${d.color}" stroke="rgba(0,0,0,0.15)" stroke-width="1" stroke-linejoin="round" opacity="0.92"/>`;
   } else if (d.category === "self") {
-    svg += `<path d="${hexagonPath(cx,cy,s)}" fill="${d.color}" stroke="#1a1a2e" stroke-width="2.5" stroke-linejoin="round" opacity="0.92"/>`;
+    svg += `<path ${dataAttr} d="${hexagonPath(cx,cy,s)}" fill="${d.color}" stroke="#1a1a2e" stroke-width="2.5" stroke-linejoin="round" opacity="0.92"/>`;
   } else {
-    svg += `<path d="${squarePath(cx,cy,s)}" fill="${d.color}" stroke="rgba(0,0,0,0.15)" stroke-width="1" opacity="0.92"/>`;
+    svg += `<path ${dataAttr} d="${squarePath(cx,cy,s)}" fill="${d.color}" stroke="rgba(0,0,0,0.15)" stroke-width="1" opacity="0.92"/>`;
   }
   const zo = zoomOffsets[d.name] || {dx:10,dy:0,anchor:"start"};
   const displayName = d.name.replace(" (text-only)","");

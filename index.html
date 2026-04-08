@@ -17,10 +17,10 @@
     <div class="nav-inner">
       <span class="nav-logo">SRAM</span>
       <ul class="nav-links">
-        <li><a href="#overall-pass">Results</a></li>
+        <li><a href="#overall-pass">Overview</a></li>
         <li><a href="#abstract">Abstract</a></li>
         <li><a href="#method">Method</a></li>
-        <li><a href="#results">Key Results</a></li>
+        <li><a href="#results">Results</a></li>
         <li><a href="#citation">Citation</a></li>
       </ul>
     </div>
@@ -78,6 +78,7 @@
         SRAM introduces an agentic LLM with explicit self-regulation.
         A configurator decides at each step whether to plan, continue, or act. The model is trained on self-regulated planning data and refined with RL, achieving Pass@1 performance competitive with 120–355B and 685B–1T systems while using 25–95% fewer reasoning tokens.
       </p>
+      <p style="font-size:1rem;font-weight:700;color:#1a1a2e;text-align:center;margin:0 0 0.75rem;">Overall Pass@1 (↑) Across Selected Systems</p>
       <img src="figures/front-page-figure-2.png" alt="Overall Pass@1 across selected systems" style="width:100%;display:block;" />
       <p class="figure-caption" style="border-top:none;">Overall Pass@1 vs. parameter size (left) and reasoning tokens for 30/32B models (right). Both SRAM models sit above the scaling trend and above the token-efficiency frontier of comparable agentic LLMs.</p>
     </div>
@@ -245,7 +246,7 @@
   <!-- KEY RESULTS -->
   <section class="section" id="results">
     <div class="container">
-      <h2 class="section-title">Key Results</h2>
+      <h2 class="section-title">Results</h2>
       <!-- Figure 1: Performance vs Scale -->
       <div style="margin-bottom:3.5rem;">
         <p style="font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#45C9B6;margin:0 0 0.4rem;">Performance</p>
@@ -255,9 +256,24 @@
           Both SRAM models land <em>above</em> it: SRAM-8B competes with systems at 120–355B,
           SRAM-30B with systems at 685B–1T. Marker color encodes token usage: greener = fewer tokens.
         </p>
-        <iframe src="new/standalone_chart (2).html" style="width:100%;height:560px;border:none;display:block;" scrolling="no"></iframe>
+        <div style="width:100%;overflow:hidden;">
+          <iframe src="new/standalone_chart (2).html" style="width:1020px;height:560px;border:none;display:block;transform-origin:top left;" id="chart-iframe"></iframe>
+        </div>
+        <script>
+          (function() {
+            function scaleChart() {
+              var wrapper = document.getElementById('chart-iframe').parentElement;
+              var iframe = document.getElementById('chart-iframe');
+              var scale = wrapper.offsetWidth / 1020;
+              iframe.style.transform = 'scale(' + scale + ')';
+              wrapper.style.height = Math.round(560 * scale) + 'px';
+            }
+            scaleChart();
+            window.addEventListener('resize', scaleChart);
+          })();
+        </script>
         <p class="figure-caption" style="border-top:none;">
-          Overall Pass@1 vs. log parameter size across all evaluated systems. Marker shape = system type;
+          [Interactive Chart]: Overall Pass@1 vs. log parameter size across all evaluated systems. Marker shape = system type;
           color = avg. reasoning tokens per trajectory (greener = fewer). Both SRAM models sit above the scaling trend.
         </p>
       </div>
