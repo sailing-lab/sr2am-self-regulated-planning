@@ -23,16 +23,36 @@ const textColor = '#222';
 const preRL = '#9DD4A5';
 const postRL = '#4A9E5C';
 
-new Chart(document.getElementById('chartDist'), {
+function zeroArray(len) {
+  return Array.from({ length: len }, () => 0);
+}
+
+function animateBarsAfterDelay(chart, targetDatasets, delayMs) {
+  setTimeout(function() {
+    chart.data.datasets.forEach(function(ds, i) {
+      ds.data = targetDatasets[i].slice();
+    });
+    chart.options.animation = { duration: 1000, easing: 'easeOutQuart' };
+    chart.update();
+  }, delayMs);
+}
+
+const distTargets = [
+  [15.6, 36.6, 42.5, 3.2, 1.4, 0.7],
+  [13.6, 18.3, 53.2, 9.7, 3.6, 1.6]
+];
+
+const distChart = new Chart(document.getElementById('chartDist'), {
   type: 'bar',
   data: {
     labels: ['0', '1', '2', '3', '4', '5+'],
     datasets: [
-      { label: 'pre-RL', data: [15.6, 36.6, 42.5, 3.2, 1.4, 0.7], backgroundColor: preRL, borderRadius: 2, barPercentage: 0.85, categoryPercentage: 0.7 },
-      { label: 'post-RL', data: [13.6, 18.3, 53.2, 9.7, 3.6, 1.6], backgroundColor: postRL, borderRadius: 2, barPercentage: 0.85, categoryPercentage: 0.7 }
+      { label: 'pre-RL', data: zeroArray(6), backgroundColor: preRL, borderRadius: 2, barPercentage: 0.85, categoryPercentage: 0.7 },
+      { label: 'post-RL', data: zeroArray(6), backgroundColor: postRL, borderRadius: 2, barPercentage: 0.85, categoryPercentage: 0.7 }
     ]
   },
   options: {
+    animation: false,
     responsive: true,
     maintainAspectRatio: false,
     layout: { padding: { top: 14 } },
@@ -52,16 +72,22 @@ new Chart(document.getElementById('chartDist'), {
   }
 });
 
-new Chart(document.getElementById('chartLen'), {
+const lenTargets = [
+  [1.91, 1.62, 1.73, 1.63, 1.67],
+  [2.32, 2.15, 2.21, 1.97, 2.05]
+];
+
+const lenChart = new Chart(document.getElementById('chartLen'), {
   type: 'bar',
   data: {
     labels: ['Math', 'Science', 'Tabular', 'Web', 'Overall'],
     datasets: [
-      { label: 'pre-RL', data: [1.91, 1.62, 1.73, 1.63, 1.67], backgroundColor: preRL, borderRadius: 2, barPercentage: 0.8, categoryPercentage: 0.65 },
-      { label: 'post-RL', data: [2.32, 2.15, 2.21, 1.97, 2.05], backgroundColor: postRL, borderRadius: 2, barPercentage: 0.8, categoryPercentage: 0.65 }
+      { label: 'pre-RL', data: zeroArray(5), backgroundColor: preRL, borderRadius: 2, barPercentage: 0.8, categoryPercentage: 0.65 },
+      { label: 'post-RL', data: zeroArray(5), backgroundColor: postRL, borderRadius: 2, barPercentage: 0.8, categoryPercentage: 0.65 }
     ]
   },
   options: {
+    animation: false,
     responsive: true,
     maintainAspectRatio: false,
     layout: { padding: { top: 14 } },
@@ -80,4 +106,7 @@ new Chart(document.getElementById('chartLen'), {
     }
   }
 });
+
+animateBarsAfterDelay(distChart, distTargets, 250);
+animateBarsAfterDelay(lenChart, lenTargets, 250);
 </script>
