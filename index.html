@@ -76,7 +76,10 @@
   <!-- OVERALL PASS@1 FIGURE -->
   <section class="section" id="overall-pass" style="padding-top:4rem;">
     <div class="container">
-      <h2 class="section-title">Results</h2>
+      <h2 class="results-section-header">
+        <span class="results-kicker">Key Results</span>
+        <span class="results-hero-line"><span class="results-hero-dark">30B parameters.</span><span class="title-accent-gradient"> Competing with 685B–1T.</span></span>
+      </h2>
       <p class="section-subtitle">SRAM achieves strong performance relative to its parameter size, while using significantly fewer reasoning tokens than comparable models.</p>
       <img src="figures/front-page-figure-2.png" alt="Overall Pass@1 across selected systems" style="width:100%;display:block;" />
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-top:1rem;margin-bottom:2rem;">
@@ -89,7 +92,7 @@
             <span style="font-size:1rem;color:#5a6a7a;font-weight:500;">Pass@1</span>
           </div>
           <p style="font-size:0.82rem;color:#5a6a7a;line-height:1.6;margin:0.6rem 0 0.8rem;">
-            SRAM v1.0 at <strong style="color:#1a1a2e;">only 30B parameters</strong> competes with systems at <strong style="color:#1a1a2e;">685B–1T parameters</strong>, sitting above the scaling trendline across 4 task domains.
+            SRAM v1.0 at <strong style="color:#1a1a2e;">only 30B parameters</strong> competes with systems 20–30× larger, sitting above the scaling trendline across 4 task domains.
           </p>
           <div style="display:flex;gap:0.4rem;flex-wrap:wrap;">
             <span style="font-size:0.65rem;font-weight:700;padding:0.2rem 0.6rem;border-radius:9999px;background:rgba(69,201,182,0.14);color:#2a8f80;">Math</span>
@@ -340,7 +343,11 @@
     <div class="container">
 
       <!-- Main results table -->
-      <h3 class="table-title">Per-Benchmark Results (Pass@1)</h3>
+      <div class="table-intro">
+        <h3 class="section-title">Detailed Results</h3>
+        <p class="table-subtitle">Per-benchmark Pass@1 across four task domains. SRAM rows highlighted.</p>
+      </div>
+
       <div class="table-wrapper">
         <table class="results-table">
           <thead>
@@ -428,7 +435,7 @@
 
 
       <div style="margin-top:2.1rem;">
-        <h3 class="table-title">Less Reasoning Tokens</h3>
+        <!-- <h3 class="table-title">Less Reasoning Tokens</h3> -->
         <!-- Model comparison highlight -->
         <div class="model-highlights">
           <div class="model-card sram8b">
@@ -473,25 +480,6 @@
       <h2 class="section-title">RL Training</h2>
       <p class="section-subtitle">Self-regulation initialization enables more efficient RL training: higher accuracy with fewer tokens.</p>
 
-      <!-- Chart -->
-      <div style="margin-top:2rem;">
-        <iframe id="fig5-iframe" data-src="animation/ablation_sft_coldstart_combined_axes-5.html" style="width:100%;height:560px;border:none;display:block;" scrolling="no"></iframe>
-        <script>
-          (function() {
-            var iframe = document.getElementById('fig5-iframe');
-            var observer = new IntersectionObserver(function(entries) {
-              if (entries[0].isIntersecting && !iframe.src) {
-                iframe.src = iframe.dataset.src;
-                observer.disconnect();
-              }
-            }, { rootMargin: '100px' });
-            observer.observe(iframe);
-          })();
-        </script>
-        <p class="figure-caption" style="border-top:none;">RL training progress over 400 steps. Without self-regulation structure, RL increases token consumption with diminishing accuracy returns, while the self-regulated model achieves steadily improving accuracy with controlled token growth. OoC % labels show out-of-context rates per checkpoint.</p>
-      </div>
-
-
 
       <!-- Analysis highlights -->
       <!-- <h3 class="table-title findings-title">Key Findings</h3>
@@ -515,7 +503,7 @@
       </div> -->
 
       <!-- Insight cards -->
-      <h3 class="table-title findings-title">Key Training Insights</h3>
+      <!-- <h3 class="table-title findings-title">Key Insights</h3> -->
       <div class="findings-grid">
         <div class="finding-card">
           <h4><span class="finding-sym">&#8595;</span> 41–55% Fewer Reasoning Tokens</h4>
@@ -526,14 +514,33 @@
           <p>Self-regulated initialization converges to a higher overall score than training from the base model.</p>
         </div>
         <div class="finding-card">
-          <h4><span class="finding-sym">&#126;</span> ~2,100 → 3,600 Controlled Token Growth</h4>
-          <p>SRAM tokens grow modestly vs. black-box's ~4,100 → 5,500, with steadily improving accuracy.</p>
+          <h4><span class="finding-sym">&#126;</span> Deeper, Not More, Planning</h4>
+          <p>RL increases average plan depth by 22.8% while planning frequency grows only 2.0%.</p>
         </div>
         <div class="finding-card">
-          <h4><span class="finding-sym">&#33;</span> 22.4% Black-Box Overflow Rate</h4>
-          <p>Without self-regulation, RL causes rising context overflow; SRAM avoids this entirely.</p>
+          <h4><span class="finding-sym">&#33;</span> 0% Context Overflow</h4>
+          <p>Black-box RL causes 22.4% context overflow rate; SRAM avoids this entirely.</p>
         </div>
       </div>
+
+       <!-- Chart -->
+       <div class="figure-iframe-wrap">
+        <iframe id="fig5-iframe" data-src="animation/ablation_sft_coldstart_combined_axes-5.html" style="width:100%;height:560px;border:none;display:block;" scrolling="no"></iframe>
+        <script>
+          (function() {
+            var iframe = document.getElementById('fig5-iframe');
+            var observer = new IntersectionObserver(function(entries) {
+              if (entries[0].isIntersecting && !iframe.src) {
+                iframe.src = iframe.dataset.src;
+                observer.disconnect();
+              }
+            }, { rootMargin: '100px' });
+            observer.observe(iframe);
+          })();
+        </script>
+        <p class="figure-caption" style="border-top:none;">RL training progress over 400 steps. Without self-regulation structure, RL increases token consumption with diminishing accuracy returns, while the self-regulated model achieves steadily improving accuracy with controlled token growth. OoC % labels show out-of-context rates per checkpoint.</p>
+      </div>
+
     </div>
   </section>
 
@@ -611,6 +618,7 @@
         Institute of Foundation Models &nbsp;·&nbsp;
         Carnegie Mellon University
       </p>
+      <p class="footer-copy">Copyright © 2026 - All rights reserved</p>
     </div>
   </footer>
 

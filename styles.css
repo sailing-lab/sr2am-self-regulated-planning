@@ -250,6 +250,38 @@ body {
   font-size: 0.97rem;
 }
 
+/* Results section hero (overall-pass) */
+.results-section-header {
+  text-align: center;
+  margin: 0 0 0.35rem;
+  font-weight: inherit;
+  line-height: normal;
+}
+.results-kicker {
+  display: block;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--blue-light);
+  margin: 0 0 0.45rem;
+}
+.results-hero-line {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: clamp(1.35rem, 3.2vw, 1.85rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  margin: 0 0 1.1rem;
+}
+.results-hero-line .title-accent-gradient {
+  display: inline;
+}
+.results-hero-dark {
+  color: var(--blue-deep);
+}
+
 /* ---- ABSTRACT ---- */
 .abstract-text {
   max-width: 780px; margin: 2rem auto 0;
@@ -340,6 +372,13 @@ body {
   font-family: var(--font-sans); line-height: 1.5;
 }
 .figure-caption strong { color: var(--text); }
+
+.figure-iframe-wrap {
+  margin-top: 2rem;
+  max-width: 840px;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 /* System Comparison Table */
 .comparison-table-section {
@@ -530,6 +569,20 @@ body {
 .result-figure-after-table { margin-top: 2rem; }
 
 /* Table */
+.table-intro {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.table-intro .table-title {
+  margin-bottom: 0.35rem;
+}
+.table-subtitle {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.45;
+  max-width: 36rem;
+  margin: 0 auto;
+}
 .table-title {
   font-family: var(--font-serif);
   font-size: 1.1rem; font-weight: 700; color: var(--blue-deep);
@@ -846,7 +899,13 @@ body {
   font-size: 0.76rem; font-weight: 600; cursor: pointer; transition: opacity 0.2s;
 }
 .copy-btn:hover { opacity: 0.85; }
-.bibtex-block pre { padding: 1.5rem; overflow-x: auto; margin: 0; }
+.bibtex-block pre {
+  padding: 1.5rem;
+  overflow-x: auto;
+  margin: 0;
+  background: var(--blue-pale);
+  border-top: 1px solid var(--border);
+}
 .bibtex-block code {
   font-family: var(--font-mono);
   font-size: 0.82rem; color: #2d5a8a; line-height: 1.75;
@@ -859,3 +918,4 @@ body {
 }
 .footer strong { color: #7dd8ca; /* was: #ADE8F4 */ font-family: var(--font-serif); }
 .footer-sub { margin-top: 0.35rem; font-size: 0.78rem; color: #52699F; /* was: #4A7A94 */ }
+.footer-copy { margin-top: 1rem; font-size: 0.72rem; color: #3d5a6e; }
