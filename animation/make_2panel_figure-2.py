@@ -139,7 +139,7 @@ for v,l in [(7,"7B"),(30,"30B"),(100,"100B"),(350,"350B"),(700,"700B"),(1500,"1.
         cv.setStrokeColor(HexColor("#999"));cv.setLineWidth(0.5);cv.line(x,pBot,x,pBot-3)
         cv.setFont("Helvetica-Bold",12);cv.setFillColor(HexColor(PANEL_A));cv.drawCentredString(x,pBot-13,l)
 cv.setFont("Helvetica-Bold",13);cv.setFillColor(HexColor(PANEL_A))
-cv.drawCentredString(aPL+aPW/2,pBot-28,"(log scale)")
+cv.drawCentredString(aPL+aPW/2,pBot-28,"Parameter Size (log scale)")
 
 for v,l in [(0,"0"),(2000,"2K"),(4000,"4K"),(6000,"6K"),(8000,"8K"),(10000,"10K"),(12000,"12K")]:
     x=bPL+(1-v/bxHi)*bPW
@@ -147,8 +147,7 @@ for v,l in [(0,"0"),(2000,"2K"),(4000,"4K"),(6000,"6K"),(8000,"8K"),(10000,"10K"
         cv.setStrokeColor(HexColor("#999"));cv.setLineWidth(0.5);cv.line(x,pBot,x,pBot-3)
         cv.setFont("Helvetica-Bold",12);cv.setFillColor(HexColor(PANEL_B));cv.drawCentredString(x,pBot-13,l)
 cv.setFont("Helvetica-Bold",13);cv.setFillColor(HexColor(PANEL_B))
-# Requested: remove this axis caption from the image.
-# cv.drawCentredString(bPL+bPW/2,pBot-28,"Num. Reasoning Tokens (\u2193)")
+cv.drawCentredString(bPL+bPW/2,pBot-28,"Num. Reasoning Tokens (\u2193)")
 
 # TREND BAND + LINE
 for si in range(50):
