@@ -72,39 +72,56 @@
     </div>
   </section>
 
-  <!-- KEY STATS -->
-  <section class="stats-section">
-    <div class="container">
-      <div class="stats-row">
-        <div class="stat-card">
-          <span class="stat-num">71.3%</span>
-          <span class="stat-label">Overall Pass@1<br/><small>SRAM v1.0 30B</small></span>
-        </div>
-        <div class="stat-card">
-          <span class="stat-num">up to 95%</span>
-          <span class="stat-label">Fewer Reasoning Tokens<br/><small>25–95% vs. comparable agentic LLMs</small></span>
-        </div>
-        <div class="stat-card">
-          <span class="stat-num">685B–1T</span>
-          <span class="stat-label">Competitive parameter range<br/><small>at 30B parameters</small></span>
-        </div>
-        <div class="stat-card">
-          <span class="stat-num">4</span>
-          <span class="stat-label">Task Domains<br/><small>Math · Science · Tabular · Web</small></span>
-        </div>
-      </div>
-    </div>
-  </section>
-
+  
   <!-- OVERALL PASS@1 FIGURE -->
-  <section class="section" id="overall-pass" style="padding-top:0rem;">
+  <section class="section" id="overall-pass" style="padding-top:4rem;">
     <div class="container">
       <h2 class="section-title">Results</h2>
       <p class="section-subtitle">SRAM achieves strong performance relative to its parameter size, while using significantly fewer reasoning tokens than comparable models.</p>
       <img src="figures/front-page-figure-2.png" alt="Overall Pass@1 across selected systems" style="width:100%;display:block;" />
-      <div style="display:flex;gap:1rem;margin-top:0.9rem;margin-bottom:2rem;">
-        <p class="section-subtitle" style="flex:1;margin:0;padding:0.85rem 1rem;border:1px solid rgba(74,122,181,0.2);border-radius:10px;background:rgba(74,122,181,0.06);"><strong style="font-size:1.15rem;">Parameter Size</strong><br>Both SRAM models sit above the scaling trendline, outperforming much larger systems at their parameter count.</p>
-        <p class="section-subtitle" style="flex:1;margin:0;padding:0.85rem 1rem;border:1px solid rgba(74,158,92,0.2);border-radius:10px;background:rgba(74,158,92,0.06);"><strong style="font-size:1.15rem;">Num. Reasoning Tokens (30/32B Models) (↓)</strong><br>SRAM-v1.0-30B achieves top accuracy while using far fewer reasoning tokens than any model on the Pareto frontier of baselines.</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-top:1rem;margin-bottom:2rem;">
+
+        <!-- Card 1: Performance -->
+        <div style="border-radius:10px;padding:2rem;border:2px solid #c8e8e3;background:#ffffff;box-shadow:0 1px 3px rgba(40,66,105,0.08),0 4px 16px rgba(69,201,182,0.07);">
+          <p style="font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#45C9B6;margin:0 0 0.5rem;">Task Performance</p>
+          <div style="display:flex;align-items:baseline;gap:0.5rem;margin-bottom:0.25rem;">
+            <span style="font-size:3.5rem;font-weight:800;letter-spacing:-0.02em;color:#45C9B6;line-height:1;">71.3%</span>
+            <span style="font-size:1rem;color:#5a6a7a;font-weight:500;">Pass@1</span>
+          </div>
+          <p style="font-size:0.82rem;color:#5a6a7a;line-height:1.6;margin:0.6rem 0 0.8rem;">
+            SRAM v1.0 at <strong style="color:#1a1a2e;">only 30B parameters</strong> competes with systems at <strong style="color:#1a1a2e;">685B–1T parameters</strong>, sitting above the scaling trendline across 4 task domains.
+          </p>
+          <div style="display:flex;gap:0.4rem;flex-wrap:wrap;">
+            <span style="font-size:0.65rem;font-weight:700;padding:0.2rem 0.6rem;border-radius:9999px;background:rgba(69,201,182,0.14);color:#2a8f80;">Math</span>
+            <span style="font-size:0.65rem;font-weight:700;padding:0.2rem 0.6rem;border-radius:9999px;background:rgba(69,201,182,0.14);color:#2a8f80;">Science</span>
+            <span style="font-size:0.65rem;font-weight:700;padding:0.2rem 0.6rem;border-radius:9999px;background:rgba(69,201,182,0.14);color:#2a8f80;">Tabular</span>
+            <span style="font-size:0.65rem;font-weight:700;padding:0.2rem 0.6rem;border-radius:9999px;background:rgba(69,201,182,0.14);color:#2a8f80;">Web</span>
+          </div>
+        </div>
+
+        <!-- Card 2: Efficiency -->
+        <div style="border-radius:10px;padding:2rem;border:2px solid #c8e8e3;background:#ffffff;box-shadow:0 1px 3px rgba(40,66,105,0.08),0 4px 16px rgba(69,201,182,0.07);">
+          <p style="font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#284269;margin:0 0 0.5rem;">Reasoning Efficiency</p>
+          <div style="display:flex;align-items:baseline;gap:0.5rem;margin-bottom:0.25rem;">
+            <span style="font-size:3.5rem;font-weight:800;letter-spacing:-0.02em;color:#284269;line-height:1;">95%</span>
+            <span style="font-size:1rem;color:#5a6a7a;font-weight:500;">fewer tokens</span>
+          </div>
+          <p style="font-size:0.82rem;color:#5a6a7a;line-height:1.6;margin:0.6rem 0 0.8rem;">
+            Up to <strong style="color:#1a1a2e;">25–95% fewer reasoning tokens</strong> than comparably sized agentic LLMs. Self-regulation means the model thinks <em>better</em>, not <em>longer</em>.
+          </p>
+          <div style="display:flex;gap:1rem;align-items:center;">
+            <div>
+              <div style="font-size:1.1rem;font-weight:700;color:#284269;">5,518</div>
+              <div style="font-size:0.65rem;color:#5a6a7a;">SRAM tokens</div>
+            </div>
+            <div style="color:#5a6a7a;font-size:0.85rem;">vs.</div>
+            <div>
+              <div style="font-size:1.1rem;font-weight:700;color:#b03030;text-decoration:line-through;opacity:0.7;">11,295</div>
+              <div style="font-size:0.65rem;color:#5a6a7a;">MiroThinker tokens</div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -127,16 +144,198 @@
           Across mathematical reasoning, scientific problem-solving, tabular data analysis, and web information seeking, SRAM-v0.1-8B and SRAM-v1.0-30B achieve overall Pass@1 competitive with systems at <strong>120–355B and 685B–1T parameters</strong>, respectively, while consuming up to <strong style="color: #45C9B6;">25–95% fewer reasoning tokens</strong> than comparably sized agentic LLMs. Analysis shows that RL increases average plan depth by 22.8% while planning frequency grows only 2.0%, suggesting the model learns to plan at longer horizons without overly frequent planning.
         </p>
       </div>
+    </div>
+  </section>
 
-      <!-- Architecture overview figure -->
-      <div style="margin-top: 2.5rem;">
+
+    <!-- METHOD -->
+    <section class="section section-gray" id="method">
+      <div class="container">
+        <h2 class="section-title">Method</h2>
+        <p class="section-subtitle">SRAM decomposes the agent's action distribution into three explicit, learnable components.</p>
+  
+        <div class="method-cards">
+          <div class="method-card">
+            <div class="method-icon configurator-icon">κ</div>
+            <h3>Configurator</h3>
+            <p>Assesses the current belief state at every turn and decides whether to plan, continue an existing plan, or act directly. Enables per-turn self-regulation of planning presence and depth.</p>
+          </div>
+          <div class="method-arrow">→</div>
+          <div class="method-card">
+            <div class="method-icon planner-icon">π<sub>f</sub></div>
+            <h3>Planner</h3>
+            <p>When invoked, constructs explicit plans consisting of proposed actions and <em>predicted future states</em>, grounding subsequent execution in anticipated consequences rather than mere action directives.</p>
+          </div>
+          <div class="method-arrow">→</div>
+          <div class="method-card">
+            <div class="method-icon actor-icon">α</div>
+            <h3>Actor</h3>
+            <p>Selects and executes actions conditioned on the current belief state and plan. Interacts with tools: web search, web browser, and a Python code sandbox.</p>
+          </div>
+        </div>
+  
+        <!-- System Comparison Table -->
+        <div class="comparison-table-section" style="margin-top: 3rem;">
+          <h3>System Comparison</h3>
+          <p>SRAM is the first system to combine all seven capabilities for agentic reasoning.</p>
+          <div style="overflow-x: auto;">
+            <table class="paradigm-table">
+              <thead>
+                <tr>
+                  <th class="paradigm-th-left">System Type</th>
+                  <th class="paradigm-th">Environment<br/>Interaction</th>
+                  <th class="paradigm-th">Agentic<br/>Training</th>
+                  <th class="paradigm-th">Free-Form<br/>Reasoning</th>
+                  <th class="paradigm-th">Per-Turn<br/>Regulation</th>
+                  <th class="paradigm-th">Explicit<br/>Planning</th>
+                  <th class="paradigm-th">Next-State<br/>Simulative<br/>Planning</th>
+                  <th class="paradigm-th">Controllable<br/>Planning<br/>Depth</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Base systems -->
+                <tr>
+                  <td class="paradigm-td-name">Reasoning LLM</td>
+                  <td class="paradigm-td"><span class="cap-no">✗</span></td>
+                  <td class="paradigm-td"><span class="cap-no">✗</span></td>
+                  <td class="paradigm-td"><span class="cap-yes">✓</span></td>
+                  <td class="paradigm-td"><span class="cap-no">✗</span></td>
+                  <td class="paradigm-td"><span class="cap-no">✗</span></td>
+                  <td class="paradigm-td"><span class="cap-no">✗</span></td>
+                  <td class="paradigm-td"><span class="cap-no">✗</span></td>
+                </tr>
+                <tr>
+                  <td class="paradigm-td-name">LLM + Tools</td>
+                  <td class="paradigm-td"><span class="cap-yes">✓</span></td>
+                  <td class="paradigm-td"><span class="cap-no">✗</span></td>
+                  <td class="paradigm-td"><span class="cap-yes">✓</span></td>
+                  <td class="paradigm-td"><span class="cap-no">✗</span></td>
+                  <td class="paradigm-td"><span class="cap-no">✗</span></td>
+                  <td class="paradigm-td"><span class="cap-no">✗</span></td>
+                  <td class="paradigm-td"><span class="cap-no">✗</span></td>
+                </tr>
+                <tr class="paradigm-row-sep-after">
+                  <td class="paradigm-td-name">Black-Box Agentic LLM</td>
+                  <td class="paradigm-td"><span class="cap-yes">✓</span></td>
+                  <td class="paradigm-td"><span class="cap-yes">✓</span></td>
+                  <td class="paradigm-td"><span class="cap-yes">✓</span></td>
+                  <td class="paradigm-td"><span class="cap-no">✗</span></td>
+                  <td class="paradigm-td"><span class="cap-no">✗</span></td>
+                  <td class="paradigm-td"><span class="cap-no">✗</span></td>
+                  <td class="paradigm-td"><span class="cap-no">✗</span></td>
+                </tr>
+                <!-- Group header -->
+                <tr class="paradigm-group-header">
+                  <td colspan="8" class="paradigm-group-label"><em>Adaptive Agentic LLM</em></td>
+                </tr>
+                <!-- Adaptive subtypes -->
+                <tr>
+                  <td class="paradigm-td-name paradigm-subtype">— Adaptive Effort</td>
+                  <td class="paradigm-td"><span class="cap-yes">✓</span></td>
+                  <td class="paradigm-td"><span class="cap-yes">✓</span></td>
+                  <td class="paradigm-td"><span class="cap-yes">✓</span></td>
+                  <td class="paradigm-td"><span class="cap-yes">✓</span></td>
+                  <td class="paradigm-td"><span class="cap-no">✗</span></td>
+                  <td class="paradigm-td"><span class="cap-no">✗</span></td>
+                  <td class="paradigm-td"><span class="cap-no">✗</span></td>
+                </tr>
+                <tr>
+                  <td class="paradigm-td-name paradigm-subtype">— Coarse Mode-Routing</td>
+                  <td class="paradigm-td"><span class="cap-yes">✓</span></td>
+                  <td class="paradigm-td"><span class="cap-yes">✓</span></td>
+                  <td class="paradigm-td"><span class="cap-partial">~</span></td>
+                  <td class="paradigm-td"><span class="cap-no">✗</span></td>
+                  <td class="paradigm-td"><span class="cap-partial">~</span></td>
+                  <td class="paradigm-td"><span class="cap-no">✗</span></td>
+                  <td class="paradigm-td"><span class="cap-no">✗</span></td>
+                </tr>
+                <tr class="paradigm-row-sep-after">
+                  <td class="paradigm-td-name paradigm-subtype">— Multi-Agent Distillation</td>
+                  <td class="paradigm-td"><span class="cap-yes">✓</span></td>
+                  <td class="paradigm-td"><span class="cap-yes">✓</span></td>
+                  <td class="paradigm-td"><span class="cap-no">✗</span></td>
+                  <td class="paradigm-td"><span class="cap-yes">✓</span></td>
+                  <td class="paradigm-td"><span class="cap-yes">✓</span></td>
+                  <td class="paradigm-td"><span class="cap-no">✗</span></td>
+                  <td class="paradigm-td"><span class="cap-no">✗</span></td>
+                </tr>
+                <!-- SRAM -->
+                <tr class="paradigm-row-highlight">
+                  <td class="paradigm-td-name paradigm-name-highlight">SRAM (Ours)</td>
+                  <td class="paradigm-td"><span class="cap-yes">✓</span></td>
+                  <td class="paradigm-td"><span class="cap-yes">✓</span></td>
+                  <td class="paradigm-td"><span class="cap-yes">✓</span></td>
+                  <td class="paradigm-td"><span class="cap-yes">✓</span></td>
+                  <td class="paradigm-td"><span class="cap-yes">✓</span></td>
+                  <td class="paradigm-td"><span class="cap-yes">✓</span></td>
+                  <td class="paradigm-td"><span class="cap-yes">✓</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+  
+        <div class="method-formula" style="margin-top: 3rem;">
+          <p class="formula-label">Agent action distribution:</p>
+          <div class="formula-annotated">
+            <span class="formula-prefix">p<sub>π</sub>(a<sub>t</sub> | ŝ<sub>t</sub>) = &Sigma;<sub>u<sub>t</sub>,c<sub>t</sub></sub>&nbsp;</span>
+            <div class="formula-term-col">
+              <span class="formula-term actor">p<sub>α</sub>(a<sub>t</sub> | ŝ<sub>t</sub>, c<sub>t</sub>)</span>
+              <span class="formula-term-label actor">Actor</span>
+            </div>
+            <div class="formula-term-col">
+              <span class="formula-term planner">p<sub>π<sub>f</sub></sub>(c<sub>t</sub> | ŝ<sub>t</sub>, u<sub>t</sub>)</span>
+              <span class="formula-term-label planner">Planner</span>
+            </div>
+            <div class="formula-term-col">
+              <span class="formula-term configurator">p<sub>κ</sub>(u<sub>t</sub> | ŝ<sub>t</sub>)</span>
+              <span class="formula-term-label configurator">Configurator</span>
+            </div>
+          </div>
+        </div>
+  
+        <div class="training-pipeline">
+          <h3>Training Pipeline</h3>
+          <div class="pipeline-steps">
+            <div class="pipeline-step">
+              <div class="step-num">1</div>
+              <div class="step-content">
+                <h4>Self-Regulation Data Construction</h4>
+                <p>Construct interleaved thinking–acting traces with self-regulated planning structure using two methods: Multi-Module Inference (v0.1) and Plan Reconstruction (v1.0).</p>
+              </div>
+            </div>
+            <div class="pipeline-arrow">→</div>
+            <div class="pipeline-step">
+              <div class="step-num">2</div>
+              <div class="step-content">
+                <h4>Supervised Fine-Tuning</h4>
+                <p>Fine-tune open-weight LLMs on the self-regulation data to provide initial configurator and planning capabilities.</p>
+              </div>
+            </div>
+            <div class="pipeline-arrow">→</div>
+            <div class="pipeline-step">
+              <div class="step-num">3</div>
+              <div class="step-content">
+                <h4>Reinforcement Learning</h4>
+                <p>Refine the model with GRPO-based RL for task success, coordinating self-regulation, planning, and execution.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+  <!-- ARCHITECTURE FIGURE (inside a proper section, under Method) -->
+  <section class="section" style="padding-top:0;">
+    <div class="container">
+      <div style="margin-top: 0.5rem;">
         <img src="figures/sram-arch-1.2-p3.png" alt="SRAM architecture overview" style="width:100%;display:block;" />
         <p class="figure-caption" style="border-top:none;">Overview of the SRAM architecture. The self-regulated agent augments conventional reasoning-and-acting with an explicit configurator (κ) that dynamically controls planning behavior — deciding whether to make a new plan, continue an existing one, or act directly — at each turn.</p>
       </div>
     </div>
   </section>
 
-  <!-- RESULTS (continued) -->
   <section class="section" id="results-detail">
     <div class="container">
 
@@ -267,187 +466,12 @@
     </div>
   </section>
 
-  <!-- METHOD -->
-  <section class="section section-gray" id="method">
-    <div class="container">
-      <h2 class="section-title">Method</h2>
-      <p class="section-subtitle">SRAM decomposes the agent's action distribution into three explicit, learnable components.</p>
 
-      <div class="method-cards">
-        <div class="method-card">
-          <div class="method-icon configurator-icon">κ</div>
-          <h3>Configurator</h3>
-          <p>Assesses the current belief state at every turn and decides whether to plan, continue an existing plan, or act directly. Enables per-turn self-regulation of planning presence and depth.</p>
-        </div>
-        <div class="method-arrow">→</div>
-        <div class="method-card">
-          <div class="method-icon planner-icon">π<sub>f</sub></div>
-          <h3>Planner</h3>
-          <p>When invoked, constructs explicit plans consisting of proposed actions and <em>predicted future states</em>, grounding subsequent execution in anticipated consequences rather than mere action directives.</p>
-        </div>
-        <div class="method-arrow">→</div>
-        <div class="method-card">
-          <div class="method-icon actor-icon">α</div>
-          <h3>Actor</h3>
-          <p>Selects and executes actions conditioned on the current belief state and plan. Interacts with tools: web search, web browser, and a Python code sandbox.</p>
-        </div>
-      </div>
-
-      <!-- System Comparison Table -->
-      <div class="comparison-table-section" style="margin-top: 3rem;">
-        <h3>System Comparison</h3>
-        <p>SRAM is the first system to combine all seven capabilities for agentic reasoning.</p>
-        <div style="overflow-x: auto;">
-          <table class="paradigm-table">
-            <thead>
-              <tr>
-                <th class="paradigm-th-left">System Type</th>
-                <th class="paradigm-th">Environment<br/>Interaction</th>
-                <th class="paradigm-th">Agentic<br/>Training</th>
-                <th class="paradigm-th">Free-Form<br/>Reasoning</th>
-                <th class="paradigm-th">Per-Turn<br/>Regulation</th>
-                <th class="paradigm-th">Explicit<br/>Planning</th>
-                <th class="paradigm-th">Next-State<br/>Simulative<br/>Planning</th>
-                <th class="paradigm-th">Controllable<br/>Planning<br/>Depth</th>
-              </tr>
-            </thead>
-            <tbody>
-              <!-- Base systems -->
-              <tr>
-                <td class="paradigm-td-name">Reasoning LLM</td>
-                <td class="paradigm-td"><span class="cap-no">✗</span></td>
-                <td class="paradigm-td"><span class="cap-no">✗</span></td>
-                <td class="paradigm-td"><span class="cap-yes">✓</span></td>
-                <td class="paradigm-td"><span class="cap-no">✗</span></td>
-                <td class="paradigm-td"><span class="cap-no">✗</span></td>
-                <td class="paradigm-td"><span class="cap-no">✗</span></td>
-                <td class="paradigm-td"><span class="cap-no">✗</span></td>
-              </tr>
-              <tr>
-                <td class="paradigm-td-name">LLM + Tools</td>
-                <td class="paradigm-td"><span class="cap-yes">✓</span></td>
-                <td class="paradigm-td"><span class="cap-no">✗</span></td>
-                <td class="paradigm-td"><span class="cap-yes">✓</span></td>
-                <td class="paradigm-td"><span class="cap-no">✗</span></td>
-                <td class="paradigm-td"><span class="cap-no">✗</span></td>
-                <td class="paradigm-td"><span class="cap-no">✗</span></td>
-                <td class="paradigm-td"><span class="cap-no">✗</span></td>
-              </tr>
-              <tr class="paradigm-row-sep-after">
-                <td class="paradigm-td-name">Black-Box Agentic LLM</td>
-                <td class="paradigm-td"><span class="cap-yes">✓</span></td>
-                <td class="paradigm-td"><span class="cap-yes">✓</span></td>
-                <td class="paradigm-td"><span class="cap-yes">✓</span></td>
-                <td class="paradigm-td"><span class="cap-no">✗</span></td>
-                <td class="paradigm-td"><span class="cap-no">✗</span></td>
-                <td class="paradigm-td"><span class="cap-no">✗</span></td>
-                <td class="paradigm-td"><span class="cap-no">✗</span></td>
-              </tr>
-              <!-- Group header -->
-              <tr class="paradigm-group-header">
-                <td colspan="8" class="paradigm-group-label"><em>Adaptive Agentic LLM</em></td>
-              </tr>
-              <!-- Adaptive subtypes -->
-              <tr>
-                <td class="paradigm-td-name paradigm-subtype">— Adaptive Effort</td>
-                <td class="paradigm-td"><span class="cap-yes">✓</span></td>
-                <td class="paradigm-td"><span class="cap-yes">✓</span></td>
-                <td class="paradigm-td"><span class="cap-yes">✓</span></td>
-                <td class="paradigm-td"><span class="cap-yes">✓</span></td>
-                <td class="paradigm-td"><span class="cap-no">✗</span></td>
-                <td class="paradigm-td"><span class="cap-no">✗</span></td>
-                <td class="paradigm-td"><span class="cap-no">✗</span></td>
-              </tr>
-              <tr>
-                <td class="paradigm-td-name paradigm-subtype">— Coarse Mode-Routing</td>
-                <td class="paradigm-td"><span class="cap-yes">✓</span></td>
-                <td class="paradigm-td"><span class="cap-yes">✓</span></td>
-                <td class="paradigm-td"><span class="cap-partial">~</span></td>
-                <td class="paradigm-td"><span class="cap-no">✗</span></td>
-                <td class="paradigm-td"><span class="cap-partial">~</span></td>
-                <td class="paradigm-td"><span class="cap-no">✗</span></td>
-                <td class="paradigm-td"><span class="cap-no">✗</span></td>
-              </tr>
-              <tr class="paradigm-row-sep-after">
-                <td class="paradigm-td-name paradigm-subtype">— Multi-Agent Distillation</td>
-                <td class="paradigm-td"><span class="cap-yes">✓</span></td>
-                <td class="paradigm-td"><span class="cap-yes">✓</span></td>
-                <td class="paradigm-td"><span class="cap-no">✗</span></td>
-                <td class="paradigm-td"><span class="cap-yes">✓</span></td>
-                <td class="paradigm-td"><span class="cap-yes">✓</span></td>
-                <td class="paradigm-td"><span class="cap-no">✗</span></td>
-                <td class="paradigm-td"><span class="cap-no">✗</span></td>
-              </tr>
-              <!-- SRAM -->
-              <tr class="paradigm-row-highlight">
-                <td class="paradigm-td-name paradigm-name-highlight">SRAM (Ours)</td>
-                <td class="paradigm-td"><span class="cap-yes">✓</span></td>
-                <td class="paradigm-td"><span class="cap-yes">✓</span></td>
-                <td class="paradigm-td"><span class="cap-yes">✓</span></td>
-                <td class="paradigm-td"><span class="cap-yes">✓</span></td>
-                <td class="paradigm-td"><span class="cap-yes">✓</span></td>
-                <td class="paradigm-td"><span class="cap-yes">✓</span></td>
-                <td class="paradigm-td"><span class="cap-yes">✓</span></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <div class="method-formula" style="margin-top: 3rem;">
-        <p class="formula-label">Agent action distribution:</p>
-        <div class="formula-annotated">
-          <span class="formula-prefix">p<sub>π</sub>(a<sub>t</sub> | ŝ<sub>t</sub>) = &Sigma;<sub>u<sub>t</sub>,c<sub>t</sub></sub>&nbsp;</span>
-          <div class="formula-term-col">
-            <span class="formula-term actor">p<sub>α</sub>(a<sub>t</sub> | ŝ<sub>t</sub>, c<sub>t</sub>)</span>
-            <span class="formula-term-label actor">Actor</span>
-          </div>
-          <div class="formula-term-col">
-            <span class="formula-term planner">p<sub>π<sub>f</sub></sub>(c<sub>t</sub> | ŝ<sub>t</sub>, u<sub>t</sub>)</span>
-            <span class="formula-term-label planner">Planner</span>
-          </div>
-          <div class="formula-term-col">
-            <span class="formula-term configurator">p<sub>κ</sub>(u<sub>t</sub> | ŝ<sub>t</sub>)</span>
-            <span class="formula-term-label configurator">Configurator</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="training-pipeline">
-        <h3>Training Pipeline</h3>
-        <div class="pipeline-steps">
-          <div class="pipeline-step">
-            <div class="step-num">1</div>
-            <div class="step-content">
-              <h4>Self-Regulation Data Construction</h4>
-              <p>Construct interleaved thinking–acting traces with self-regulated planning structure using two methods: Multi-Module Inference (v0.1) and Plan Reconstruction (v1.0).</p>
-            </div>
-          </div>
-          <div class="pipeline-arrow">→</div>
-          <div class="pipeline-step">
-            <div class="step-num">2</div>
-            <div class="step-content">
-              <h4>Supervised Fine-Tuning</h4>
-              <p>Fine-tune open-weight LLMs on the self-regulation data to provide initial configurator and planning capabilities.</p>
-            </div>
-          </div>
-          <div class="pipeline-arrow">→</div>
-          <div class="pipeline-step">
-            <div class="step-num">3</div>
-            <div class="step-content">
-              <h4>Reinforcement Learning</h4>
-              <p>Refine the model with GRPO-based RL for task success, coordinating self-regulation, planning, and execution.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
   <!-- TRAINING DYNAMICS -->
   <section class="section" id="training">
     <div class="container">
-      <h2 class="section-title">Training Dynamics</h2>
-      <p class="section-subtitle">Self-regulation initialization enables more efficient RL training — higher accuracy with fewer tokens.</p>
+      <h2 class="section-title">RL Training</h2>
+      <p class="section-subtitle">Self-regulation initialization enables more efficient RL training: higher accuracy with fewer tokens.</p>
 
       <!-- Chart -->
       <div style="margin-top:2rem;">
@@ -468,8 +492,9 @@
       </div>
 
 
+
       <!-- Analysis highlights -->
-      <h3 class="table-title findings-title">Key Findings</h3>
+      <!-- <h3 class="table-title findings-title">Key Findings</h3>
       <div class="findings-grid">
         <div class="finding-card">
           <h4><span class="finding-sym">&#8595;</span> 50% Token Reduction</h4>
@@ -487,7 +512,7 @@
           <h4><span class="finding-sym">&#8599;</span> Scales Above the Trend</h4>
           <p>Both SRAM models sit above the Overall Pass@1 vs. log(parameter size) trendline, outperforming their scale would predict.</p>
         </div>
-      </div>
+      </div> -->
 
       <!-- Insight cards -->
       <h3 class="table-title findings-title">Key Training Insights</h3>
@@ -513,30 +538,6 @@
   </section>
 
 
-
-  <!-- CITATION -->
-  <section class="section section-gray" id="citation">
-    <div class="container">
-      <h2 class="section-title">Citation</h2>
-      <p class="section-subtitle">If you find this work useful, please cite:</p>
-      <div class="bibtex-block">
-        <div class="bibtex-header">
-          <span>BibTeX</span>
-          <button class="copy-btn" onclick="copyBibtex()">Copy</button>
-        </div>
-        <pre id="bibtex-text"><code>@misc{deng2026sram,
-  title   = {SRAM: A Self-Regulated Agentic LLM for Interactive Reasoning},
-  author  = {Deng, Mingkai and Hou, Jinyu and Neves, Lara and
-             Pimpalkhute, Varad and Killian, Taylor W. and
-             Liu, Zhengzhong and Xing, Eric P.},
-  journal = {arXiv preprint arXiv:xxxxxx},
-  year    = {2026},
-  doi     = {10.48550/arXiv.xxxxxx},
-  url     = {https://arxiv.org/abs/xxxxxx}
-}</code></pre>
-      </div>
-    </div>
-  </section>
 
   <!-- ADDITIONAL RESULTS FIGURES -->
   <section class="section" id="additional-results-figures">
@@ -577,6 +578,30 @@
     </div>
   </section>
 
+
+  <!-- CITATION -->
+  <section class="section section-gray" id="citation">
+    <div class="container">
+      <h2 class="section-title">Citation</h2>
+      <p class="section-subtitle">If you find this work useful, please cite:</p>
+      <div class="bibtex-block">
+        <div class="bibtex-header">
+          <span>BibTeX</span>
+          <button class="copy-btn" onclick="copyBibtex()">Copy</button>
+        </div>
+        <pre id="bibtex-text"><code>@misc{deng2026sram,
+  title   = {SRAM: A Self-Regulated Agentic LLM for Interactive Reasoning},
+  author  = {Deng, Mingkai and Hou, Jinyu and Neves, Lara and
+             Pimpalkhute, Varad and Killian, Taylor W. and
+             Liu, Zhengzhong and Xing, Eric P.},
+  journal = {arXiv preprint arXiv:xxxxxx},
+  year    = {2026},
+  doi     = {10.48550/arXiv.xxxxxx},
+  url     = {https://arxiv.org/abs/xxxxxx}
+}</code></pre>
+      </div>
+    </div>
+  </section>
 
   <!-- FOOTER -->
   <footer class="footer">
