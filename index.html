@@ -155,9 +155,9 @@
           </div>
 
           <ul style="margin:1.25rem 0 0;padding-left:1.2rem;font-size:0.85rem;color:#1a1a2e;line-height:1.8;">
-            <li><strong>Configurator</strong> — meta-cognitive gating: decides at every step whether to plan, continue a prior plan, or act immediately (inspired by how humans regulate deliberation based on urgency and complexity)</li>
-            <li><strong>Planner</strong> — when invoked, builds a structured sequence of proposed actions and <em>predicted future states</em>, grounding execution in anticipated consequences rather than just the next action</li>
-            <li><strong>Actor</strong> — executes actions (web search, browser, Python sandbox) conditioned on the plan and current context</li>
+            <li><strong>Configurator</strong>: meta-cognitive gating: decides at every step whether to plan, continue a prior plan, or act immediately (inspired by how humans regulate deliberation based on urgency and complexity). </li>
+            <li><strong>Planner</strong>: when invoked, builds a structured sequence of proposed actions and <em>predicted future states</em>, grounding execution in anticipated consequences rather than just the next action. </li>
+            <li><strong>Actor</strong>: executes actions (web search, browser, Python sandbox) conditioned on the plan and current context. </li>
           </ul>
         </div>
 
@@ -229,9 +229,9 @@
               <ul style="margin:0;padding-left:1.1rem;font-size:0.8rem;color:#1a1a2e;line-height:1.8;">
                 <li>Plan at <strong>longer horizons</strong> when it matters<br>
                     <span style="color:#5a6a7a;font-size:0.74rem;">avg. plan depth +22.8% (1.67 → 2.05 steps)</span></li>
-                <li><strong>Don't over-plan</strong> — frequency barely changes<br>
+                <li><strong>Don't over-plan</strong>, frequency barely changes<br>
                     <span style="color:#5a6a7a;font-size:0.74rem;">planning frequency +2.0% (84.4% → 86.4%)</span></li>
-                <li>Stay within context budgets — no runaway token growth<br>
+                <li>Stay within context budgets, no runaway token growth<br>
                     <span style="color:#5a6a7a;font-size:0.74rem;">black-box RL hits 22.4% context overflow; self-regulated model stays within practical limits</span></li>
               </ul>
             </div>
@@ -255,7 +255,7 @@
           Both SRAM models land <em>above</em> it: SRAM-8B competes with systems at 120–355B,
           SRAM-30B with systems at 685B–1T. Marker color encodes token usage: greener = fewer tokens.
         </p>
-        <img src="figures/main-results-1.png" alt="Overall Pass Rate vs. Parameter Size" style="width:100%;display:block;" />
+        <iframe src="new/standalone_chart (2).html" style="width:100%;height:560px;border:none;display:block;" scrolling="no"></iframe>
         <p class="figure-caption" style="border-top:none;">
           Overall Pass@1 vs. log parameter size across all evaluated systems. Marker shape = system type;
           color = avg. reasoning tokens per trajectory (greener = fewer). Both SRAM models sit above the scaling trend.
