@@ -34,7 +34,13 @@
       "Bash(convert -density 200 /Users/llns2/Documents/GitHub/sram.github.io/front-page-figure-2.pdf -quality 95 /Users/llns2/Documents/GitHub/sram.github.io/figures/front-page-figure-2.png)",
       "Bash(pip install:*)",
       "Bash(python animation/make_2panel_figure-2.py)",
-      "Bash(magick -density 200 front-page-figure-2.pdf figures/front-page-figure-2.png)"
+      "Bash(magick -density 200 front-page-figure-2.pdf figures/front-page-figure-2.png)",
+      "Read(//Users/llms2/Documents/GitHub/sram-agentic-llm.github.io/SRAM_overleaf/**)",
+      "Read(//Users/llms2/Documents/GitHub/sram-agentic-llm.github.io/**)",
+      "Bash(xargs ls:*)",
+      "Read(//Users/llns2/Documents/GitHub/sram.github.io/**)",
+      "Bash(magick -density 200 /Users/llns2/Documents/GitHub/sram.github.io/front-page-figure-2.pdf /Users/llns2/Documents/GitHub/sram-agentic-llm.github.io/figures/front-page-figure-2.png)",
+      "Bash(convert -density 200 /Users/llns2/Documents/GitHub/sram.github.io/front-page-figure-2.pdf -flatten -resize 1760x figures/front-page-figure-2.png)"
     ]
   }
 }
