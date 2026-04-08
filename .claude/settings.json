@@ -30,7 +30,11 @@
       "Bash(gh run:*)",
       "Bash(git commit:*)",
       "Bash(python3 -)",
-      "Bash(git rm:*)"
+      "Bash(git rm:*)",
+      "Bash(convert -density 200 /Users/llns2/Documents/GitHub/sram.github.io/front-page-figure-2.pdf -quality 95 /Users/llns2/Documents/GitHub/sram.github.io/figures/front-page-figure-2.png)",
+      "Bash(pip install:*)",
+      "Bash(python animation/make_2panel_figure-2.py)",
+      "Bash(magick -density 200 front-page-figure-2.pdf figures/front-page-figure-2.png)"
     ]
   }
 }
