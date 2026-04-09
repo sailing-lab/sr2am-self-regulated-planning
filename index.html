@@ -386,14 +386,19 @@
         <script>
           (function() {
             var iframe = document.getElementById('fig4-iframe');
+            var loaded = false;
             var observer = new IntersectionObserver(function(entries) {
-              if (entries[0].isIntersecting && !iframe.src) {
-                var baseSrc = iframe.dataset.src;
-                var sep = baseSrc.indexOf('?') === -1 ? '?' : '&';
-                iframe.src = baseSrc + sep + 'v=' + Date.now();
-                observer.disconnect();
+              if (entries[0].isIntersecting) {
+                if (!loaded) {
+                  var baseSrc = iframe.dataset.src;
+                  var sep = baseSrc.indexOf('?') === -1 ? '?' : '&';
+                  iframe.src = baseSrc + sep + 'v=' + Date.now();
+                  loaded = true;
+                } else {
+                  iframe.contentWindow.postMessage('replayAnimation', '*');
+                }
               }
-            }, { rootMargin: '100px' });
+            }, { threshold: 0.2 });
             observer.observe(iframe);
           })();
         </script>

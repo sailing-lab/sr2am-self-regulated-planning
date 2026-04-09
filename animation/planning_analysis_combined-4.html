@@ -107,6 +107,21 @@ const lenChart = new Chart(document.getElementById('chartLen'), {
   }
 });
 
-animateBarsAfterDelay(distChart, distTargets, 250);
-animateBarsAfterDelay(lenChart, lenTargets, 250);
+function replayAnimation() {
+  [distChart, lenChart].forEach(function(chart) {
+    chart.data.datasets.forEach(function(ds) {
+      ds.data = ds.data.map(function() { return 0; });
+    });
+    chart.options.animation = false;
+    chart.update('none');
+  });
+  animateBarsAfterDelay(distChart, distTargets, 250);
+  animateBarsAfterDelay(lenChart, lenTargets, 250);
+}
+
+replayAnimation();
+
+window.addEventListener('message', function(e) {
+  if (e.data === 'replayAnimation') replayAnimation();
+});
 </script>
