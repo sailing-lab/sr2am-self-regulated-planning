@@ -387,6 +387,7 @@
           (function() {
             var iframe = document.getElementById('fig4-iframe');
             var loaded = false;
+            var targetOrigin = new URL(iframe.dataset.src, window.location.href).origin;
             var observer = new IntersectionObserver(function(entries) {
               if (entries[0].isIntersecting) {
                 if (!loaded) {
@@ -395,7 +396,7 @@
                   iframe.src = baseSrc + sep + 'v=' + Date.now();
                   loaded = true;
                 } else {
-                  iframe.contentWindow.postMessage('replayAnimation', '*');
+                  iframe.contentWindow.postMessage('replayAnimation', targetOrigin);
                 }
               }
             }, { threshold: 0.2 });

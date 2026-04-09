@@ -122,6 +122,8 @@ function replayAnimation() {
 replayAnimation();
 
 window.addEventListener('message', function(e) {
-  if (e.data === 'replayAnimation') replayAnimation();
+  if (e.origin === window.location.origin && e.source === window.parent && e.data === 'replayAnimation') {
+    replayAnimation();
+  }
 });
 </script>
