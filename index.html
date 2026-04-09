@@ -126,6 +126,111 @@
         </p>
       </div>
 
+      <div style="margin-top:2.5rem;">
+        <p style="font-family:var(--font-serif);font-size:1rem;line-height:1.85;color:#1a1a2e;margin:0 0 1.25rem;">
+          Prior approaches to adaptive reasoning each address a portion of this problem.
+          <em>Adaptive effort</em> controls the amount of unstructured thought without constructing explicit plans.
+          <em>Coarse mode-routing</em> makes a single routing decision at the start of a task, with no further regulation.
+          <em>Multi-agent distillation</em> internalizes rule-based routing among predefined capabilities, but lacks free-form reasoning and advanced planning capabilities.
+          SRAM is the first to combine per-turn regulation, explicit planning, simulative lookahead, and controllable planning depth alongside free-form reasoning.
+        </p>
+
+        <div style="overflow-x:auto;border:1.5px solid #c8e8e3;border-radius:10px;background:white;">
+          <table style="width:100%;border-collapse:collapse;font-size:1rem;color:#1a1a2e;">
+            <thead>
+              <tr style="background:#f0faf8;">
+                <th style="text-align:left;padding:0.75rem 0.6rem;font-weight:700;color:#284269;border-bottom:1.5px solid #c8e8e3;">System Type</th>
+                <th style="text-align:center;padding:0.75rem 0.4rem;font-weight:700;color:#284269;border-bottom:1.5px solid #c8e8e3;font-size:0.9rem;">Environment<br>Interaction</th>
+                <th style="text-align:center;padding:0.75rem 0.4rem;font-weight:700;color:#284269;border-bottom:1.5px solid #c8e8e3;font-size:0.9rem;">Agentic<br>Training</th>
+                <th style="text-align:center;padding:0.75rem 0.4rem;font-weight:700;color:#284269;border-bottom:1.5px solid #c8e8e3;font-size:0.9rem;">Free-Form<br>Reasoning</th>
+                <th style="text-align:center;padding:0.75rem 0.4rem;font-weight:700;color:#284269;border-bottom:1.5px solid #c8e8e3;font-size:0.9rem;">Per-Turn<br>Regulation</th>
+                <th style="text-align:center;padding:0.75rem 0.4rem;font-weight:700;color:#284269;border-bottom:1.5px solid #c8e8e3;font-size:0.9rem;">Explicit<br>Planning</th>
+                <th style="text-align:center;padding:0.75rem 0.4rem;font-weight:700;color:#284269;border-bottom:1.5px solid #c8e8e3;font-size:0.9rem;">Next-State<br>Simulative<br>Planning</th>
+                <th style="text-align:center;padding:0.75rem 0.4rem;font-weight:700;color:#284269;border-bottom:1.5px solid #c8e8e3;font-size:0.9rem;">Controllable<br>Planning<br>Depth</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="padding:0.6rem;border-bottom:1px solid #e8f3f1;">Reasoning LLM</td>
+                <td style="text-align:center;padding:0.6rem;border-bottom:1px solid #e8f3f1;color:#c0c8d0;">✗</td>
+                <td style="text-align:center;padding:0.6rem;border-bottom:1px solid #e8f3f1;color:#c0c8d0;">✗</td>
+                <td style="text-align:center;padding:0.6rem;border-bottom:1px solid #e8f3f1;color:#5a6a7a;">✓</td>
+                <td style="text-align:center;padding:0.6rem;border-bottom:1px solid #e8f3f1;color:#c0c8d0;">✗</td>
+                <td style="text-align:center;padding:0.6rem;border-bottom:1px solid #e8f3f1;color:#c0c8d0;">✗</td>
+                <td style="text-align:center;padding:0.6rem;border-bottom:1px solid #e8f3f1;color:#c0c8d0;">✗</td>
+                <td style="text-align:center;padding:0.6rem;border-bottom:1px solid #e8f3f1;color:#c0c8d0;">✗</td>
+              </tr>
+              <tr>
+                <td style="padding:0.6rem;border-bottom:1px solid #e8f3f1;">LLM + Tools</td>
+                <td style="text-align:center;padding:0.6rem;border-bottom:1px solid #e8f3f1;color:#5a6a7a;">✓</td>
+                <td style="text-align:center;padding:0.6rem;border-bottom:1px solid #e8f3f1;color:#c0c8d0;">✗</td>
+                <td style="text-align:center;padding:0.6rem;border-bottom:1px solid #e8f3f1;color:#5a6a7a;">✓</td>
+                <td style="text-align:center;padding:0.6rem;border-bottom:1px solid #e8f3f1;color:#c0c8d0;">✗</td>
+                <td style="text-align:center;padding:0.6rem;border-bottom:1px solid #e8f3f1;color:#c0c8d0;">✗</td>
+                <td style="text-align:center;padding:0.6rem;border-bottom:1px solid #e8f3f1;color:#c0c8d0;">✗</td>
+                <td style="text-align:center;padding:0.6rem;border-bottom:1px solid #e8f3f1;color:#c0c8d0;">✗</td>
+              </tr>
+              <tr>
+                <td style="padding:0.6rem;border-bottom:1.5px solid #c8e8e3;">Black-Box Agentic LLM</td>
+                <td style="text-align:center;padding:0.6rem;border-bottom:1.5px solid #c8e8e3;color:#5a6a7a;">✓</td>
+                <td style="text-align:center;padding:0.6rem;border-bottom:1.5px solid #c8e8e3;color:#5a6a7a;">✓</td>
+                <td style="text-align:center;padding:0.6rem;border-bottom:1.5px solid #c8e8e3;color:#5a6a7a;">✓</td>
+                <td style="text-align:center;padding:0.6rem;border-bottom:1.5px solid #c8e8e3;color:#c0c8d0;">✗</td>
+                <td style="text-align:center;padding:0.6rem;border-bottom:1.5px solid #c8e8e3;color:#c0c8d0;">✗</td>
+                <td style="text-align:center;padding:0.6rem;border-bottom:1.5px solid #c8e8e3;color:#c0c8d0;">✗</td>
+                <td style="text-align:center;padding:0.6rem;border-bottom:1.5px solid #c8e8e3;color:#c0c8d0;">✗</td>
+              </tr>
+              <tr>
+                <td colspan="8" style="padding:0.5rem 0.6rem;font-style:italic;color:#5a6a7a;border-bottom:1px solid #e8f3f1;">Adaptive Agentic LLM</td>
+              </tr>
+              <tr>
+                <td style="padding:0.6rem 0.6rem 0.6rem 1.5rem;border-bottom:1px solid #e8f3f1;">Adaptive Effort</td>
+                <td style="text-align:center;padding:0.6rem;border-bottom:1px solid #e8f3f1;color:#5a6a7a;">✓</td>
+                <td style="text-align:center;padding:0.6rem;border-bottom:1px solid #e8f3f1;color:#5a6a7a;">✓</td>
+                <td style="text-align:center;padding:0.6rem;border-bottom:1px solid #e8f3f1;color:#5a6a7a;">✓</td>
+                <td style="text-align:center;padding:0.6rem;border-bottom:1px solid #e8f3f1;color:#5a6a7a;">✓</td>
+                <td style="text-align:center;padding:0.6rem;border-bottom:1px solid #e8f3f1;color:#c0c8d0;">✗</td>
+                <td style="text-align:center;padding:0.6rem;border-bottom:1px solid #e8f3f1;color:#c0c8d0;">✗</td>
+                <td style="text-align:center;padding:0.6rem;border-bottom:1px solid #e8f3f1;color:#c0c8d0;">✗</td>
+              </tr>
+              <tr>
+                <td style="padding:0.6rem 0.6rem 0.6rem 1.5rem;border-bottom:1px solid #e8f3f1;">Coarse Mode-Routing</td>
+                <td style="text-align:center;padding:0.6rem;border-bottom:1px solid #e8f3f1;color:#5a6a7a;">✓</td>
+                <td style="text-align:center;padding:0.6rem;border-bottom:1px solid #e8f3f1;color:#5a6a7a;">✓</td>
+                <td style="text-align:center;padding:0.6rem;border-bottom:1px solid #e8f3f1;color:#5a6a7a;">◐</td>
+                <td style="text-align:center;padding:0.6rem;border-bottom:1px solid #e8f3f1;color:#c0c8d0;">✗</td>
+                <td style="text-align:center;padding:0.6rem;border-bottom:1px solid #e8f3f1;color:#5a6a7a;">◐</td>
+                <td style="text-align:center;padding:0.6rem;border-bottom:1px solid #e8f3f1;color:#c0c8d0;">✗</td>
+                <td style="text-align:center;padding:0.6rem;border-bottom:1px solid #e8f3f1;color:#c0c8d0;">✗</td>
+              </tr>
+              <tr>
+                <td style="padding:0.6rem 0.6rem 0.6rem 1.5rem;border-bottom:1.5px solid #c8e8e3;">Multi-Agent Distillation</td>
+                <td style="text-align:center;padding:0.6rem;border-bottom:1.5px solid #c8e8e3;color:#5a6a7a;">✓</td>
+                <td style="text-align:center;padding:0.6rem;border-bottom:1.5px solid #c8e8e3;color:#5a6a7a;">✓</td>
+                <td style="text-align:center;padding:0.6rem;border-bottom:1.5px solid #c8e8e3;color:#c0c8d0;">✗</td>
+                <td style="text-align:center;padding:0.6rem;border-bottom:1.5px solid #c8e8e3;color:#5a6a7a;">✓</td>
+                <td style="text-align:center;padding:0.6rem;border-bottom:1.5px solid #c8e8e3;color:#5a6a7a;">✓</td>
+                <td style="text-align:center;padding:0.6rem;border-bottom:1.5px solid #c8e8e3;color:#c0c8d0;">✗</td>
+                <td style="text-align:center;padding:0.6rem;border-bottom:1.5px solid #c8e8e3;color:#c0c8d0;">✗</td>
+              </tr>
+              <tr style="background:rgba(52,162,146,0.08);">
+                <td style="padding:0.75rem 0.6rem;font-weight:700;color:#284269;">SRAM (Ours)</td>
+                <td style="text-align:center;padding:0.75rem 0.6rem;color:#34a292;font-weight:700;">✓</td>
+                <td style="text-align:center;padding:0.75rem 0.6rem;color:#34a292;font-weight:700;">✓</td>
+                <td style="text-align:center;padding:0.75rem 0.6rem;color:#34a292;font-weight:700;">✓</td>
+                <td style="text-align:center;padding:0.75rem 0.6rem;color:#34a292;font-weight:700;">✓</td>
+                <td style="text-align:center;padding:0.75rem 0.6rem;color:#34a292;font-weight:700;">✓</td>
+                <td style="text-align:center;padding:0.75rem 0.6rem;color:#34a292;font-weight:700;">✓</td>
+                <td style="text-align:center;padding:0.75rem 0.6rem;color:#34a292;font-weight:700;">✓</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="figure-caption" style="border-top:none;font-size:1.0rem;">
+          Comparison of agentic system types. ✓ = supported, ✗ = not supported, ◐ = partial. SRAM is the first to combine per-turn regulation, explicit planning, simulative lookahead, and controllable planning depth alongside free-form reasoning. Please see paper for detailed definition of each property.
+        </p>
+      </div>
+
         <!-- Runtime Loop Diagram -->
         <!-- <div style="margin:2rem 0 2.5rem;padding:2rem;background:white;border:1px solid #c8e8e3;border-radius:12px;box-shadow:0 1px 3px rgba(40,66,105,0.08);">
           <p style="font-size:1rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#34a292;margin:0 0 1.25rem;">At each turn</p>
