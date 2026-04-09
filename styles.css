@@ -8,7 +8,7 @@
   /* IFM brand palette (Abu Dhabi aerial originals commented below) */
   --blue-deep:   #284269;  /* IFMDarkBlue       | was: #0077B6 */
   --blue-mid:    #52699F;  /* IFMBlue           | was: #0096C7 */
-  --blue-teal:   #45C9B6;  /* IFMTealBlue       | was: #00B4D8 */
+  --blue-teal:   #34a292;  /* IFMTealBlue       | was: #00B4D8 */
   --blue-light:  #7ad8ca;  /* teal mid-tone     | was: #48CAE4 */
   --blue-pale:   #ecfaf8;  /* IFMLightTealBlue  | was: #ADE8F4 */
 
@@ -163,22 +163,22 @@ body {
 .author-sup {
   color: var(--blue-teal);
   font-weight: 700;
-  font-size: 0.72rem;
+  font-size: 0.85rem;
 }
 
 .authors {
   font-family: var(--font-sans);
-  font-size: 0.97rem; color: var(--text-muted);
+  font-size: 1.15rem; color: var(--text-muted);
   margin-bottom: 0.5rem; line-height: 2.1;
 }
 .authors span { font-weight: 600; color: var(--text); }
 .sep { color: var(--border); font-size: 0.75rem; }
 
 .affil-line {
-  font-size: 0.82rem; color: var(--text-muted);
+  font-size: 1.15rem; color: var(--text-muted);
   margin-bottom: 2rem; line-height: 1.7;
 }
-.affil-line sup { font-size: 0.65rem; }
+.affil-line sup { font-size: 0.85rem; }
 
 /* Hero links */
 .hero-links {
@@ -367,7 +367,8 @@ body {
 .arch-figure img { width: 100%; display: block; }
 .figure-caption {
   padding: 0.75rem 1.25rem;
-  font-size: 0.8rem; color: var(--text-muted);
+  font-family: var(--font-serif);
+  font-size: 1rem; color: var(--text-muted);
   border-top: 1px solid var(--border);
   font-family: var(--font-sans); line-height: 1.5;
 }
@@ -616,7 +617,7 @@ body {
 }
 .sram-row td { background: #d4f3ef; }               /* was: #EBF8FF */
 .sram-row:hover td { background: #bfede7 !important; } /* was: #D6F3FF */
-.sram-row td:first-child strong { color: #45C9B6; }
+.sram-row td:first-child strong { color: #34a292; }
 
 .findings-title { margin-top: 3rem; }
 
@@ -913,7 +914,7 @@ body {
 
 /* ---- FOOTER ---- */
 .footer {
-  background: #111e30; /* was: #0A1628 */ color: #45C9B6; /* was: #7ABFDB */
+  background: #111e30; /* was: #0A1628 */ color: #34a292; /* was: #7ABFDB */
   text-align: center; padding: 2.5rem 2rem; font-size: 0.86rem;
 }
 .footer strong { color: #7dd8ca; /* was: #ADE8F4 */ font-family: var(--font-serif); }

@@ -37,9 +37,9 @@
       <div class="authors">
         <span>Mingkai Deng</span><sup class="author-sup">*,1,2</sup><span class="sep">&nbsp;&nbsp;</span>
         <span>Jinyu Hou</span><sup class="author-sup">*,1,2</sup><span class="sep">&nbsp;&nbsp;</span>
-        <span>Lara Sá Neves</span><sup class="author-sup">*,1,2</sup>
-        <br />
+        <span>Lara Sá Neves</span><sup class="author-sup">*,1,2</sup><span class="sep">&nbsp;&nbsp;</span>
         <span>Varad Pimpalkhute</span><sup class="author-sup">1</sup><span class="sep">&nbsp;&nbsp;</span>
+        <br />
         <span>Taylor W. Killian</span><sup class="author-sup">1</sup><span class="sep">&nbsp;&nbsp;</span>
         <span>Zhengzhong Liu</span><sup class="author-sup">1</sup><span class="sep">&nbsp;&nbsp;</span>
         <span>Eric P. Xing</span><sup class="author-sup">1,2</sup>
@@ -73,56 +73,62 @@
   <!-- OVERALL PASS@1 FIGURE -->
   <section class="section" id="overall-pass" style="padding-top:4rem;">
     <div class="container">
-      <span class="results-kicker" style="display:block;text-align:center;">Key Results</span>
-      <p class="section-subtitle" style="margin-bottom:1.75rem;font-size:1.05rem;line-height:1.7;color:#1a1a2e;">
-        SRAM introduces an agentic LLM with explicit self-regulation.
-        A configurator decides at each step whether to plan, continue, or act. The model is trained on self-regulated planning data and refined with RL, achieving Pass@1 performance competitive with 120–355B and 685B–1T systems while using 25–95% fewer reasoning tokens.
+      <p style="font-family:var(--font-serif);font-size:1rem;line-height:1.85;color:#1a1a2e;margin:0 0 1.75rem;">
+        <strong style="color: #34a292;">SRAM</strong> augments conventional thinking-acting LLMs with an explicit configurator and structured planner as parts of its reasoning process.
+        SRAM-v0.1-8B and SRAM-v1.0-30B achieve overall Pass@1 competitive with systems at 120&ndash;355B and 685B&ndash;1T parameters, respectively, while the 30B model consumes 25.8&ndash;95.3% fewer reasoning tokens than comparably sized agentic LLMs.
       </p>
       <p style="font-size:1rem;font-weight:700;color:#1a1a2e;text-align:center;margin:0 0 0.75rem;">Overall Pass@1 (↑) Across Selected Systems</p>
       <img src="figures/front-page-figure-2.png" alt="Overall Pass@1 across selected systems" style="width:100%;display:block;" />
-      <p class="figure-caption" style="border-top:none;">Overall Pass@1 vs. parameter size (left) and reasoning tokens for 30/32B models (right). Both SRAM models sit above the scaling trend and above the token-efficiency frontier of comparable agentic LLMs.</p>
+      <p class="figure-caption" style="border-top:none;font-size:1.0rem;">Overall Pass@1 vs. parameter size (left) and reasoning tokens for 30/32B models (right). Both SRAM models sit above the scaling trend and above the token-efficiency frontier of comparable agentic LLMs.</p>
     </div>
   </section>
 
   <!-- ABSTRACT -->
-  <section class="section" id="abstract">
+  <section class="section section-gray" id="abstract">
     <div class="container">
       <h2 class="section-title">Abstract</h2>
       <div class="abstract-text">
         <p>
-          Large language models (LLMs) are increasingly deployed as interactive agents that reason, use tools, and act over long horizons. However, current agentic LLMs typically rely on black-box chain-of-thought, where planning behavior is expected to emerge implicitly from unconstrained optimization with reinforcement learning (RL). Without control over planning presence, depth, or structure, these systems often rely on scaling reasoning length as the primary mechanism for improvement during training, leading to inefficient token consumption that does not reliably translate to accuracy gains. Prior approaches seek to contain reasoning growth by building capabilities such as effort adaptation, coarse mode-routing, and multi-agent distillation, which fall short of either explicit planning, per-turn regulation, or combination with free-formed reasoning.
+          Large language models (LLMs) are increasingly deployed in agentic systems that reason, use tools, and act over long horizons. However, current agentic LLMs typically rely on black-box chain-of-thought, where planning behavior is expected to emerge implicitly from unconstrained optimization with reinforcement learning (RL). Without control over planning presence, depth, or structure, these systems often rely on scaling reasoning length as the primary mechanism for improvement during training, leading to inefficient token consumption that does not reliably translate to accuracy gains. Prior approaches seek to contain reasoning growth by building capabilities such as effort adaptation, coarse mode-routing, and multi-agent distillation, which fall short of either explicit planning, per-turn regulation, or combination with free-formed reasoning.
         </p>
         <p>
-          We introduce <strong style="color: #45C9B6;">SRAM</strong>, an agentic LLM that combines the strengths of existing approaches while enabling more advanced planning features. Specifically, SRAM augments conventional thinking-acting LLMs with an explicit <em><strong>configurator</strong></em> and structured <em><strong>planner</strong></em> as part of its reasoning process. At each turn, the configurator decides whether to plan, continue an existing plan, or act directly; when invoked, the planner constructs explicit plans grounded in <em>predicted future states</em> and controlled planning depth.
+          We introduce <strong style="color: #34a292;">SRAM</strong>, an agentic LLM that combines the strengths of existing approaches while enabling more advanced planning features. Specifically, SRAM augments conventional thinking-acting LLMs with an explicit <em><strong>configurator</strong></em> and a structured <em><strong>planner</strong></em> as parts of its reasoning process. At each turn, the configurator decides whether to plan, continue an existing plan, or act directly; when invoked, the planner constructs explicit plans grounded in <em>predicted future states</em> and controlled planning depth.
         </p>
         <p>
           These components operate alongside free-form reasoning, separating self-regulation, planning, and execution while preserving end-to-end expressiveness. We realize this framework through supervised data encoding self-regulated planning structure followed by RL for task success, yielding SRAM-v0.1-8B and SRAM-v1.0-30B.
         </p>
         <p>
-          Across mathematical reasoning, scientific problem-solving, tabular data analysis, and web information seeking, SRAM-v0.1-8B and SRAM-v1.0-30B achieve overall Pass@1 competitive with systems at <strong>120–355B and 685B–1T parameters</strong>, respectively, while consuming up to <strong style="color: #45C9B6;">25–95% fewer reasoning tokens</strong> than comparably sized agentic LLMs. Analysis shows that RL increases average plan depth by 22.8% while planning frequency grows only 2.0%, suggesting the model learns to plan at longer horizons without overly frequent planning.
+          Across mathematical reasoning, scientific problem-solving, tabular data analysis, and web information seeking, the two models achieve overall Pass@1 competitive with systems at <strong>120–355B and 685B–1T parameters</strong>, respectively. Meanwhile, SRAM-v1.0-30B consumes <strong style="color: #34a292;">25.8–95.3% fewer reasoning tokens</strong> than comparably sized agentic LLMs for comparable or better accuracy. Analysis shows that RL increases average plan depth by 22.8% while planning frequency grows only 2.0%, suggesting the model learns to plan at longer horizons without overly frequent planning.
         </p>
       </div>
 
-      <div style="margin-top:2.5rem;">
-        <img src="figures/sram-arch-1.2-p3.png" alt="SRAM architecture overview" style="width:100%;display:block;" />
-        <p class="figure-caption" style="border-top:none;">
-          The SRAM agent at each turn: the configurator decides whether to plan, continue an existing plan, or act directly. When planning is invoked, the planner builds a structured sequence of proposed actions and predicted future states. All three components run within a single LLM.
-        </p>
-      </div>
 
     </div>
   </section>
 
 
     <!-- METHOD -->
-    <section class="section section-gray" id="method">
+    <section class="section" id="method">
       <div class="container">
         <h2 class="section-title">How SRAM Works</h2>
-        <p class="section-subtitle">At each step, SRAM regulates its own reasoning, deciding whether to plan, how deep to plan, and when to act.</p>
+        <!-- <p class="section-subtitle">At each step, SRAM regulates its own reasoning, deciding whether to plan, how deep to plan, and when to act.</p> -->
+        <p style="font-family:var(--font-serif);font-size:1rem;line-height:1.85;color:#1a1a2e;margin:0 0 1.75rem;">The agentic LLM interacts with the universe over multiple time steps, receiving observations <em>o<sub>t</sub></em> and executing actions <em>a<sub>t</sub></em> . At each step, the configurator outputs decision <em>u<sub>t</sub></em> for whether to make a new plan, continue an existing plan, or skip planning entirely.</p>
+
+        <p style="font-family:var(--font-serif);font-size:1rem;line-height:1.85;color:#1a1a2e;margin:0 0 1.75rem;">When planning is invoked, the planner simulates a sequence of proposed actions <em>a'<sub>t</sub></em> and predicted belief states <em>ŝ<sub>t+1</sub></em> conditioned on the current state <em>ŝ<sub>t</sub></em> , implicitly performing goal-directed planning with world-model simulation.
+          Both the configurator and the planner are realized in the same LLM, with their outputs distinguished by structured generation.</p>
+
+        
+      <div style="margin-top:2.5rem;">
+        <img src="figures/sram-arch-1.2-p3.png" alt="SRAM architecture overview" style="width:100%;display:block;" />
+        <p class="figure-caption" style="border-top:none;font-size:1.0rem;">
+          <!-- The SRAM agent at each turn: the configurator decides whether to plan, continue an existing plan, or act directly. When planning is invoked, the planner builds a structured sequence of proposed actions and predicted future states. All three components run within a single LLM. -->
+          The example depicts a web information-seeking task where the model first carefully plans a search-and-visit strategy, continues executing the plan at steps 2 and 3, and skips planning at step 4 to provide an answer to the user.
+        </p>
+      </div>
 
         <!-- Runtime Loop Diagram -->
-        <div style="margin:2rem 0 2.5rem;padding:2rem;background:white;border:1px solid #c8e8e3;border-radius:12px;box-shadow:0 1px 3px rgba(40,66,105,0.08);">
-          <p style="font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#45C9B6;margin:0 0 1.25rem;">At each turn</p>
+        <!-- <div style="margin:2rem 0 2.5rem;padding:2rem;background:white;border:1px solid #c8e8e3;border-radius:12px;box-shadow:0 1px 3px rgba(40,66,105,0.08);">
+          <p style="font-size:1rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#34a292;margin:0 0 1.25rem;">At each turn</p>
           <div style="display:flex;align-items:flex-start;gap:0;flex-wrap:wrap;row-gap:1rem;">
 
             <div style="text-align:center;min-width:90px;">
@@ -130,28 +136,28 @@
               <p style="font-size:0.65rem;color:#5a6a7a;margin:0.3rem 0 0;">environment</p>
             </div>
 
-            <div style="color:#45C9B6;font-size:1.2rem;padding:0.4rem 0.4rem 0;">→</div>
+            <div style="color:#34a292;font-size:1.2rem;padding:0.4rem 0.4rem 0;">→</div>
 
             <div style="text-align:center;min-width:120px;">
-              <div style="display:inline-block;padding:0.5rem 0.9rem;border-radius:8px;background:rgba(69,201,182,0.14);border:2px solid #45C9B6;font-size:0.8rem;font-weight:700;color:#2a8f80;">Configurator</div>
+              <div style="display:inline-block;padding:0.5rem 0.9rem;border-radius:8px;background:rgba(69,201,182,0.14);border:2px solid #34a292;font-size:0.8rem;font-weight:700;color:#2a8f80;">Configurator</div>
               <p style="font-size:0.65rem;color:#5a6a7a;margin:0.3rem 0 0;">new plan / continue / skip</p>
             </div>
 
-            <div style="color:#45C9B6;font-size:1.2rem;padding:0.4rem 0.4rem 0;">→</div>
+            <div style="color:#34a292;font-size:1.2rem;padding:0.4rem 0.4rem 0;">→</div>
 
             <div style="text-align:center;min-width:110px;">
               <div style="display:inline-block;padding:0.5rem 0.9rem;border-radius:8px;background:#f5f9ff;border:1.5px dashed #7aaddc;font-size:0.8rem;font-weight:600;color:#284269;">Planner</div>
               <p style="font-size:0.65rem;color:#5a6a7a;margin:0.3rem 0 0;">if planning invoked</p>
             </div>
 
-            <div style="color:#45C9B6;font-size:1.2rem;padding:0.4rem 0.4rem 0;">→</div>
+            <div style="color:#34a292;font-size:1.2rem;padding:0.4rem 0.4rem 0;">→</div>
 
             <div style="text-align:center;min-width:90px;">
               <div style="display:inline-block;padding:0.5rem 0.9rem;border-radius:8px;background:#f0faf8;border:1.5px solid #c8e8e3;font-size:0.8rem;font-weight:600;color:#284269;">Actor</div>
               <p style="font-size:0.65rem;color:#5a6a7a;margin:0.3rem 0 0;">tool call / answer</p>
             </div>
 
-            <div style="color:#45C9B6;font-size:1.2rem;padding:0.4rem 0.5rem 0;">↺</div>
+            <div style="color:#34a292;font-size:1.2rem;padding:0.4rem 0.5rem 0;">↺</div>
             <p style="font-size:0.72rem;color:#5a6a7a;font-style:italic;margin:0.55rem 0 0;">repeats each turn as needed</p>
           </div>
 
@@ -160,78 +166,53 @@
             <li><strong>Planner</strong>: when invoked, builds a structured sequence of proposed actions and <em>predicted future states</em>, grounding execution in anticipated consequences rather than just the next action. </li>
             <li><strong>Actor</strong>: executes actions (web search, browser, Python sandbox) conditioned on the plan and current context. </li>
           </ul>
-        </div>
+        </div> -->
     
 
-        <!-- SIMPLIFIED TRAINING DIAGRAM (v2) -->
-        <div style="margin-top:3rem;padding-top:2rem;">
-          <p style="font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#45C9B6;margin:0 0 0.3rem;">Training Pipeline</p>
-          <h3 style="font-size:1.05rem;font-weight:700;color:#284269;margin:0 0 0.4rem;">Stage 1: Data Construction and Supervised Finetuning</h3>
-          <p style="font-size:0.85rem;color:#5a6a7a;margin:0 0 0.75rem;line-height:1.6;">Constructs training data by injecting self-regulation structure into existing reasoning traces, teaching the model when to plan, how deep to plan, and how to integrate plans with free-form reasoning.</p>
+      </div>
+    </section>
+
+    <!-- TRAINING PIPELINE -->
+    <section class="section section-gray" id="training">
+      <div class="container">
+        <h2 class="section-title">Training Pipeline</h2>
+        <!-- Stage 1 -->
+        <div>
+          <h3 style="font-size:1.15rem;font-weight:700;color:#284269;margin:0 0 0.4rem;">Stage 1: Data Construction and Supervised Finetuning</h3>
+          <p style="font-size:1rem;color:#5a6a7a;margin:0 0 0.75rem;line-height:1.6;">Constructs supervised training data with self-regulation structure, teaching the model when to plan, how deep to plan, and how to integrate plans with free-form reasoning.</p>
 
           <!-- Stage 1: two parallel SFT boxes -->
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
             <div style="padding:1.1rem 1.2rem;background:white;border:1.5px solid #c8e8e3;border-radius:10px;">
-              <p style="font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#45C9B6;margin:0 0 0.4rem;">SRAM-v0.1 8B SFT</p>
-              <p style="font-size:0.82rem;font-weight:600;color:#284269;margin:0 0 0.3rem;">Multi-module inference</p>
-              <p style="font-size:0.76rem;color:#5a6a7a;margin:0 0 0.3rem;line-height:1.5;">Configurator + planner run as prompted LLMs (o4-mini).</p>
-              <p style="font-size:0.76rem;color:#5a6a7a;margin:0 0 0.3rem;line-height:1.5;">Trajectories collected, filtered, and used to fine-tune Qwen3-8B.</p>
-              <p style="font-size:0.76rem;color:#5a6a7a;margin:0;line-height:1.5;">4,845 SFT examples (20.7M tokens).</p>
+              <p style="font-size:1rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#34a292;margin:0 0 0.4rem;">v0.1 &mdash; Multi-Module Inference</p>
+              <p style="font-size:1rem;color:#5a6a7a;margin:0;line-height:1.5;">Configurator and planner run as separate prompted LLMs. Trajectories are collected, filtered for correctness, and used for SFT.</p>
             </div>
             <div style="padding:1.1rem 1.2rem;background:white;border:1.5px solid #c8e8e3;border-radius:10px;">
-              <p style="font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#45C9B6;margin:0 0 0.4rem;">SRAM-v1.0 30B SFT</p>
-              <p style="font-size:0.82rem;font-weight:600;color:#284269;margin:0 0 0.3rem;">Plan reconstruction</p>
-              <p style="font-size:0.76rem;color:#5a6a7a;margin:0 0 0.3rem;line-height:1.5;">Annotator LLM reconstructs self-regulation structure from DeepSeek-V3.2 reasoning traces.</p>
-              <p style="font-size:0.76rem;color:#5a6a7a;margin:0 0 0.3rem;line-height:1.5;">Fine-tunes Qwen3-30B-A3B.</p>
-              <p style="font-size:0.76rem;color:#5a6a7a;margin:0;line-height:1.5;">10,787 SFT examples (39.5M tokens).</p>
+              <p style="font-size:1rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#34a292;margin:0 0 0.4rem;">v1.0 &mdash; Plan Reconstruction</p>
+              <p style="font-size:1rem;color:#5a6a7a;margin:0;line-height:1.5;">An annotator LLM reconstructs configurator decisions and structured plans from the thinking-acting trajectories of pretrained LLMs.</p>
             </div>
           </div>
 
           <!-- Arrow + Stage 2 header -->
-          <div style="text-align:center;color:#45C9B6;font-size:1.4rem;margin:0.75rem 0 0.5rem;">↓</div>
-          <h3 style="font-size:1.05rem;font-weight:700;color:#284269;margin:0 0 0.4rem;">Stage 2: Reinforcement Learning Refinement</h3>
-          <p style="font-size:0.85rem;color:#5a6a7a;margin:0 0 0.75rem;line-height:1.6;">Teaches the model to coordinate self-regulation for task success, planning at the right depth and frequency, not just more.</p>
+          <div style="text-align:center;color:#34a292;font-size:1.4rem;margin:0.75rem 0 0.5rem;">↓</div>
+          <h3 style="font-size:1.15rem;font-weight:700;color:#284269;margin:0 0 0.4rem;">Stage 2: Reinforcement Learning Refinement</h3>
+          <p style="font-size:1rem;color:#5a6a7a;margin:0 0 0.75rem;line-height:1.6;">Teaches the model to coordinate self-regulation for task success, planning at the right depth and frequency, not just more.</p>
 
           <!-- Stage 2: RL box with 2-column interior -->
           <div style="padding:1.2rem;background:white;border:1.5px solid #c8e8e3;border-radius:10px;">
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
-              <!-- Left: Reward Signal -->
-              <div style="padding-left:1.5rem;">
-                <p style="font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#284269;margin:0 0 0.75rem;">Reward Signal</p>
-                <div style="display:flex;flex-direction:column;gap:0.45rem;">
-                  <div style="display:flex;align-items:center;gap:0.75rem;">
-                    <span style="font-size:1rem;font-weight:800;color:#45C9B6;min-width:2rem;">1.0</span>
-                    <span style="font-size:0.78rem;color:#1a1a2e;">Correct answer + proper structure</span>
-                  </div>
-                  <div style="display:flex;align-items:center;gap:0.75rem;">
-                    <span style="font-size:1rem;font-weight:800;color:#7aaddc;min-width:2rem;">0.8</span>
-                    <span style="font-size:0.78rem;color:#5a6a7a;">Correct answer, structure issues</span>
-                  </div>
-                  <div style="display:flex;align-items:center;gap:0.75rem;">
-                    <span style="font-size:1rem;font-weight:800;color:#b0c4d8;min-width:2rem;">0.2</span>
-                    <span style="font-size:0.78rem;color:#5a6a7a;">Wrong answer, structure correct</span>
-                  </div>
-                  <div style="display:flex;align-items:center;gap:0.75rem;">
-                    <span style="font-size:1rem;font-weight:800;color:#d0d8e0;min-width:2rem;">0.0</span>
-                    <span style="font-size:0.78rem;color:#5a6a7a;">Wrong answer, no structure</span>
-                  </div>
-                </div>
-              </div>
-              <!-- Right: What RL learns -->
+              <!-- Left: Reward Function -->
               <div>
-                <p style="font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#284269;margin:0 0 0.75rem;">What RL Learns</p>
-                <ul style="margin:0;padding-left:1.1rem;font-size:0.8rem;color:#1a1a2e;line-height:1.8;">
-                  <li>Plan at <strong>longer horizons</strong> when it matters<br>
-                      <span style="color:#5a6a7a;font-size:0.74rem;">avg. plan depth +22.8% (1.67 → 2.05 steps)</span></li>
-                  <li><strong>Don't over-plan</strong>, frequency barely changes<br>
-                      <span style="color:#5a6a7a;font-size:0.74rem;">planning frequency +2.0% (84.4% → 86.4%)</span></li>
-                  <li>Stay within context budgets<br>
-                      <span style="color:#5a6a7a;font-size:0.74rem;">black-box RL hits 22.4% context overflow; SRAM stays within limits</span></li>
-                </ul>
+                <p style="font-size:1rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#34a292;margin:0 0 0.4rem;">Reward Function</p>
+                <p style="font-size:1rem;color:#5a6a7a;margin:0;line-height:1.5;">Piecewise reward combining answer correctness, structural compliance with the self-regulation format, and final answer format.</p>
+              </div>
+              <!-- Right: Policy Optimization -->
+              <div>
+                <p style="font-size:1rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#34a292;margin:0 0 0.4rem;">Policy Optimization</p>
+                <p style="font-size:1rem;color:#5a6a7a;margin:0;line-height:1.5;">Adapted GRPO with asymmetric clipping and on-policy updates. Truncated trajectories are filtered out for larger models to prevent format collapse.</p>
               </div>
             </div>
           </div>
-        </div>
         <!-- END SIMPLIFIED TRAINING DIAGRAM -->
 
       </div>
@@ -244,12 +225,13 @@
       <h2 class="section-title">Results</h2>
       <!-- Figure 1: Performance vs Scale -->
       <div style="margin-bottom:3.5rem;">
-        <p style="font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#45C9B6;margin:0 0 0.4rem;">Performance</p>
-        <h3 style="font-size:1.25rem;font-weight:700;color:#1a1a2e;margin:0 0 0.5rem;line-height:1.3;">Small models, large-model accuracy</h3>
-        <p style="font-size:0.92rem;color:#5a6a7a;line-height:1.65;margin:0 0 1.25rem;">
-          The trend line shows what accuracy you'd expect for a given parameter count.
-          Both SRAM models land <em>above</em> it: SRAM-8B competes with systems at 120–355B,
-          SRAM-30B with systems at 685B–1T. Marker color encodes token usage: greener = fewer tokens.
+        <p style="font-size:1rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#34a292;margin:0 0 0.4rem;">Performance</p>
+        <h3 style="font-size:1.15rem;font-weight:700;color:#1a1a2e;margin:0 0 0.5rem;line-height:1.3;">Overall Pass@1 across parameter scales</h3>
+        <p style="font-size:1rem;color:#5a6a7a;line-height:1.65;margin:0 0 1.25rem;">
+          SRAM-v0.1-8B achieves an overall Pass@1 of 57.0, competitive with agentic LLMs at 30&ndash;32B and LLM + Tools systems at 120&ndash;355B.
+          SRAM-v1.0-30B reaches 71.3, competitive with DeepSeek-V3.2 (685B) and Kimi-K2.5 (1T).
+          Marker shape indicates system type; color encodes average reasoning tokens per trajectory (<span style="color:#34a292;">greener</span> = fewer).
+          Per-benchmark results are provided in the paper.
         </p>
         <div style="width:100%;overflow:hidden;">
           <iframe src="new/standalone_chart (2).html" style="width:1020px;height:560px;border:none;display:block;transform-origin:top left;" id="chart-iframe"></iframe>
@@ -267,37 +249,28 @@
             window.addEventListener('resize', scaleChart);
           })();
         </script>
-        <p class="figure-caption" style="border-top:none;">
-          [Interactive Chart]: Overall Pass@1 vs. log parameter size across all evaluated systems. Marker shape = system type;
-          color = avg. reasoning tokens per trajectory (greener = fewer). Both SRAM models sit above the scaling trend.
-        </p>
       </div>
 
       <!-- Figure 2: Token Efficiency -->
       <div style="margin-bottom:3.5rem;">
-        <p style="font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#45C9B6;margin:0 0 0.4rem;">Efficiency</p>
-        <h3 style="font-size:1.25rem;font-weight:700;color:#1a1a2e;margin:0 0 0.5rem;line-height:1.3;">Up to 20× fewer reasoning tokens across every task type</h3>
-        <p style="font-size:0.92rem;color:#5a6a7a;line-height:1.65;margin:0 0 1.25rem;">
-          SRAM achieves competitive accuracy while using dramatically fewer reasoning tokens.
-          The efficiency advantage holds across Math, Science, Tabular, and Web tasks.
-          Bars show token usage (log scale); dots show Pass@1. 
+        <p style="font-size:1rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#34a292;margin:0 0 0.4rem;">Efficiency</p>
+        <h3 style="font-size:1.15rem;font-weight:700;color:#1a1a2e;margin:0 0 0.5rem;line-height:1.3;">Reasoning efficiency among 30/32B agentic LLMs</h3>
+        <p style="font-size:1rem;color:#5a6a7a;line-height:1.65;margin:0 0 1.25rem;">
+          Among 30/32B agentic LLMs with overall Pass@1 at 60.0 or above, SRAM-v1.0-30B consumes 25.8&ndash;95.3% fewer reasoning tokens while achieving competitive or better accuracy.
+          Compared to MiroThinker-v1.5-30B, SRAM-v1.0-30B achieves competitive Pass@1 while consuming 51.2% fewer reasoning tokens.
+          Bars show average reasoning tokens per query (log scale); dots show Pass@1.
         </p>
         <img src="figures/reasoning_tokens_chart.png" alt="Reasoning token usage and Pass@1 by task category" style="width:100%;display:block;" />
-        <p class="figure-caption" style="border-top:none;">
-          Avg. reasoning tokens per query (bars, log scale) vs. Pass@1 (dots) for four 30/32B agentic LLMs,
-          broken down by task category. SRAM-v1.0-30B achieves competitive scores using up to 20× fewer
-          tokens than ASearcher-Web-QWQ-v2.
-        </p>
       </div>
 
       <!-- Figure 3: Planning Depth -->
       <div style="margin-bottom:2rem;">
-        <p style="font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#45C9B6;margin:0 0 0.4rem;">Training Analysis</p>
-        <h3 style="font-size:1.25rem;font-weight:700;color:#1a1a2e;margin:0 0 0.5rem;line-height:1.3;">RL makes plans deeper, not more frequent</h3>
-        <p style="font-size:0.92rem;color:#5a6a7a;line-height:1.65;margin:0 0 1.25rem;">
-          After RL training, the proportion of unplanned turns barely changes, but multi-step plans
-          become far more common. The model learns to plan at longer horizons when it matters,
-          rather than planning more often or thinking longer without direction.
+        <p style="font-size:1rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#34a292;margin:0 0 0.4rem;">Training Analysis</p>
+        <h3 style="font-size:1.15rem;font-weight:700;color:#1a1a2e;margin:0 0 0.5rem;line-height:1.3;">RL refines planning depth without overplanning</h3>
+        <p style="font-size:1rem;color:#5a6a7a;line-height:1.65;margin:0 0 1.25rem;">
+          After 200 RL steps, multi-step plans become more common (3+ step plans increase from 5.3% to 14.9%) while the proportion of unplanned turns remains stable (15.6% to 13.6%).
+          The increase holds across all task categories, ranging from +20.9% in web to +32.7% in science &mdash; consistent with web's shorter feasible horizon under environmental uncertainty.
+          Chart shows plan depth distribution before (<span style="color:#7ecfb8;">light</span>) and after (<span style="color:#34a292;">dark</span>) RL.
         </p>
         <iframe id="fig4-iframe" data-src="animation/planning_analysis_combined-4.html" style="width:100%;height:520px;border:none;display:block;" scrolling="no"></iframe>
         <script>
@@ -314,11 +287,6 @@
             observer.observe(iframe);
           })();
         </script>
-        <p class="figure-caption" style="border-top:none;">
-          Plan depth distribution before (light) and after (dark) 200 RL steps. Left: 3+ step plans
-          nearly triple (5.3% → 14.9%); unplanned turns stay stable (15.6% → 13.6%). Right: avg.
-          plan depth by task — science gains most (+32.7%), web gains least (+20.9%).
-        </p>
       </div>
 
     </div>
