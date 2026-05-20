@@ -1,0 +1,10 @@
+# macOS
+.DS_Store
+
+# Paper sources (kept locally, not part of the website)
+*.tex
+4.1-planning_analysis_combined.pdf
+
+# Editor/build cruft
+*.pyc
+__pycache__/

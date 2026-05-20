@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SRAM: A Self-Regulated Agentic LLM for Interactive Reasoning</title>
+  <title>SR²AM: Efficient Agentic Reasoning Through Self-Regulated Simulative Planning</title>
   <link rel="stylesheet" href="styles.css" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -15,7 +15,7 @@
   <!-- NAV -->
   <nav class="nav">
     <div class="nav-inner">
-      <span class="nav-logo">SRAM</span>
+      <span class="nav-logo">SR<sup>2</sup>AM</span>
       <ul class="nav-links">
         <li><a href="#overall-pass">Overview</a></li>
         <li><a href="#abstract">Abstract</a></li>
@@ -30,9 +30,8 @@
   <section class="hero">
     <div class="hero-inner">
       <div class="hero-title-glow" aria-hidden="true"></div>
-      <img src="robot.png" alt="SRAM robot" class="hero-robot" />
       <h1 class="paper-title">
-        <span class="title-accent-gradient">SRAM</span>: A Self-Regulated Agentic LLM<br />for Interactive Reasoning
+        <span class="title-accent-gradient">SR<sup>2</sup>AM</span>: Efficient Agentic Reasoning<br />Through Self-Regulated <br /> Simulative Planning
       </h1>
       <div class="authors">
         <span>Mingkai Deng</span><sup class="author-sup">*,1,2</sup><span class="sep">&nbsp;&nbsp;</span>
@@ -46,7 +45,7 @@
       </div>
       <p class="affil-line"><sup>*</sup> Equal contribution<br><sup>1</sup> Institute of Foundation Models &nbsp;&nbsp; <sup>2</sup> Carnegie Mellon University</p>
       <div class="hero-links">
-        <a href="https://github.com/sailing-lab/sram-agentic-llm" class="btn-link btn-primary">
+        <a href="https://github.com/sailing-lab/sr2am" class="btn-link btn-primary">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
           GitHub
         </a>
@@ -54,12 +53,12 @@
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M4 0h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2zm0 1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H4z"/><path d="M4.5 12.5A.5.5 0 0 1 5 12h3a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm0-2A.5.5 0 0 1 5 10h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm0-2A.5.5 0 0 1 5 8h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm0-2A.5.5 0 0 1 5 6h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm0-2A.5.5 0 0 1 5 4h1a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5z"/></svg>
           Paper
         </a>
-        <a href="https://huggingface.co/sailing-lab/SRAM-v0.1-8B" class="btn-link btn-secondary">
+        <a href="https://huggingface.co/sailing-lab/SR2AM-v0.1-8B" class="btn-link btn-secondary">
           <!-- stacked layers / model weights icon -->
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M8.235 1.559a.5.5 0 0 0-.47 0l-7.5 4a.5.5 0 0 0 0 .882L3.188 8 .264 9.559a.5.5 0 0 0 0 .882l7.5 4a.5.5 0 0 0 .47 0l7.5-4a.5.5 0 0 0 0-.882L12.813 8l2.922-1.559a.5.5 0 0 0 0-.882l-7.5-4zm3.515 7.008L14.438 10 8 13.433 1.562 10 4.25 8.567l3.515 1.874a.5.5 0 0 0 .47 0l3.515-1.874zM8 9.433 1.562 6 8 2.567 14.438 6 8 9.433z"/></svg>
           Model (v0.1-8B)
         </a>
-        <a href="https://huggingface.co/sailing-lab/SRAM-v1.0-30B" class="btn-link btn-secondary">
+        <a href="https://huggingface.co/sailing-lab/SR2AM-v1.0-30B" class="btn-link btn-secondary">
           <!-- stacked layers / model weights icon -->
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M8.235 1.559a.5.5 0 0 0-.47 0l-7.5 4a.5.5 0 0 0 0 .882L3.188 8 .264 9.559a.5.5 0 0 0 0 .882l7.5 4a.5.5 0 0 0 .47 0l7.5-4a.5.5 0 0 0 0-.882L12.813 8l2.922-1.559a.5.5 0 0 0 0-.882l-7.5-4zm3.515 7.008L14.438 10 8 13.433 1.562 10 4.25 8.567l3.515 1.874a.5.5 0 0 0 .47 0l3.515-1.874zM8 9.433 1.562 6 8 2.567 14.438 6 8 9.433z"/></svg>
           Model (v1.0-30B)
@@ -75,16 +74,17 @@
   </section>
 
   
-  <!-- OVERALL PASS@1 FIGURE -->
+  <!-- OVERVIEW -->
   <section class="section" id="overall-pass" style="padding-top:4rem;">
     <div class="container">
-      <p style="font-family:var(--font-serif);font-size:1rem;line-height:1.85;color:#1a1a2e;margin:0 0 1.75rem;">
-        <strong style="color: #34a292;">SRAM</strong> augments conventional thinking-acting LLMs with a configurator and a structured planner, realized as distinct stages within the model's chain-of-thought reasoning.
-        SRAM-v0.1-8B and SRAM-v1.0-30B achieve overall Pass@1 competitive with systems at 120&ndash;355B and 685B&ndash;1T parameters, respectively, while the 30B model consumes 25.8&ndash;95.3% fewer reasoning tokens than comparably sized agentic LLMs.
+      <p style="font-family:var(--font-serif);font-size:1rem;line-height:1.85;color:#1a1a2e;margin:0 0 1.25rem;">
+        We argue that efficient agentic reasoning benefits from decomposing deliberation into three interacting systems: <strong>reactive execution</strong> (System I) for fine-grained reasoning and direct action; <strong>simulative reasoning</strong> (System II) that predicts consequences of proposed actions through a world model, providing a unified planning mechanism across diverse tasks; and <strong>self-regulation</strong> (System III) that decides when and how deeply to plan through a learned configurator.
       </p>
-      <p style="font-size:1rem;font-weight:700;color:#1a1a2e;text-align:center;margin:0 0 0.75rem;">Overall Pass@1 (↑) Across Selected Systems</p>
-      <img src="figures/front-page-figure-2.png" alt="Overall Pass@1 across selected systems" style="width:100%;display:block;" />
-      <p class="figure-caption" style="border-top:none;font-size:1.0rem;">Overall Pass@1 vs. parameter size (left) and reasoning tokens for 30/32B models (right). Both SRAM models sit above the scaling trend and above the token-efficiency frontier of comparable agentic LLMs.</p>
+      <p style="font-family:var(--font-serif);font-size:1rem;line-height:1.85;color:#1a1a2e;margin:0 0 2rem;">
+        <strong style="color:#34a292;">SR<sup>2</sup>AM</strong> (Self-Regulated Simulative Reasoning Agentic LLM) is our instantiation of this decomposition: the configurator and simulative planner are realized as distinct stages within an LLM's chain-of-thought reasoning, with the LLM itself serving as the world model in language space. By separating self-regulation, planning, and execution while preserving the expressiveness of free-form reasoning, SR<sup>2</sup>AM learns to plan further ahead rather than simply reason more, achieving competitive task performance with substantially fewer reasoning tokens.
+      </p>
+      <img src="figures/model.png" alt="SR²AM architecture: simulative planner, configurator, and universe" style="width:100%;display:block;" />
+      <p class="figure-caption" style="border-top:none;font-size:1.0rem;">SR<sup>2</sup>AM at each turn: the <em>configurator</em> (System III) decides whether to make a plan, continue an existing one, or skip planning; when invoked, the <em>simulative planner</em> (System II) generates structured proposed actions and predicted future states using the LLM as a world model; the <em>actor</em> (System I) then executes via free-form reasoning and tool use.</p>
     </div>
   </section>
 
@@ -94,16 +94,16 @@
       <h2 class="section-title">Abstract</h2>
       <div class="abstract-text">
         <p>
-          Large language models (LLMs) are increasingly deployed in agentic systems that reason, use tools, and act over long horizons. However, current agentic LLMs typically rely on black-box chain-of-thought, where planning behavior is expected to emerge implicitly from unconstrained reasoning with reinforcement learning (RL). Without control over planning presence, depth, or structure, these systems often rely on scaling reasoning length as the primary mechanism for improvement during training, leading to inefficient token consumption that does not reliably translate to accuracy gains. Prior approaches seek to contain reasoning growth by building capabilities such as effort adaptation, coarse mode-routing, and multi-agent distillation, which fall short of either explicit planning, per-turn regulation, or combination with free-formed reasoning.
+          How should an agent decide when and how to plan? A dominant approach builds the agent as a reactive policy with adaptive computation (e.g., chain-of-thought reasoning), trained end-to-end with the expectation that planning will emerge implicitly from sufficient data and compute. Without control over the presence, structure, or horizon of planning, however, these systems typically increase reasoning length dramatically during training, leading to inefficient token consumption that does not reliably translate to accuracy gains.
         </p>
         <p>
-          We introduce <strong style="color: #34a292;">SRAM</strong>, an agentic LLM that combines the strengths of existing approaches while enabling more advanced planning features. Specifically, SRAM augments conventional thinking-acting LLMs with a <em><strong>configurator</strong></em> and a structured <em><strong>planner</strong></em>, realized as distinct stages within the model's chain-of-thought reasoning. At each turn, the configurator decides whether to plan, continue an existing plan, or act directly; when invoked, the planner constructs explicit plans grounded in <em>predicted future states</em> and controlled planning depth.
+          We argue that efficient agentic reasoning benefits from a decomposition of decision-making into three interacting systems: <strong>simulative reasoning</strong> (System II) that grounds deliberation in future-state prediction using a world model, rather than unconstrained chain-of-thought; <strong>self-regulation</strong> (System III) that decides when and how deeply the agent plans at each turn through a learned <em>configurator</em>; and <strong>reactive execution</strong> (System I) that handles fine-grained reasoning and action. Simulative reasoning provides a unified planning structure applicable across diverse reasoning tasks without per-domain engineering, while self-regulation ensures that the simulative planner is invoked only when the situation warrants it, avoiding both the inefficiency of unregulated deliberation and the rigidity of always-on planning.
         </p>
         <p>
-          These components operate alongside free-form reasoning, separating self-regulation, planning, and execution while preserving end-to-end expressiveness. We realize this framework through supervised data encoding self-regulated planning structure followed by RL for task success, yielding SRAM-v0.1-8B and SRAM-v1.0-30B.
+          To test this, we develop <strong style="color:#34a292;">SR<sup>2</sup>AM</strong> (<u>S</u>elf-<u>R</u>egulated <u>S</u>imulative <u>R</u>easoning <u>A</u>gentic LL<u>M</u>), which realizes the configurator and simulative planning as distinct stages within an LLM's chain-of-thought reasoning, with the LLM itself serving as the world model in language space. We explore two instantiations: recording decisions from a multi-module prompted system (v0.1) and reconstructing structured plans from the traces of pretrained reasoning LLMs (v1.0). Both are trained via supervised learning followed by reinforcement learning (RL).
         </p>
         <p>
-          Across mathematical reasoning, scientific problem-solving, tabular data analysis, and web information seeking, the two models achieve overall Pass@1 competitive with systems at <strong>120–355B and 685B–1T parameters</strong>, respectively. Meanwhile, \modelname-v1.0-30B consumes <strong style="color: #34a292;">25.8–95.3\% fewer reasoning tokens</strong> than similarly sized agentic LLMs while matching or exceeding their accuracy. Analysis shows that RL increases average plan depth by 22.8\% while planning frequency grows only 2.0\%, suggesting the model learns longer-horizon planning rather than more frequent planning, avoiding unnecessary token overhead.
+          Across mathematical reasoning, scientific problem-solving, tabular data analysis, and web information seeking, SR<sup>2</sup>AM-v0.1-8B and SR<sup>2</sup>AM-v1.0-30B achieve overall Pass@1 competitive with systems at <strong>120&ndash;355B and 685B&ndash;1T parameters</strong>, respectively, while SR<sup>2</sup>AM-v1.0-30B consumes <strong style="color:#34a292;">25.8&ndash;95.3% fewer reasoning tokens</strong> than competitive agentic LLMs of similar scale. Analysis reveals that RL increases average planning horizon by 22.8% while planning frequency grows only 2.0%, indicating that the model learns to plan <em>further ahead</em> rather than <em>more often</em>.
         </p>
       </div>
 
@@ -115,126 +115,63 @@
     <!-- METHOD -->
     <section class="section" id="method">
       <div class="container">
-        <h2 class="section-title">How SRAM Works</h2>
-        <!-- <p class="section-subtitle">At each step, SRAM regulates its own reasoning, deciding whether to plan, how deep to plan, and when to act.</p> -->
-        <p style="font-family:var(--font-serif);font-size:1rem;line-height:1.85;color:#1a1a2e;margin:0 0 1.75rem;">The agentic LLM interacts with the universe over multiple time steps, receiving observations <em>o<sub>t</sub></em> and executing actions <em>a<sub>t</sub></em> . At each step, the configurator outputs decision <em>u<sub>t</sub></em> for whether to make a new plan, continue an existing plan, or skip planning entirely.</p>
-
-        <p style="font-family:var(--font-serif);font-size:1rem;line-height:1.85;color:#1a1a2e;margin:0 0 1.75rem;">When planning is invoked, the planner simulates a sequence of proposed actions <em>a'<sub>t</sub></em> and predicted belief states <em>ŝ<sub>t+1</sub></em> conditioned on the current state <em>ŝ<sub>t</sub></em> , implicitly performing goal-directed planning with world-model simulation.
-          Both the configurator and the planner are realized in the same LLM, with their outputs distinguished by structured generation.</p>
-
-        
-      <div style="margin-top:2.5rem;">
-        <img src="figures/sram-arch-1.2-p3.png" alt="SRAM architecture overview" style="width:100%;display:block;" />
-        <p class="figure-caption" style="border-top:none;font-size:1.0rem;">
-          <!-- The SRAM agent at each turn: the configurator decides whether to plan, continue an existing plan, or act directly. When planning is invoked, the planner builds a structured sequence of proposed actions and predicted future states. All three components run within a single LLM. -->
-          The example depicts a web information-seeking task where the model first carefully plans a search-and-visit strategy, continues executing the plan at steps 2 and 3, and skips planning at step 4 to provide an answer to the user.
-        </p>
-      </div>
-
-      <div style="margin-top:2.5rem;">
-        <p style="font-family:var(--font-serif);font-size:1rem;line-height:1.85;color:#1a1a2e;margin:0 0 1.25rem;">
-          Prior approaches to adaptive reasoning each address a portion of this problem.
-          <em>Adaptive effort</em> controls the amount of unstructured thought without constructing explicit plans.
-          <em>Coarse mode-routing</em> makes a single routing decision at the start of a task, with no further regulation.
-          <em>Multi-agent distillation</em> internalizes rule-based routing among predefined capabilities, but lacks free-form reasoning and advanced planning capabilities.
-          SRAM is the first to combine per-turn regulation, explicit planning, simulative lookahead, and controllable planning depth alongside free-form reasoning.
+        <h2 class="section-title">How SR<sup>2</sup>AM Works</h2>
+        <p style="font-family:var(--font-serif);font-size:1rem;line-height:1.85;color:#1a1a2e;margin:0 0 1.5rem;">
+          The agent interacts with its environment over a sequence of turns, maintaining a belief state <em>ŝ<sub>t</sub></em> and choosing an action <em>a<sub>t</sub></em> at each step. Rather than treating the action distribution as one black-box chain-of-thought, we factor it into three multiplicative stages: <strong>configurator</strong>, <strong>simulative planner</strong>, and <strong>actor</strong>, which decide, in order, <em>whether to plan</em>, <em>what to plan</em>, and <em>how to act</em>:
         </p>
 
-        <div style="overflow-x:auto;border:1.5px solid #c8e8e3;border-radius:10px;background:white;">
-          <table style="width:100%;border-collapse:collapse;font-size:1rem;color:#1a1a2e;">
-            <thead>
-              <tr style="background:#f0faf8;">
-                <th style="text-align:left;padding:0.75rem 0.6rem;font-weight:700;color:#284269;border-bottom:1.5px solid #c8e8e3;">System Type</th>
-                <th style="text-align:center;padding:0.75rem 0.4rem;font-weight:700;color:#284269;border-bottom:1.5px solid #c8e8e3;font-size:0.9rem;">Environment<br>Interaction</th>
-                <th style="text-align:center;padding:0.75rem 0.4rem;font-weight:700;color:#284269;border-bottom:1.5px solid #c8e8e3;font-size:0.9rem;">Agentic<br>Training</th>
-                <th style="text-align:center;padding:0.75rem 0.4rem;font-weight:700;color:#284269;border-bottom:1.5px solid #c8e8e3;font-size:0.9rem;">Free-Form<br>Reasoning</th>
-                <th style="text-align:center;padding:0.75rem 0.4rem;font-weight:700;color:#284269;border-bottom:1.5px solid #c8e8e3;font-size:0.9rem;">Per-Turn<br>Regulation</th>
-                <th style="text-align:center;padding:0.75rem 0.4rem;font-weight:700;color:#284269;border-bottom:1.5px solid #c8e8e3;font-size:0.9rem;">Explicit<br>Planning</th>
-                <th style="text-align:center;padding:0.75rem 0.4rem;font-weight:700;color:#284269;border-bottom:1.5px solid #c8e8e3;font-size:0.9rem;">Next-State<br>Simulative<br>Planning</th>
-                <th style="text-align:center;padding:0.75rem 0.4rem;font-weight:700;color:#284269;border-bottom:1.5px solid #c8e8e3;font-size:0.9rem;">Controllable<br>Planning<br>Depth</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td style="padding:0.6rem;border-bottom:1px solid #e8f3f1;">Reasoning LLM</td>
-                <td style="text-align:center;padding:0.6rem;border-bottom:1px solid #e8f3f1;color:#c0c8d0;">✗</td>
-                <td style="text-align:center;padding:0.6rem;border-bottom:1px solid #e8f3f1;color:#c0c8d0;">✗</td>
-                <td style="text-align:center;padding:0.6rem;border-bottom:1px solid #e8f3f1;color:#5a6a7a;">✓</td>
-                <td style="text-align:center;padding:0.6rem;border-bottom:1px solid #e8f3f1;color:#c0c8d0;">✗</td>
-                <td style="text-align:center;padding:0.6rem;border-bottom:1px solid #e8f3f1;color:#c0c8d0;">✗</td>
-                <td style="text-align:center;padding:0.6rem;border-bottom:1px solid #e8f3f1;color:#c0c8d0;">✗</td>
-                <td style="text-align:center;padding:0.6rem;border-bottom:1px solid #e8f3f1;color:#c0c8d0;">✗</td>
-              </tr>
-              <tr>
-                <td style="padding:0.6rem;border-bottom:1px solid #e8f3f1;">LLM + Tools</td>
-                <td style="text-align:center;padding:0.6rem;border-bottom:1px solid #e8f3f1;color:#5a6a7a;">✓</td>
-                <td style="text-align:center;padding:0.6rem;border-bottom:1px solid #e8f3f1;color:#c0c8d0;">✗</td>
-                <td style="text-align:center;padding:0.6rem;border-bottom:1px solid #e8f3f1;color:#5a6a7a;">✓</td>
-                <td style="text-align:center;padding:0.6rem;border-bottom:1px solid #e8f3f1;color:#c0c8d0;">✗</td>
-                <td style="text-align:center;padding:0.6rem;border-bottom:1px solid #e8f3f1;color:#c0c8d0;">✗</td>
-                <td style="text-align:center;padding:0.6rem;border-bottom:1px solid #e8f3f1;color:#c0c8d0;">✗</td>
-                <td style="text-align:center;padding:0.6rem;border-bottom:1px solid #e8f3f1;color:#c0c8d0;">✗</td>
-              </tr>
-              <tr>
-                <td style="padding:0.6rem;border-bottom:1.5px solid #c8e8e3;">Black-Box Agentic LLM</td>
-                <td style="text-align:center;padding:0.6rem;border-bottom:1.5px solid #c8e8e3;color:#5a6a7a;">✓</td>
-                <td style="text-align:center;padding:0.6rem;border-bottom:1.5px solid #c8e8e3;color:#5a6a7a;">✓</td>
-                <td style="text-align:center;padding:0.6rem;border-bottom:1.5px solid #c8e8e3;color:#5a6a7a;">✓</td>
-                <td style="text-align:center;padding:0.6rem;border-bottom:1.5px solid #c8e8e3;color:#c0c8d0;">✗</td>
-                <td style="text-align:center;padding:0.6rem;border-bottom:1.5px solid #c8e8e3;color:#c0c8d0;">✗</td>
-                <td style="text-align:center;padding:0.6rem;border-bottom:1.5px solid #c8e8e3;color:#c0c8d0;">✗</td>
-                <td style="text-align:center;padding:0.6rem;border-bottom:1.5px solid #c8e8e3;color:#c0c8d0;">✗</td>
-              </tr>
-              <tr>
-                <td colspan="8" style="padding:0.5rem 0.6rem;font-style:italic;color:#5a6a7a;border-bottom:1px solid #e8f3f1;">Adaptive Agentic LLM</td>
-              </tr>
-              <tr>
-                <td style="padding:0.6rem 0.6rem 0.6rem 1.5rem;border-bottom:1px solid #e8f3f1;">Adaptive Effort</td>
-                <td style="text-align:center;padding:0.6rem;border-bottom:1px solid #e8f3f1;color:#5a6a7a;">✓</td>
-                <td style="text-align:center;padding:0.6rem;border-bottom:1px solid #e8f3f1;color:#5a6a7a;">✓</td>
-                <td style="text-align:center;padding:0.6rem;border-bottom:1px solid #e8f3f1;color:#5a6a7a;">✓</td>
-                <td style="text-align:center;padding:0.6rem;border-bottom:1px solid #e8f3f1;color:#5a6a7a;">✓</td>
-                <td style="text-align:center;padding:0.6rem;border-bottom:1px solid #e8f3f1;color:#c0c8d0;">✗</td>
-                <td style="text-align:center;padding:0.6rem;border-bottom:1px solid #e8f3f1;color:#c0c8d0;">✗</td>
-                <td style="text-align:center;padding:0.6rem;border-bottom:1px solid #e8f3f1;color:#c0c8d0;">✗</td>
-              </tr>
-              <tr>
-                <td style="padding:0.6rem 0.6rem 0.6rem 1.5rem;border-bottom:1px solid #e8f3f1;">Coarse Mode-Routing</td>
-                <td style="text-align:center;padding:0.6rem;border-bottom:1px solid #e8f3f1;color:#5a6a7a;">✓</td>
-                <td style="text-align:center;padding:0.6rem;border-bottom:1px solid #e8f3f1;color:#5a6a7a;">✓</td>
-                <td style="text-align:center;padding:0.6rem;border-bottom:1px solid #e8f3f1;color:#5a6a7a;">◐</td>
-                <td style="text-align:center;padding:0.6rem;border-bottom:1px solid #e8f3f1;color:#c0c8d0;">✗</td>
-                <td style="text-align:center;padding:0.6rem;border-bottom:1px solid #e8f3f1;color:#5a6a7a;">◐</td>
-                <td style="text-align:center;padding:0.6rem;border-bottom:1px solid #e8f3f1;color:#c0c8d0;">✗</td>
-                <td style="text-align:center;padding:0.6rem;border-bottom:1px solid #e8f3f1;color:#c0c8d0;">✗</td>
-              </tr>
-              <tr>
-                <td style="padding:0.6rem 0.6rem 0.6rem 1.5rem;border-bottom:1.5px solid #c8e8e3;">Multi-Agent Distillation</td>
-                <td style="text-align:center;padding:0.6rem;border-bottom:1.5px solid #c8e8e3;color:#5a6a7a;">✓</td>
-                <td style="text-align:center;padding:0.6rem;border-bottom:1.5px solid #c8e8e3;color:#5a6a7a;">✓</td>
-                <td style="text-align:center;padding:0.6rem;border-bottom:1.5px solid #c8e8e3;color:#c0c8d0;">✗</td>
-                <td style="text-align:center;padding:0.6rem;border-bottom:1.5px solid #c8e8e3;color:#5a6a7a;">✓</td>
-                <td style="text-align:center;padding:0.6rem;border-bottom:1.5px solid #c8e8e3;color:#5a6a7a;">✓</td>
-                <td style="text-align:center;padding:0.6rem;border-bottom:1.5px solid #c8e8e3;color:#c0c8d0;">✗</td>
-                <td style="text-align:center;padding:0.6rem;border-bottom:1.5px solid #c8e8e3;color:#c0c8d0;">✗</td>
-              </tr>
-              <tr style="background:rgba(52,162,146,0.08);">
-                <td style="padding:0.75rem 0.6rem;font-weight:700;color:#284269;">SRAM (Ours)</td>
-                <td style="text-align:center;padding:0.75rem 0.6rem;color:#34a292;font-weight:700;">✓</td>
-                <td style="text-align:center;padding:0.75rem 0.6rem;color:#34a292;font-weight:700;">✓</td>
-                <td style="text-align:center;padding:0.75rem 0.6rem;color:#34a292;font-weight:700;">✓</td>
-                <td style="text-align:center;padding:0.75rem 0.6rem;color:#34a292;font-weight:700;">✓</td>
-                <td style="text-align:center;padding:0.75rem 0.6rem;color:#34a292;font-weight:700;">✓</td>
-                <td style="text-align:center;padding:0.75rem 0.6rem;color:#34a292;font-weight:700;">✓</td>
-                <td style="text-align:center;padding:0.75rem 0.6rem;color:#34a292;font-weight:700;">✓</td>
-              </tr>
-            </tbody>
-          </table>
+        <div style="margin:0 0 2.25rem;padding:1.25rem 1rem;background:#f0faf8;border:1.5px solid #c8e8e3;border-radius:10px;text-align:center;font-family:var(--font-serif);font-size:1.05rem;color:#1a1a2e;overflow-x:auto;">
+          <em>p<sub>π</sub></em>(<em>a<sub>t</sub></em>&thinsp;|&thinsp;<em>ŝ<sub>t</sub></em>) &nbsp;=&nbsp; &Sigma;<sub><em>u<sub>t</sub>, c<sub>t</sub></em></sub> &nbsp;
+          <span style="color:#34a292;font-weight:700;"><em>p<sub>κ</sub></em>(<em>u<sub>t</sub></em>&thinsp;|&thinsp;<em>ŝ<sub>t</sub></em>)</span>
+          &nbsp;&middot;&nbsp;
+          <span style="color:#34a292;font-weight:700;"><em>p<sub>π<sub>f</sub></sub></em>(<em>c<sub>t</sub></em>&thinsp;|&thinsp;<em>ŝ<sub>t</sub>, u<sub>t</sub></em>)</span>
+          &nbsp;&middot;&nbsp;
+          <span style="color:#34a292;font-weight:700;"><em>p<sub>α</sub></em>(<em>a<sub>t</sub></em>&thinsp;|&thinsp;<em>ŝ<sub>t</sub>, c<sub>t</sub></em>)</span>
         </div>
-        <p class="figure-caption" style="border-top:none;font-size:1.0rem;">
-          Comparison of agentic system types. ✓ = supported, ✗ = not supported, ◐ = partial. SRAM is the first to combine per-turn regulation, explicit planning, simulative lookahead, and controllable planning depth alongside free-form reasoning. Please see paper for detailed definition of each property.
+
+        <p style="font-family:var(--font-serif);font-size:1rem;line-height:1.85;color:#1a1a2e;margin:0 0 1.75rem;">
+          In SR<sup>2</sup>AM, all three components share a single LLM and are realized as distinct stages within its chain-of-thought, with the LLM itself serving as the world model in language space.
         </p>
-      </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin:0 0 1.75rem;">
+          <!-- System III: Self-Regulation -->
+          <div style="padding:1.1rem 1.2rem;background:white;border:1.5px solid #c8e8e3;border-radius:10px;">
+            <p style="font-size:0.85rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#34a292;margin:0 0 0.25rem;">System III</p>
+            <p style="font-size:1.05rem;font-weight:700;color:#284269;margin:0 0 0.6rem;">Self-Regulation</p>
+            <p style="font-size:0.95rem;color:#5a6a7a;margin:0 0 0.85rem;line-height:1.55;">
+              A learned <em>configurator</em> <em>κ</em> decides, at every turn, whether to make a new plan, continue an existing one, or skip planning &mdash; controlling both <em>when</em> and <em>how deeply</em> to plan.
+            </p>
+            <p style="font-family:var(--font-serif);font-size:0.95rem;color:#284269;margin:0;text-align:center;">
+              <em>p<sub>κ</sub></em>(<em>u<sub>t</sub></em>&thinsp;|&thinsp;<em>ŝ<sub>t</sub></em>)
+            </p>
+          </div>
+          <!-- System II: Simulative Reasoning -->
+          <div style="padding:1.1rem 1.2rem;background:white;border:1.5px solid #c8e8e3;border-radius:10px;">
+            <p style="font-size:0.85rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#34a292;margin:0 0 0.25rem;">System II</p>
+            <p style="font-size:1.05rem;font-weight:700;color:#284269;margin:0 0 0.6rem;">Simulative Reasoning</p>
+            <p style="font-size:0.95rem;color:#5a6a7a;margin:0 0 0.85rem;line-height:1.55;">
+              When planning is invoked, the <em>simulative planner</em> generates a structured plan <em>c<sub>t</sub></em>: proposed actions and predicted future states under the LLM-as-world-model, providing a unified planning structure across tasks.
+            </p>
+            <p style="font-family:var(--font-serif);font-size:0.95rem;color:#284269;margin:0;text-align:center;">
+              <em>p<sub>π<sub>f</sub></sub></em>(<em>c<sub>t</sub></em>&thinsp;|&thinsp;<em>ŝ<sub>t</sub>, u<sub>t</sub></em>)
+            </p>
+          </div>
+          <!-- System I: Reactive Execution -->
+          <div style="padding:1.1rem 1.2rem;background:white;border:1.5px solid #c8e8e3;border-radius:10px;">
+            <p style="font-size:0.85rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#34a292;margin:0 0 0.25rem;">System I</p>
+            <p style="font-size:1.05rem;font-weight:700;color:#284269;margin:0 0 0.6rem;">Reactive Execution</p>
+            <p style="font-size:0.95rem;color:#5a6a7a;margin:0 0 0.85rem;line-height:1.55;">
+              The <em>actor</em> <em>α</em> emits the next action via free-form reasoning, conditioned on the current state and any active plan &mdash; capturing fine-grained execution patterns that resist structured encoding.
+            </p>
+            <p style="font-family:var(--font-serif);font-size:0.95rem;color:#284269;margin:0;text-align:center;">
+              <em>p<sub>α</sub></em>(<em>a<sub>t</sub></em>&thinsp;|&thinsp;<em>ŝ<sub>t</sub>, c<sub>t</sub></em>)
+            </p>
+          </div>
+        </div>
+
+        <p style="font-family:var(--font-serif);font-size:1rem;line-height:1.85;color:#1a1a2e;margin:0;">
+          This decomposition situates several prior paradigms as partial instances: <em>adaptive effort</em> controls only the amount of unstructured thought; <em>coarse mode-routing</em> makes a single routing decision per task; <em>multi-agent distillation</em> internalizes rule-based capability routing but lacks free-form reasoning. SR<sup>2</sup>AM combines per-turn self-regulation, simulative planning, and free-form execution within a single LLM.
+        </p>
 
         <!-- Runtime Loop Diagram -->
         <!-- <div style="margin:2rem 0 2.5rem;padding:2rem;background:white;border:1px solid #c8e8e3;border-radius:12px;box-shadow:0 1px 3px rgba(40,66,105,0.08);">
@@ -288,25 +225,28 @@
         <h2 class="section-title">Training Pipeline</h2>
         <!-- Stage 1 -->
         <div>
-          <h3 style="font-size:1.15rem;font-weight:700;color:#284269;margin:0 0 0.4rem;">Stage 1: Data Construction and Supervised Finetuning</h3>
-          <p style="font-size:1rem;color:#5a6a7a;margin:0 0 0.75rem;line-height:1.6;">Constructs supervised training data with self-regulation structure, teaching the model when to plan, how deep to plan, and how to integrate plans with free-form reasoning.</p>
+          <h3 style="font-size:1.15rem;font-weight:700;color:#284269;margin:0 0 0.4rem;">Stage 1: Supervised Data Construction and Finetuning</h3>
+          <p style="font-size:1rem;color:#5a6a7a;margin:0 0 0.75rem;line-height:1.6;">Builds trajectories that interleave configurator decisions, simulative plans, and free-form reasoning, teaching the model when to plan, how deep to plan, and how to act under each decision.</p>
 
           <!-- Stage 1: two parallel SFT boxes -->
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
             <div style="padding:1.1rem 1.2rem;background:white;border:1.5px solid #c8e8e3;border-radius:10px;">
               <p style="font-size:1rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#34a292;margin:0 0 0.4rem;">v0.1 &mdash; Multi-Module Inference</p>
-              <p style="font-size:1rem;color:#5a6a7a;margin:0;line-height:1.5;">Configurator and planner run as separate prompted LLMs. Trajectories are collected, filtered for correctness, and used for SFT.</p>
+              <p style="font-size:1rem;color:#5a6a7a;margin:0;line-height:1.5;">The configurator, simulative planner, and other reasoning modules are run as separate prompted LLMs. Trajectories are filtered for correctness and minimum reasoning complexity before SFT.</p>
+              <!-- belief formation, intent interpretation, progress summarization, and plan reflection -->
             </div>
             <div style="padding:1.1rem 1.2rem;background:white;border:1.5px solid #c8e8e3;border-radius:10px;">
               <p style="font-size:1rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#34a292;margin:0 0 0.4rem;">v1.0 &mdash; Plan Reconstruction</p>
-              <p style="font-size:1rem;color:#5a6a7a;margin:0;line-height:1.5;">An annotator LLM reconstructs configurator decisions and structured plans from the thinking-acting trajectories of pretrained LLMs.</p>
+              <p style="font-size:1rem;color:#5a6a7a;margin:0;line-height:1.5;">An annotator LLM reconstructs configurator decisions and simulative plans from the thinking-acting trajectories of a pretrained reasoning LLM.</p>
+              <!-- &mdash; current state, proposed actions, and predicted future states &mdash;  -->
+              <!-- Plans are appended to the original thoughts, preserving System I reasoning while adding System II/III structure. -->
             </div>
           </div>
 
           <!-- Arrow + Stage 2 header -->
           <div style="text-align:center;color:#34a292;font-size:1.4rem;margin:0.75rem 0 0.5rem;">↓</div>
-          <h3 style="font-size:1.15rem;font-weight:700;color:#284269;margin:0 0 0.4rem;">Stage 2: Reinforcement Learning Refinement</h3>
-          <p style="font-size:1rem;color:#5a6a7a;margin:0 0 0.75rem;line-height:1.6;">Teaches the model to coordinate self-regulation for task success, planning at the right depth and frequency, not just more.</p>
+          <h3 style="font-size:1.15rem;font-weight:700;color:#284269;margin:0 0 0.4rem;">Stage 2: Reinforcement-Learning Refinement</h3>
+          <p style="font-size:1rem;color:#5a6a7a;margin:0 0 0.75rem;line-height:1.6;">After SFT, the policy is refined for task success, so the configurator learns to invoke deeper planning when it helps rather than to plan more often.</p>
 
           <!-- Stage 2: RL box with 2-column interior -->
           <div style="padding:1.2rem;background:white;border:1.5px solid #c8e8e3;border-radius:10px;">
@@ -314,12 +254,13 @@
               <!-- Left: Reward Function -->
               <div>
                 <p style="font-size:1rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#34a292;margin:0 0 0.4rem;">Reward Function</p>
-                <p style="font-size:1rem;color:#5a6a7a;margin:0;line-height:1.5;">Piecewise reward combining answer correctness, structural compliance with the self-regulation format, and final answer format.</p>
+                <p style="font-size:1rem;color:#5a6a7a;margin:0;line-height:1.5;">Piecewise reward combining answer correctness, structural compliance with the self-regulated simulative reasoning format, and final answer format.</p>
+                <!-- A piecewise reward combines three binary signals: answer correctness (LLM judge), structural compliance with the self-regulation format, and final-answer extractability &mdash; prioritizing correctness while still providing gradient signal for structure. -->
               </div>
               <!-- Right: Policy Optimization -->
               <div>
                 <p style="font-size:1rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#34a292;margin:0 0 0.4rem;">Policy Optimization</p>
-                <p style="font-size:1rem;color:#5a6a7a;margin:0;line-height:1.5;">Adapted GRPO with asymmetric clipping and on-policy updates. Truncated trajectories are filtered out for larger models to prevent format collapse.</p>
+                <p style="font-size:1rem;color:#5a6a7a;margin:0;line-height:1.5;">Group Relative Policy Optimization (GRPO) with asymmetric clipping and on-policy updates. For 30B+ models, truncated trajectories are filtered out to prevent format collapse.</p>
               </div>
             </div>
           </div>
@@ -333,76 +274,41 @@
   <section class="section" id="results">
     <div class="container">
       <h2 class="section-title">Results</h2>
-      <!-- Figure 1: Performance vs Scale -->
+
+      <!-- Main results: two-panel figure with side-by-side prose -->
       <div style="margin-bottom:3.5rem;">
-        <p style="font-size:1rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#34a292;margin:0 0 0.4rem;">Performance</p>
-        <h3 style="font-size:1.15rem;font-weight:700;color:#1a1a2e;margin:0 0 0.5rem;line-height:1.3;">Overall Pass@1 across parameter scales</h3>
-        <p style="font-size:1rem;color:#5a6a7a;line-height:1.65;margin:0 0 1.25rem;">
-          SRAM-v0.1-8B achieves an overall Pass@1 of 57.0, competitive with agentic LLMs at 30&ndash;32B and LLM + Tools systems at 120&ndash;355B.
-          SRAM-v1.0-30B reaches 71.3, competitive with DeepSeek-V3.2 (685B) and Kimi-K2.5 (1T).
-          Marker shape indicates system type; color encodes average reasoning tokens per trajectory (<span style="color:#34a292;">greener</span> = fewer).
-          Per-benchmark results are provided in the paper.
-        </p>
-        <div style="width:100%;overflow:hidden;">
-          <iframe src="new/standalone_chart (2).html" style="width:1020px;height:560px;border:none;display:block;transform-origin:top left;" id="chart-iframe"></iframe>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.75rem;margin:0 0 1.5rem;">
+          <div>
+            <p style="font-size:1rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#34a292;margin:0 0 0.4rem;">Performance</p>
+            <h3 style="font-size:1.15rem;font-weight:700;color:#1a1a2e;margin:0 0 0.5rem;line-height:1.3;">Competitive at far smaller scales</h3>
+            <p style="font-size:1rem;color:#5a6a7a;line-height:1.65;margin:0;">
+              SR<sup>2</sup>AM-v0.1-8B achieves an overall Pass@1 of <strong>57.0</strong>, competitive with some unregulated agentic LLMs at 30&ndash;32B and pretrained LLMs with tools at 120&ndash;355B.
+              SR<sup>2</sup>AM-v1.0-30B reaches <strong>71.3</strong>, comparable to DeepSeek-V3.2 (685B, 73.2) and Kimi-K2.5 (1.0T, 70.9) in the same tool harness.
+            </p>
+          </div>
+          <div>
+            <p style="font-size:1rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#34a292;margin:0 0 0.4rem;">Efficiency</p>
+            <h3 style="font-size:1.15rem;font-weight:700;color:#1a1a2e;margin:0 0 0.5rem;line-height:1.3;">Fewer reasoning tokens at comparable accuracy</h3>
+            <p style="font-size:1rem;color:#5a6a7a;line-height:1.65;margin:0;">
+              Among strong 30&ndash;32B agentic LLMs, SR<sup>2</sup>AM-v1.0-30B consumes <strong style="color:#34a292;">25.8&ndash;95.3% fewer reasoning tokens</strong> while achieving competitive or better accuracy.
+              Compared to MiroThinker-v1.5-30B, it achieves competitive Pass@1 while consuming 51.2% fewer reasoning tokens (5,518 vs. 11,295).
+            </p>
+          </div>
         </div>
-        <script>
-          (function() {
-            function scaleChart() {
-              var wrapper = document.getElementById('chart-iframe').parentElement;
-              var iframe = document.getElementById('chart-iframe');
-              var scale = wrapper.offsetWidth / 1020;
-              iframe.style.transform = 'scale(' + scale + ')';
-              wrapper.style.height = Math.round(560 * scale) + 'px';
-            }
-            scaleChart();
-            window.addEventListener('resize', scaleChart);
-          })();
-        </script>
+        <img src="figures/main-results.png" alt="Overall Pass@1 vs. parameter size (left) and vs. reasoning tokens for 30/32B models (right)" style="width:100%;display:block;margin:0 0 0rem;" />
+        <p class="figure-caption" style="border-top:none;font-size:1.0rem;">Overall Pass@1 vs. parameter size (left) and vs. average reasoning tokens for 30/32B models (right). Both SR<sup>2</sup>AM models sit above the scaling trend and on the token-efficiency frontier of comparable agentic LLMs.</p>
       </div>
 
-      <!-- Figure 2: Token Efficiency -->
-      <div style="margin-bottom:3.5rem;">
-        <p style="font-size:1rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#34a292;margin:0 0 0.4rem;">Efficiency</p>
-        <h3 style="font-size:1.15rem;font-weight:700;color:#1a1a2e;margin:0 0 0.5rem;line-height:1.3;">Reasoning efficiency among 30/32B agentic LLMs</h3>
-        <p style="font-size:1rem;color:#5a6a7a;line-height:1.65;margin:0 0 1.25rem;">
-          Among 30/32B agentic LLMs with overall Pass@1 at 60.0 or above, SRAM-v1.0-30B consumes 25.8&ndash;95.3% fewer reasoning tokens while achieving competitive or better accuracy.
-          Compared to MiroThinker-v1.5-30B, SRAM-v1.0-30B achieves competitive Pass@1 while consuming 51.2% fewer reasoning tokens.
-          Bars show average reasoning tokens per query (log scale); dots show Pass@1.
-        </p>
-        <img src="figures/reasoning_tokens_chart.png" alt="Reasoning token usage and Pass@1 by task category" style="width:100%;display:block;" />
-      </div>
-
-      <!-- Figure 3: Planning Depth -->
+      <!-- Training Analysis -->
       <div style="margin-bottom:2rem;">
         <p style="font-size:1rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#34a292;margin:0 0 0.4rem;">Training Analysis</p>
-        <h3 style="font-size:1.15rem;font-weight:700;color:#1a1a2e;margin:0 0 0.5rem;line-height:1.3;">RL refines planning depth without overplanning</h3>
+        <h3 style="font-size:1.15rem;font-weight:700;color:#1a1a2e;margin:0 0 0.5rem;line-height:1.3;">RL teaches the model to plan further ahead, not more often</h3>
         <p style="font-size:1rem;color:#5a6a7a;line-height:1.65;margin:0 0 1.25rem;">
-          After 200 RL steps, multi-step plans become more common (3+ step plans increase from 5.3% to 14.9%) while the proportion of unplanned turns remains stable (15.6% to 13.6%).
-          The increase holds across all task categories, ranging from +20.9% in web to +32.7% in science, consistent with web's shorter feasible horizon under environmental uncertainty.
-          Chart shows plan depth distribution before (<span style="color:#7ecfb8;">light</span>) and after (<span style="color:#34a292;">dark</span>) RL.
+          After RL, the average planning horizon grows by <strong>22.8%</strong> while planning frequency rises only <strong>2.0%</strong>, indicating that the configurator learns to invoke deeper planning when it chooses to plan, rather than planning more often.
+          The horizon increase holds across all four task categories, from <strong>+20.9% in web</strong> (where environmental uncertainty limits feasible lookahead) to <strong>+32.7% in science</strong>.
         </p>
-        <iframe id="fig4-iframe" data-src="animation/planning_analysis_combined-4.html" style="width:100%;height:520px;border:none;display:block;" scrolling="no"></iframe>
-        <script>
-          (function() {
-            var iframe = document.getElementById('fig4-iframe');
-            var loaded = false;
-            var targetOrigin = new URL(iframe.dataset.src, window.location.href).origin;
-            var observer = new IntersectionObserver(function(entries) {
-              if (entries[0].isIntersecting) {
-                if (!loaded) {
-                  var baseSrc = iframe.dataset.src;
-                  var sep = baseSrc.indexOf('?') === -1 ? '?' : '&';
-                  iframe.src = baseSrc + sep + 'v=' + Date.now();
-                  loaded = true;
-                } else {
-                  iframe.contentWindow.postMessage('replayAnimation', targetOrigin);
-                }
-              }
-            }, { threshold: 0.2 });
-            observer.observe(iframe);
-          })();
-        </script>
+        <img src="figures/planning_analysis_combined.png" alt="Planning horizon distribution and planning frequency before and after RL, by task category" style="width:100%;display:block;" />
+        <p class="figure-caption" style="border-top:none;font-size:1.0rem;">Planning horizon distribution and planning frequency before (<span style="color:#7ecfb8;">light</span>) and after (<span style="color:#34a292;">dark</span>) RL, aggregated and per task category.</p>
       </div>
 
     </div>
@@ -419,13 +325,15 @@
           <span>BibTeX</span>
           <button class="copy-btn" onclick="copyBibtex()">Copy</button>
         </div>
-        <pre id="bibtex-text"><code>@inproceedings{sram2026,
-  title   = {SRAM: A Self-Regulated Agentic LLM for Interactive Reasoning},
-  author  = {Deng, Mingkai and Hou, Jinyu and Neves, Lara and 
-          Pimpalkhute, Varad and Killian, Taylor W. and 
-          Liu, Zhengzhong and Xing, Eric P.},
-  booktitle={Preprint},
-  year    = {2026}
+        <pre id="bibtex-text"><code>@misc{deng2026sr2am,
+  title   = {Efficient Agentic Reasoning Through Self-Regulated Simulative Planning},
+  author  = {Deng, Mingkai and Hou, Jinyu and Neves, Lara and
+             Pimpalkhute, Varad and Killian, Taylor W. and
+             Liu, Zhengzhong and Xing, Eric P.},
+  journal = {arXiv preprint arXiv:xxxxxx},
+  year    = {2026},
+  doi     = {10.48550/arXiv.xxxxxx},
+  url     = {https://arxiv.org/abs/xxxxxx}
 }</code></pre>
       </div>
     </div>
@@ -434,7 +342,7 @@
   <!-- FOOTER -->
   <footer class="footer">
     <div class="container">
-      <p><strong>SRAM</strong>: Self-Regulated Agentic LLM for Interactive Reasoning</p>
+      <p><strong>SR<sup>2</sup>AM</strong>: Self-Regulated Simulative Reasoning Agentic LLM</p>
       <p class="footer-sub">
         Institute of Foundation Models &nbsp;·&nbsp;
         Carnegie Mellon University
