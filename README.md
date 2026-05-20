@@ -10,7 +10,7 @@ Across mathematical, scientific, tabular, and web-information-seeking tasks, SR�
 
 ## Links
 
-- Project page: <https://sr2am-agentic-llm.github.io>
+- Project page: <https://sr2am-self-regulated-planning.github.io>
 - Code: <https://github.com/sailing-lab/sr2am>
 - Models: [SR²AM-v0.1-8B](https://huggingface.co/sailing-lab/SR2AM-v0.1-8B) · [SR²AM-v1.0-30B](https://huggingface.co/sailing-lab/SR2AM-v1.0-30B)
 
