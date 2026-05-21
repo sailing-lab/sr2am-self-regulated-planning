@@ -120,13 +120,34 @@
           The agent interacts with its environment over a sequence of turns, maintaining a belief state <em>ŝ<sub>t</sub></em> and choosing an action <em>a<sub>t</sub></em> at each step. Rather than treating the action distribution as one black-box chain-of-thought, we factor it into three multiplicative stages: <strong>configurator</strong>, <strong>simulative planner</strong>, and <strong>actor</strong>, which decide, in order, <em>whether to plan</em>, <em>what to plan</em>, and <em>how to act</em>:
         </p>
 
-        <div style="margin:0 0 2.25rem;padding:1.25rem 1rem;background:#f0faf8;border:1.5px solid #c8e8e3;border-radius:10px;text-align:center;font-family:var(--font-serif);font-size:1.05rem;color:#1a1a2e;overflow-x:auto;">
-          <em>p<sub>π</sub></em>(<em>a<sub>t</sub></em>&thinsp;|&thinsp;<em>ŝ<sub>t</sub></em>) &nbsp;=&nbsp; &Sigma;<sub><em>u<sub>t</sub>, c<sub>t</sub></em></sub> &nbsp;
-          <span style="color:#34a292;font-weight:700;"><em>p<sub>κ</sub></em>(<em>u<sub>t</sub></em>&thinsp;|&thinsp;<em>ŝ<sub>t</sub></em>)</span>
-          &nbsp;&middot;&nbsp;
-          <span style="color:#34a292;font-weight:700;"><em>p<sub>π<sub>f</sub></sub></em>(<em>c<sub>t</sub></em>&thinsp;|&thinsp;<em>ŝ<sub>t</sub>, u<sub>t</sub></em>)</span>
-          &nbsp;&middot;&nbsp;
-          <span style="color:#34a292;font-weight:700;"><em>p<sub>α</sub></em>(<em>a<sub>t</sub></em>&thinsp;|&thinsp;<em>ŝ<sub>t</sub>, c<sub>t</sub></em>)</span>
+        <div style="margin:0 0 1.25rem;padding:1.75rem 1rem 2.5rem;background:#f0faf8;border:1.5px solid #c8e8e3;border-radius:10px;text-align:center;font-family:var(--font-serif);font-size:1.05rem;color:#1a1a2e;overflow-x:auto;">
+          <div style="display:inline-flex;align-items:flex-end;justify-content:center;gap:0.55rem;flex-wrap:nowrap;">
+            <!-- Prefix (transparent bottom border keeps total height identical to the underbraced terms) -->
+            <span style="display:inline-block;line-height:1.9;padding:0 0.2rem 0.3rem;border-bottom:2px solid transparent;white-space:nowrap;vertical-align:bottom;">
+              <em>p<sub>π</sub></em>(<em>a<sub>t</sub></em>&thinsp;|&thinsp;<em>ŝ<sub>t</sub></em>) &nbsp;=&nbsp; &Sigma;<sub><em>u<sub>t</sub>, c<sub>t</sub></em></sub>
+            </span>
+            <!-- Reactive Execution -->
+            <span style="position:relative;display:inline-block;line-height:1.9;padding:0 0.45rem 0.3rem;border-bottom:2px solid #34a292;white-space:nowrap;color:#284269;vertical-align:bottom;">
+              <em>p<sub>α</sub></em>(<em>a<sub>t</sub></em>&thinsp;|&thinsp;<em>ŝ<sub>t</sub>, c<sub>t</sub></em>)
+              <span style="position:absolute;top:100%;left:50%;transform:translateX(-50%);margin-top:0.5rem;font-family:var(--font-sans);font-size:0.78rem;font-weight:600;line-height:1.25;letter-spacing:0;text-transform:none;color:#34a292;text-align:center;">
+                Reactive<br>Execution
+              </span>
+            </span>
+            <!-- Simulative Reasoning -->
+            <span style="position:relative;display:inline-block;line-height:1.9;padding:0 0.45rem 0.3rem;border-bottom:2px solid #34a292;white-space:nowrap;color:#284269;vertical-align:bottom;">
+              <em>p<sub>π<sub>f</sub></sub></em>(<em>c<sub>t</sub></em>&thinsp;|&thinsp;<em>ŝ<sub>t</sub>, u<sub>t</sub></em>)
+              <span style="position:absolute;top:100%;left:50%;transform:translateX(-50%);margin-top:0.5rem;font-family:var(--font-sans);font-size:0.78rem;font-weight:600;line-height:1.25;letter-spacing:0;text-transform:none;color:#34a292;text-align:center;">
+                Simulative<br>Reasoning
+              </span>
+            </span>
+            <!-- Self-Regulation -->
+            <span style="position:relative;display:inline-block;line-height:1.9;padding:0 0.45rem 0.3rem;border-bottom:2px solid #34a292;white-space:nowrap;color:#284269;vertical-align:bottom;">
+              <em>p<sub>κ</sub></em>(<em>u<sub>t</sub></em>&thinsp;|&thinsp;<em>ŝ<sub>t</sub></em>)
+              <span style="position:absolute;top:100%;left:50%;transform:translateX(-50%);margin-top:0.5rem;font-family:var(--font-sans);font-size:0.78rem;font-weight:600;line-height:1.25;letter-spacing:0;text-transform:none;color:#34a292;text-align:center;">
+                Self-<br>Regulation
+              </span>
+            </span>
+          </div>
         </div>
 
         <p style="font-family:var(--font-serif);font-size:1rem;line-height:1.85;color:#1a1a2e;margin:0 0 1.75rem;">
@@ -139,7 +160,7 @@
             <p style="font-size:0.85rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#34a292;margin:0 0 0.25rem;">System III</p>
             <p style="font-size:1.05rem;font-weight:700;color:#284269;margin:0 0 0.6rem;">Self-Regulation</p>
             <p style="font-size:0.95rem;color:#5a6a7a;margin:0 0 0.85rem;line-height:1.55;">
-              A learned <em>configurator</em> <em>κ</em> decides, at every turn, whether to make a new plan, continue an existing one, or skip planning &mdash; controlling both <em>when</em> and <em>how deeply</em> to plan.
+              Decides per turn whether to make a new plan, continue an existing one, or skip planning.
             </p>
             <p style="font-family:var(--font-serif);font-size:0.95rem;color:#284269;margin:0;text-align:center;">
               <em>p<sub>κ</sub></em>(<em>u<sub>t</sub></em>&thinsp;|&thinsp;<em>ŝ<sub>t</sub></em>)
@@ -150,7 +171,7 @@
             <p style="font-size:0.85rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#34a292;margin:0 0 0.25rem;">System II</p>
             <p style="font-size:1.05rem;font-weight:700;color:#284269;margin:0 0 0.6rem;">Simulative Reasoning</p>
             <p style="font-size:0.95rem;color:#5a6a7a;margin:0 0 0.85rem;line-height:1.55;">
-              When planning is invoked, the <em>simulative planner</em> generates a structured plan <em>c<sub>t</sub></em>: proposed actions and predicted future states under the LLM-as-world-model, providing a unified planning structure across tasks.
+              When invoked, generates a structured plan <em>c<sub>t</sub></em> with proposed actions and predicted future states, following the simulative-reasoning architecture of <a href="https://sira-simulative-reasoning.github.io" style="color:#34a292;text-decoration:none;border-bottom:1px solid #c8e8e3;">SiRA</a>.
             </p>
             <p style="font-family:var(--font-serif);font-size:0.95rem;color:#284269;margin:0;text-align:center;">
               <em>p<sub>π<sub>f</sub></sub></em>(<em>c<sub>t</sub></em>&thinsp;|&thinsp;<em>ŝ<sub>t</sub>, u<sub>t</sub></em>)
@@ -161,7 +182,7 @@
             <p style="font-size:0.85rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#34a292;margin:0 0 0.25rem;">System I</p>
             <p style="font-size:1.05rem;font-weight:700;color:#284269;margin:0 0 0.6rem;">Reactive Execution</p>
             <p style="font-size:0.95rem;color:#5a6a7a;margin:0 0 0.85rem;line-height:1.55;">
-              The <em>actor</em> <em>α</em> emits the next action via free-form reasoning, conditioned on the current state and any active plan &mdash; capturing fine-grained execution patterns that resist structured encoding.
+              Emits the next action via free-form reasoning, conditioned on the current state and the active plan.
             </p>
             <p style="font-family:var(--font-serif);font-size:0.95rem;color:#284269;margin:0;text-align:center;">
               <em>p<sub>α</sub></em>(<em>a<sub>t</sub></em>&thinsp;|&thinsp;<em>ŝ<sub>t</sub>, c<sub>t</sub></em>)
