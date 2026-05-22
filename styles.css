@@ -920,3 +920,15 @@ body {
 .footer strong { color: #7dd8ca; /* was: #ADE8F4 */ font-family: var(--font-serif); }
 .footer-sub { margin-top: 0.35rem; font-size: 0.78rem; color: #52699F; /* was: #4A7A94 */ }
 .footer-copy { margin-top: 1rem; font-size: 0.72rem; color: #3d5a6e; }
+
+/* Author-name hyperlinks: inherit text color, subtle dotted underline */
+.authors a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px dotted var(--blue-teal);
+  transition: color 0.2s, border-color 0.2s;
+}
+.authors a:hover {
+  color: var(--blue-teal);
+  border-bottom-color: var(--blue-teal);
+}
